@@ -1,0 +1,33 @@
+/*  ESTILOS FOOTER*/
+.footer {
+    background: var(--white);
+    padding: 25px;
+}
+
+.boxTextFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxTextFooter p {
+    margin-bottom: 0;
+    color: var(--grey);
+}
+
+.boxTextFooter p a {
+    color: var(--grey);
+}
+
+.boxTextFooter p a:hover {
+    color: var(--primary);
+    transition: 0.4s;
+}
+
+.boxTextFooter span {
+    color: var(--primary);
+}
+
+#year {
+    color: var(--grey);
+}

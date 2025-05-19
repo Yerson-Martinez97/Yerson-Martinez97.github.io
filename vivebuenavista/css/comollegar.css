@@ -1,0 +1,83 @@
+/*  ESTILOS COMO LLEGAR*/
+.boxComoLlegar {
+    background: var(--secondary);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.boxComoLlegar h2 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.boxComoLlegar .sub {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.boxComoLlegar .info-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.boxComoLlegar .info-card {
+    background: white;
+    border: none;
+    padding: 25px;
+    width: 300px;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.boxComoLlegar .info-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.boxComoLlegar .label {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+.boxComoLlegar .value {
+    font-size: 1.6rem;
+    color: #34495e;
+}
+
+.boxComoLlegar .precio-card .precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.boxComoLlegar .precio-card .precio span {
+    font-size: 3.2rem;
+}
+
+.boxComoLlegar .map-btn {
+    background-color: #fff;
+    color: var(--white);
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    background-color: var(--tertiary);
+}
+
+.boxComoLlegar a {
+    color: var(--white);
+}
+
+.boxComoLlegar a:hover, .boxComoLlegar a+i:hover {
+    color: var(--white);
+    background-color: var(--tertiary-dark);
+}
