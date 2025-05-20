@@ -1,0 +1,148 @@
+header {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.boxHeader {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 200px !important; */
+}
+
+
+.fondoParallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transform: translateZ(-1px) scale(1.2);
+    will-change: transform;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.179);
+    /* Fondo opaco claro */
+    z-index: 1;
+}
+
+.textosHeader {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 2000px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.textosHeader>* {
+    padding: 10px;
+}
+
+.textosHeader h1 {
+    color: var(--primary);
+}
+
+.textosHeader p {
+    font-size: 1.2rem;
+}
+
+a.botonGetStarted {
+    display: inline-block;
+    padding: 0.9em 2em;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+a.botonGetStarted:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-dark));
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+a.botonGetStarted:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tucan-container {
+    position: absolute;
+    /* Posición absoluta para sacar la imagen */
+    right: 10px;
+    /* Ajusta la distancia desde la izquierda */
+    top: 10%;
+    /* Esto coloca la imagen en el centro vertical del contenedor */
+    transform: translateY(-50%);
+    /* Ajusta para asegurar que el tucán quede centrado verticalmente */
+    z-index: 1;
+    /* Asegura que la imagen esté encima de otros elementos si es necesario */
+}
+
+.tucan-img {
+    width: 150px;
+    /* Ajusta el tamaño de la imagen según lo necesites */
+    height: auto;
+    /* Mantiene la relación de aspecto */
+    animation: moveUpDown 10s infinite ease-in-out;
+    /* Aplica la animación */
+}
+
+/* Definición de la animación */
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0%) translateY(-20px);
+    }
+
+    50% {
+        transform: translateY(20%) translateY(20px);
+    }
+
+    100% {
+        transform: translateY(0%) translateY(-20px);
+    }
+}
+
+
+@media screen and (max-width:1400) {
+    .textosHeader {
+        max-width: 300px;
+    }
+
+    .textosHeader p {
+        padding: 10px 0px !important;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .textosHeader {
+        max-width: 700px;
+
+    }
+}
+
+@media screen and (max-width:400px) {
+    .textosHeader {
+        max-width: 300px;
+    }
+}

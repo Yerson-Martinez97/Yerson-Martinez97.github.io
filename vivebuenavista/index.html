@@ -13,7 +13,13 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="icons/icomoon.css">
 
+
+    <link rel="stylesheet" href="css/fonts.css">
+
+
+
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/welcome.css">
     <link rel="stylesheet" href="css/comollegar.css">
     <link rel="stylesheet" href="css/atractivos.css">
@@ -78,23 +84,30 @@
             </div>
         </nav>
 
-        <div class="boxLogo">
-            <!-- <h1>Vive Buena Vista<small></small></h1> -->
-        </div>
+        <header>
+            <div class="boxHeader">
+                <img class="fondoParallax" src="images/welcome/buenavista.webp" alt="">
+                <div data-aos="fade-left" class="tucan-container">
+                    <img src="images/tucan.webp" alt="Tucán" class="tucan-img">
+                </div>
+                <div class="overlay"></div>
+                <div class="textosHeader" data-aos="fade-up">
+                    <h1><b>Donde empieza tu aventura</b></h1>
+                    <p>Descubre Buena Vista, un lugar lleno de historia, cultura y naturaleza en Santa Cruz. Vive su
+                        encanto auténtico y su calidez única. ¡Te esperamos!.</p>
+                    <a class="botonGetStarted scroll" href="#linkComoLlegar" rel="nofollow noopener">¿Cómo Llegar?</a>
+                </div>
 
-        <div class="boxHeader">
-            <div class="textosHeader">
-                <h1><b>Donde empieza tu aventura</b></h1>
-                <p>Descubre Buena Vista, un lugar lleno de historia, cultura y naturaleza en Santa Cruz. Vive su encanto
-                    auténtico y su calidez única. ¡Te esperamos!.</p>
-                <a class="botonGetStarted scroll" href="#linkComoLlegar" rel="nofollow noopener">¿Cómo Llegar?</a>
             </div>
-            <div class="imgHeader">
-                <img src="images/welcome/buenavista.webp" alt="">
-            </div>
-        </div>
+        </header>
+        <script>
+            window.addEventListener("scroll", function () {
+                const fondo = document.querySelector(".fondoParallax");
+                let offset = window.pageYOffset;
+                fondo.style.transform = `translateY(${offset * 0.5}px) scale(1.2)`;
+            });
+        </script>
     </header>
-
     <!-- Fin Contenedor Header -->
 
 
@@ -144,15 +157,7 @@
         <section id="linkAtractivos" class="boxAtractivos" data-aos="zoom-in">
             <h3>Atractivos</h3>
             <div class="cards-container">
-                <div class="card">
-                    <div class="card-details">
-                        <p class="text-title">Plaza</p>
-                        <!-- <p class="text-body">El Corazón de la Comunidad, en el centro de nuestro querido pueblo late la
-                            vida misma: la Plaza de Buenavista, un lugar donde la historia, la cultura y la naturaleza
-                            se encuentran...</p> -->
-                    </div>
-                    <!-- <button class="card-button"><i class="fa-solid fa-up-right-from-square"></i></button> -->
-                </div>
+
                 <div class="card" style="background-image: url('images/atractivos/murales/cafe.webp');">
                     <div class="card-details overlay">
                         <p class="text-title">Iglesia parroquial los santos desposorios</p>
@@ -397,49 +402,6 @@
         <section id="linkFerias" class="boxFerias">
             <h3>Ferias</h3>
             <div class="card">
-                <!-- Swiper -->
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="slide-content">
-                                <h2>Festival Nacional del Café</h2>
-                                <div>La misa de campaña es una ceremonia religiosa que se celebra al aire libre,
-                                    comúnmente
-                                    en el campo o en plazas públicas. Estas misas son una tradición en muchas
-                                    comunidades
-                                    rurales, permitiendo a los fieles participar en la liturgia en un entorno natural.
-                                    Aunque no se encontró una fuente específica sobre la misa de campaña en Buena Vista,
-                                    este tipo de celebraciones son comunes en festividades religiosas del área.</div>
-                                <div><strong>Fecha:</strong>También se celebra el 26 de noviembre, durante la fiesta
-                                    patronal.</div>
-                                <div class="mini-gallery">
-                                    <a href="images/atractivos/murales/ayer-hoy.webp" class="glightbox"
-                                        data-gallery="myGallery">
-                                        <img src="images/atractivos/murales/ayer-hoy.webp" alt="Mural Ayer y Hoy" />
-                                    </a>
-                                    <a href="images/atractivos/murales/cafe.webp" class="glightbox"
-                                        data-gallery="myGallery">
-                                        <img src="images/atractivos/murales/cafe.webp" alt="Mural Café" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="slide-content">
-                                <h2>Feria de Ganado – “Toro Tinku”</h2>
-                                <div>En San Pedro de Buena Vista, se celebra el "Toro Tinku", la mayor feria ganadera de
-                                    la región norte de Potosí. Esta festividad, reconocida por la Asamblea Legislativa
-                                    Plurinacional, incluye exhibiciones de ganado y actividades culturales que reflejan
-                                    la importancia de la ganadería en la región. </div>
-                                <div><strong>Fecha:</strong>También se celebra el 26 de noviembre, durante la fiesta
-                                    patronal.</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">Romería con Carretas y Grupos Folclóricos</div>
-                        <div class="swiper-slide">Café de la Siesta</div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
 
                 <!-- Swiper JS -->
                 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -460,24 +422,6 @@
             </div>
         </section>
         <!-- Fin Sección Ferias -->
-
-        <!-- Sección About -->
-        <section class="boxAbout" id="linkAbout">
-            <h3>About Us</h3>
-            <div class="about">
-                <div class="imgAbout">
-                    <img src="images/about_1.jpg" alt="">
-                </div>
-                <article class="contenidoAbout">
-                    <h3>Create interactive prototypes</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam possimus nemo sequi cum?
-                        Obcaecati eos possimus ea numquam fugit. Quae et labore accusamus consectetur voluptatum
-                        placeat incidunt quaerat quibusdam accusantium.</p>
-                    <a class="botonGetStarted" href="#">Learn More</a>
-                </article>
-            </div>
-        </section>
-        <!-- Fin Sección About -->
     </main>
     <!-- Fin Contenedor Main -->
 
