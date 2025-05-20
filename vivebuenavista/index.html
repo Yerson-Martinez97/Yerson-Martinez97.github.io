@@ -20,7 +20,6 @@
 
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/welcome.css">
     <link rel="stylesheet" href="css/comollegar.css">
     <link rel="stylesheet" href="css/atractivos.css">
     <link rel="stylesheet" href="css/artesanias.css">
@@ -35,7 +34,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
-
     <!-- Swiper -->
     <!-- <link rel="stylesheet" href="libraries/swiper/swiper-bundle.min.css" /> -->
     <script src="libraries/swiper/swiper-bundle.min.js"></script>
@@ -47,7 +45,6 @@
 </head>
 
 <body>
-
     <!-- Contenedor Header -->
     <header id="linkHome">
         <nav id="navFixed" class="navbar fixed-top navbar-expand-lg navbar-light bg-light p-10px">
@@ -111,7 +108,6 @@
     <!-- Fin Contenedor Header -->
 
 
-
     <!-- Contenedor Main -->
     <main>
         <a id="subir" class="icon-arrow-up scroll" href="#linkHome"></a>
@@ -153,50 +149,19 @@
         </section>
         <!-- Fin Sección Como Llegar -->
 
+
         <!--  Sección Atractivos -->
         <section id="linkAtractivos" class="boxAtractivos" data-aos="zoom-in">
             <h3>Atractivos</h3>
-            <div class="cards-container">
-
-                <div class="card" style="background-image: url('images/atractivos/murales/cafe.webp');">
-                    <div class="card-details overlay">
-                        <p class="text-title">Iglesia parroquial los santos desposorios</p>
-                    </div>
-                </div>
-                <div class="card" style="background-image: url('images/atractivos/murales/cafe.webp');">
-                    <div class="card-details overlay">
-                        <p class="text-title">Río Surutú: Parque Nacional Amboró</p>
-                    </div>
-                </div>
-                <div class="card" style="background-image: url('images/atractivos/murales/cafe.webp');">
-                    <div class="card-details overlay">
-                        <p class="text-title">Parque Nacional Amboró</p>
-                    </div>
-                </div>
-                <div class="card" style="background-image: url('images/atractivos/murales/cafe.webp');">
-                    <div class="card-details overlay">
-                        <p class="text-title">Murales</p>
-                    </div>
-                </div>
-
-                <div class="card" style="background-image: url('images/atractivos/murales/cafe.webp');">
-                    <div class="card-details overlay">
-                        <p class="text-title">Mirador</p>
-                    </div>
-                </div>
-                <div class="card" style="background-image: url('images/atractivos/murales/cafe.webp');">
-                    <div class="card-details overlay">
-                        <p class="text-title">Ruta del Café</p>
-                    </div>
-                </div>
-                <div class="card" style="background-image: url('images/atractivos/murales/cafe.webp');">
-                    <div class="card-details overlay">
-                        <p class="text-title">Arte Campo</p>
-                    </div>
-                </div>
+            <div id="cards-container" class="cards-container">
+                <!-- Las tarjetas se cargarán dinámicamente aquí -->
             </div>
+
+            <!-- Botón para cargar más tarjetas -->
+            <button id="loadMoreBtn" class="load-more-btn btn">Cargar más</button>
         </section>
         <!-- Fin Sección Atractivos -->
+
 
         <!--  Sección Artesanias -->
         <section id="linkArtesanias" class="boxArtesanias" data-aos="zoom-in">
@@ -480,6 +445,66 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="libraries/aos/aos.js">
 
+    </script>
+
+    <!-- CARGAR IMAGENES DINAMICAMENTE -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        // Datos de las tarjetas con el título y las imágenes
+        const cardsData = [
+            { title: 'Plazas', imageUrl: '../images/atractivos/plaza/images01.webp' },
+            { title: 'Iglesia parroquial los santos desposorios', imageUrl: '../images/atractivos/iglesia/image01.webp' },
+            { title: 'Río Surutú', imageUrl: '../images/atractivos/rio/image01.webp' },
+            { title: 'Parque Nacional Amboró', imageUrl: '../images/atractivos/parque/image01.webp' },
+            { title: 'Murales', imageUrl: '../images/atractivos/murales/jukumari/image01.webp' },
+            { title: 'Mirador', imageUrl: '../images/atractivos/mirador/image02.webp' },
+            { title: 'Ruta del Café', imageUrl: '../images/atractivos/rutacafe/image01.webp' },
+            { title: 'ArteCampo', imageUrl: '../images/atractivos/artecampo/image01.webp' },
+            { title: 'Quesería Suiza', imageUrl: '../images/atractivos/queseria/image01.webp' }
+        ];
+
+        let currentIndex = 0; // Inicializamos el índice
+        const cardsPerPage = 4;
+        // Función para cargar las tarjetas
+        function loadCards() {
+            const container = $('#cards-container');
+            // Verificamos cuántas tarjetas debemos cargar según el índice actual
+            const cardsToShow = cardsData.slice(currentIndex, currentIndex + cardsPerPage);
+
+            if (cardsToShow.length === 0) {
+                $('#loadMoreBtn').hide();  // Si no hay tarjetas para cargar, ocultamos el botón
+                return;
+            }
+            // Creamos y añadimos las tarjetas al contenedor
+            cardsToShow.forEach((card, index) => {
+                const cardElement = $(`
+                    <div class="card card-${currentIndex + index + 1}">
+                        <div class="card-details overlay">
+                            <p class="text-title">${card.title}</p>
+                        </div>
+                    </div>
+                `);
+                // Asignamos la imagen de fondo
+                cardElement.css('background-image', `url(${card.imageUrl})`);
+                // Animación para mostrar la tarjeta
+                cardElement.hide().fadeIn(600);
+                // Añadimos la tarjeta al contenedor
+                container.append(cardElement);
+            });
+            // Actualizamos el índice
+            currentIndex += cardsPerPage;
+            // Si no hay más tarjetas para cargar, ocultamos el botón
+            if (currentIndex >= cardsData.length) {
+                $('#loadMoreBtn').fadeOut();
+            }
+        }
+
+        // Cargar las primeras tarjetas al cargar la página
+        loadCards();
+
+        // Evento para cargar más tarjetas cuando se hace clic en el botón
+        $('#loadMoreBtn').on('click', loadCards);
     </script>
 </body>
 
