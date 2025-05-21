@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Plazas",
+        "imageUrl": "../images/atractivos/plaza/images01.webp"
+    },
+    {
+        "title": "Iglesia parroquial los santos desposorios",
+        "imageUrl": "../images/atractivos/iglesia/image01.webp"
+    },
+    {
+        "title": "Río Surutú",
+        "imageUrl": "../images/atractivos/rio/image01.webp"
+    },
+    {
+        "title": "Parque Nacional Amboró",
+        "imageUrl": "../images/atractivos/parque/image01.webp"
+    },
+    {
+        "title": "Murales",
+        "imageUrl": "../images/atractivos/murales/jukumari/image01.webp"
+    },
+    {
+        "title": "Mirador",
+        "imageUrl": "../images/atractivos/mirador/image02.webp"
+    },
+    {
+        "title": "Ruta del Café",
+        "imageUrl": "../images/atractivos/rutacafe/image01.webp"
+    },
+    {
+        "title": "ArteCampo",
+        "imageUrl": "../images/atractivos/artecampo/image01.webp"
+    },
+    {
+        "title": "Quesería Suiza",
+        "imageUrl": "../images/atractivos/queseria/image01.webp"
+    }
+]

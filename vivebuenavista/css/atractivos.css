@@ -134,7 +134,7 @@
 /* Tarjeta 1 */
 .boxAtractivos .card.card-1::before {
     background: linear-gradient(rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.4)), url('../images/atractivos/plaza/images01.webp') center/cover no-repeat;
+            rgba(0, 0, 0, 0.4)), url('../images/atractivos/plaza/image01.webp') center/cover no-repeat;
 }
 
 /* Tarjeta 2 */
@@ -194,4 +194,162 @@
 .boxAtractivos .card-button {
     position: relative;
     z-index: 1;
+}
+
+/* ============================================================================================= */
+/* ============================================================================================= */
+/* ============================================================================================= */
+/* Estilos para el Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 1800px;
+}
+
+
+/* Animación para el modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Título del modal */
+#modal-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+#modal-description h3 {
+    margin-bottom: 1.8rem;
+    /* o el espacio que prefieras */
+}
+
+#modal-description p {
+    font-size: 1.5rem;
+    /* o el espacio que prefieras */
+}
+
+/* Descripción del modal */
+#modal-description img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 5px;
+}
+
+
+
+
+/* Botón de cierre */
+.close {
+    color: #333;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Estilo para cuando el modal se muestra */
+.modal.show {
+    display: flex;
+}
+
+/* Estilos para las imágenes dentro del modal */
+.modal-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-image {
+    width: 300px;
+    height: 150px;
+    object-fit: cover;
+    /* border-radius: 8px; */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+
+}
+
+.modal-image:hover {
+    /* transform: scale(1.05); */
+    filter: brightness(0.6);
+    /* 0.6 es más oscuro, puedes ajustar */
+}
+
+
+
+.modal .btn {
+    display: block;
+    /* Cambia a block para poder centrar con margin auto */
+    width: 200px;
+    margin: 20px auto 0 auto;
+    /* Centrado horizontal y separación superior */
+    padding: 12px 24px;
+    border: 2px solid var(--tertiary);
+    background-color: var(--tertiary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.modal .btn:hover {
+    background-color: var(--tertiary);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.modal-footer {
+    border: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.img-modal {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
 }

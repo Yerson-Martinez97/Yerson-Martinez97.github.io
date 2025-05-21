@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
+
     <!-- Swiper -->
     <!-- <link rel="stylesheet" href="libraries/swiper/swiper-bundle.min.css" /> -->
     <script src="libraries/swiper/swiper-bundle.min.js"></script>
@@ -42,9 +43,12 @@
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <script src="https://cdn.jsdelivr.net/npm/fslightbox/index.js"></script>
+
 </head>
 
 <body>
+
     <!-- Contenedor Header -->
     <header id="linkHome">
         <nav id="navFixed" class="navbar fixed-top navbar-expand-lg navbar-light bg-light p-10px">
@@ -94,7 +98,6 @@
                         encanto auténtico y su calidez única. ¡Te esperamos!.</p>
                     <a class="botonGetStarted scroll" href="#linkComoLlegar" rel="nofollow noopener">¿Cómo Llegar?</a>
                 </div>
-
             </div>
         </header>
         <script>
@@ -106,7 +109,6 @@
         </script>
     </header>
     <!-- Fin Contenedor Header -->
-
 
     <!-- Contenedor Main -->
     <main>
@@ -149,19 +151,81 @@
         </section>
         <!-- Fin Sección Como Llegar -->
 
-
         <!--  Sección Atractivos -->
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span id="modal-close" class="close">&times;</span>
+                <h2 id="modal-title"></h2>
+                <p id="modal-description"></p>
+                <!-- <button class="btn">Ver Ruta</button> -->
+                <div id="modal-images" class="modal-images"></div>
+                <div class="modal-footer">
+                    <a id="modal-btnMap" class="btn" target="_blank" rel="noopener">Ver Ruta</a>
+                </div>
+            </div>
+        </div>
+
         <section id="linkAtractivos" class="boxAtractivos" data-aos="zoom-in">
             <h3>Atractivos</h3>
-            <div id="cards-container" class="cards-container">
-                <!-- Las tarjetas se cargarán dinámicamente aquí -->
-            </div>
+            <div class="cards-container">
+                <div class="card card-1" data-idAtractivo="Plazas">
+                    <div class="card-details overlay">
+                        <p class="text-title">Plazas</p>
+                    </div>
+                </div>
+                <div class="card card-2" data-idAtractivo="Iglesia parroquial los santos desposorios">
+                    <div class="card-details overlay">
+                        <p class="text-title">Iglesia parroquial los santos desposorios</p>
+                    </div>
+                </div>
+                <div class="card card-3" data-idAtractivo="Río Surutú">
+                    <div class="card-details overlay">
+                        <p class="text-title">Río Surutú</p>
+                    </div>
+                </div>
+                <div class="card card-4" data-idAtractivo="Parque Nacional Amboró">
+                    <div class="card-details overlay">
+                        <p class="text-title">Parque Nacional Amboró</p>
+                    </div>
+                </div>
 
+                <!-- Tarjetas ocultas inicialmente -->
+                <!-- <div class="card card-5" style="display:none;" data-idAtractivo="Murales">
+                    <div class="card-details overlay">
+                        <p class="text-title">Murales</p>
+                    </div>
+                </div> -->
+                <div class="card card-5" data-idAtractivo="Murales">
+                    <div class="card-details overlay">
+                        <p class="text-title">Murales</p>
+                    </div>
+                </div>
+                <div class="card card-6" data-idAtractivo="Mirador">
+                    <div class="card-details overlay">
+                        <p class="text-title">Mirador</p>
+                    </div>
+                </div>
+                <div class="card card-7" data-idAtractivo="RutaCafe">
+                    <div class="card-details overlay">
+                        <p class="text-title">Ruta del Café</p>
+                    </div>
+                </div>
+                <div class="card card-8" data-idAtractivo="ArteCampo">
+                    <div class="card-details overlay">
+                        <p class="text-title">ArteCampo</p>
+                    </div>
+                </div>
+                <div class="card card-9" data-idAtractivo="QueseriaSuiza">
+                    <div class="card-details overlay">
+                        <p class="text-title">Queseria Suiza</p>
+                    </div>
+                </div>
+            </div>
             <!-- Botón para cargar más tarjetas -->
-            <button id="loadMoreBtn" class="load-more-btn btn">Cargar más</button>
+            <button id="load-more" class="load-more-btn">Cargar más</button>
         </section>
         <!-- Fin Sección Atractivos -->
-
 
         <!--  Sección Artesanias -->
         <section id="linkArtesanias" class="boxArtesanias" data-aos="zoom-in">
@@ -254,112 +318,6 @@
                     <button class="card__button">Ver más</button>
                 </div>
             </div>
-
-            <!-- <div class="cards-container">
-                <div class="card">
-                    <div class="card-content">
-                        <h4> Restaurante "La Cunumisita"</h4>
-
-                        <p class="sub"><i class="fa-solid fa-bell"></i> Horarios de Atención</p>
-                        <div class="horario">
-                            <p><strong>Lun - Vie:</strong> 7:00 a.m. – 10:30 p.m.</p>
-                            <p><strong>Sábado:</strong> 7:00 a.m. – 11:30 p.m.</p>
-                            <p><strong>Domingo:</strong> 7:00 a.m. – 10:30 p.m.</p>
-                        </div>
-
-                        <p class="sub"><i class="fa-solid fa-phone"></i> Teléfono</p>
-                        <p class="telefono">
-                            <strong>Reservas:</strong>
-                            <a href="https://wa.me/59175774509" target="_blank" rel="noopener">+591 7577 4509
-                                (WhatsApp)</a>
-                        </p>
-
-
-                        <div class="valoraciones">
-                            <p class="sub"><i class="fa-solid fa-star" style="color: #FFD43B;"></i> Valoraciones</p>
-                            <ul>
-                                <li><strong>General:</strong> <span class="stars" style="--percent: 87%;"></span> (8.7)
-                                </li>
-                                <li><strong>Comida:</strong> <span class="stars" style="--percent: 92%;"></span> (9.2)
-                                </li>
-                                <li><strong>Servicio:</strong> <span class="stars" style="--percent: 93%;"></span> (9.3)
-                                </li>
-                                <li><strong>Ambiente:</strong> <span class="stars" style="--percent: 91%;"></span> (9.1)
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="galeria">
-                            <a href="images/restaurantes/01/image01.webp" class="glightbox">
-                                <img src="images/restaurantes/01/image01.webp" alt="Interior">
-                            </a>
-                            <a href="images/restaurantes/01/image02.webp" class="glightbox">
-                                <img src="images/restaurantes/01/image02.webp" alt="Plato">
-                            </a>
-                            <a href="images/restaurantes/01/image03.webp" class="glightbox">
-                                <img src="images/restaurantes/01/image03.webp" alt="Ambiente">
-                            </a>
-                            <a href="images/restaurantes/01/image04.webp" class="glightbox">
-                                <img src="images/restaurantes/01/image04.webp" alt="Ambiente">
-                            </a>
-                        </div>
-
-                        <a href="https://www.google.com/maps/dir/-17.460057531372705,-63.660354193629445/-17.45498158652578,-63.66927557477107"
-                            target="_blank" class="btn"><i class="fa-solid fa-location-dot fa-xl"></i></a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h4> Restaurante "La Cunumisita"</h4>
-
-                        <p class="sub"><i class="fa-solid fa-bell"></i> Horarios de Atención</p>
-                        <div class="horario">
-                            <p><strong>Lun - Vie:</strong> 7:00 a.m. – 10:30 p.m.</p>
-                            <p><strong>Sábado:</strong> 7:00 a.m. – 11:30 p.m.</p>
-                            <p><strong>Domingo:</strong> 7:00 a.m. – 10:30 p.m.</p>
-                        </div>
-
-                        <p class="sub"><i class="fa-solid fa-phone"></i> Teléfono</p>
-                        <p class="telefono">
-                            <strong>Reservas:</strong>
-                            <a href="https://wa.me/59175774509" target="_blank" rel="noopener">+591 7577 4509
-                                (WhatsApp)</a>
-                        </p>
-
-
-                        <div class="valoraciones">
-                            <p class="sub"><i class="fa-solid fa-star" style="color: #FFD43B;"></i> Valoraciones</p>
-                            <ul>
-                                <li><strong>General:</strong> <span class="stars" style="--percent: 87%;"></span> (8.7)
-                                </li>
-                                <li><strong>Comida:</strong> <span class="stars" style="--percent: 92%;"></span> (9.2)
-                                </li>
-                                <li><strong>Servicio:</strong> <span class="stars" style="--percent: 93%;"></span> (9.3)
-                                </li>
-                                <li><strong>Ambiente:</strong> <span class="stars" style="--percent: 91%;"></span> (9.1)
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="galeria">
-                            <a href="images/restaurantes/02/image01.webp" class="glightbox">
-                                <img src="images/restaurantes/02/image01.webp" alt="Interior">
-                            </a>
-                            <a href="images/restaurantes/02/image02.webp" class="glightbox">
-                                <img src="images/restaurantes/02/image02.webp" alt="Plato">
-                            </a>
-                            <a href="images/restaurantes/02/image03.webp" class="glightbox">
-                                <img src="images/restaurantes/02/image03.webp" alt="Plato">
-                            </a>
-                            <a href="images/restaurantes/02/image04.webp" class="glightbox">
-                                <img src="images/restaurantes/02/image04.webp" alt="Plato">
-                            </a>
-                        </div>
-                        <a href="https://www.google.com/maps/dir/-17.460057531372705,-63.660354193629445/-17.460113207105213,-63.6601131385436"
-                            target="_blank" class="btn"><i class="fa-solid fa-location-dot fa-xl"></i></a>
-                    </div>
-                </div>
-            </div> -->
         </section>
         <!-- Fin Sección Restaurantes -->
 
@@ -412,100 +370,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="js/dataApi.js"></script>
-    <script src="js/app.js"></script>
-    <!-- EFECTO COMO LLEGAR -->
-    <!-- <script>
-        const target = document.querySelector('#linkComoLlegar');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.3 });
-
-        if (target) observer.observe(target);
-    </script> -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.img-clickable').forEach(img => {
-                img.addEventListener('click', () => {
-                    const modal = document.getElementById('imageModal');
-                    document.getElementById('modalImage').src = img.src;
-                    modal.style.display = 'flex';
-                });
-            });
-            document.getElementById('imageModal').addEventListener('click', () => {
-                document.getElementById('imageModal').style.display = 'none';
-            });
-        });
-    </script>
+    <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="libraries/aos/aos.js">
-
-    </script>
-
-    <!-- CARGAR IMAGENES DINAMICAMENTE -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script>
-        // Datos de las tarjetas con el título y las imágenes
-        const cardsData = [
-            { title: 'Plazas', imageUrl: '../images/atractivos/plaza/images01.webp' },
-            { title: 'Iglesia parroquial los santos desposorios', imageUrl: '../images/atractivos/iglesia/image01.webp' },
-            { title: 'Río Surutú', imageUrl: '../images/atractivos/rio/image01.webp' },
-            { title: 'Parque Nacional Amboró', imageUrl: '../images/atractivos/parque/image01.webp' },
-            { title: 'Murales', imageUrl: '../images/atractivos/murales/jukumari/image01.webp' },
-            { title: 'Mirador', imageUrl: '../images/atractivos/mirador/image02.webp' },
-            { title: 'Ruta del Café', imageUrl: '../images/atractivos/rutacafe/image01.webp' },
-            { title: 'ArteCampo', imageUrl: '../images/atractivos/artecampo/image01.webp' },
-            { title: 'Quesería Suiza', imageUrl: '../images/atractivos/queseria/image01.webp' }
-        ];
-
-        let currentIndex = 0; // Inicializamos el índice
-        const cardsPerPage = 4;
-        // Función para cargar las tarjetas
-        function loadCards() {
-            const container = $('#cards-container');
-            // Verificamos cuántas tarjetas debemos cargar según el índice actual
-            const cardsToShow = cardsData.slice(currentIndex, currentIndex + cardsPerPage);
-
-            if (cardsToShow.length === 0) {
-                $('#loadMoreBtn').hide();  // Si no hay tarjetas para cargar, ocultamos el botón
-                return;
-            }
-            // Creamos y añadimos las tarjetas al contenedor
-            cardsToShow.forEach((card, index) => {
-                const cardElement = $(`
-                    <div class="card card-${currentIndex + index + 1}">
-                        <div class="card-details overlay">
-                            <p class="text-title">${card.title}</p>
-                        </div>
-                    </div>
-                `);
-                // Asignamos la imagen de fondo
-                cardElement.css('background-image', `url(${card.imageUrl})`);
-                // Animación para mostrar la tarjeta
-                cardElement.hide().fadeIn(600);
-                // Añadimos la tarjeta al contenedor
-                container.append(cardElement);
-            });
-            // Actualizamos el índice
-            currentIndex += cardsPerPage;
-            // Si no hay más tarjetas para cargar, ocultamos el botón
-            if (currentIndex >= cardsData.length) {
-                $('#loadMoreBtn').fadeOut();
-            }
-        }
-
-        // Cargar las primeras tarjetas al cargar la página
-        loadCards();
-
-        // Evento para cargar más tarjetas cuando se hace clic en el botón
-        $('#loadMoreBtn').on('click', loadCards);
-    </script>
+    <script src="libraries/aos/aos.js"></script>
+    <!-- Atractivos -->
+    <script src="js/loadCardsAtractivos.js"></script>
+    <script src="js/modalAtractivosInfo.js"></script>
 </body>
 
 </html>
