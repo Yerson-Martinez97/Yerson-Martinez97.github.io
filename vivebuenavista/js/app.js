@@ -1,107 +1,87 @@
-// AGREGA CLASE boxCardAnimated AL HACER SCROLL PARA ANIMAR COMPONENTE CARD
-window.onscroll = function () {
-  let scrollPosY = window.pageYOffset | document.body.scrollTop;
+document.addEventListener("DOMContentLoaded", () => {
+  const subir = document.getElementById("subir");
+  const mainNavLinks = document.querySelectorAll("nav div ul li a");
+  const offsetNavbar = 60;
 
-  if (scrollPosY >= 400) {
-    subir = document.querySelector("#subir");
-    subir.classList.add("irArriba");
-  } else {
-    subir = document.querySelector("#subir");
-    subir.classList.remove("irArriba");
-  }
+  const easeInOutCubic = (t) =>
+    t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-  if (scrollPosY >= 910) {
-    cardAnimated = document.getElementById("cardAnimada");
-    cardAnimated.classList.add("boxCardAnimated");
-  } else {
-    cardAnimated = document.getElementById("cardAnimada");
-    cardAnimated.classList.remove("boxCardAnimated");
-  }
-};
+  const toggleSubirBtn = () => {
+    subir.classList.toggle("irArriba", window.scrollY >= 400);
+  };
 
-// AGREGA CLASE current AL HACER SCROLL
-let mainNavLinks = document.querySelectorAll("nav div ul li a");
+  const updateActiveLink = () => {
+    const fromTop = window.scrollY + offsetNavbar + 5;
+    let currentId = null;
 
-window.addEventListener("scroll", (event) => {
-  event.preventDefault();
+    mainNavLinks.forEach((link) => {
+      const section = document.querySelector(link.hash);
+      if (section) {
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+        if (fromTop >= top && fromTop < bottom) {
+          link.classList.add("current");
+          currentId = link.hash;
+        } else {
+          link.classList.remove("current");
+        }
+      }
+    });
 
-  let fromTop = window.scrollY;
+    if (currentId) {
+      sessionStorage.setItem("activeSection", currentId);
+    }
+  };
 
-  mainNavLinks.forEach((link) => {
-    let section = document.querySelector(link.hash);
-    if (
-      section.offsetTop <= fromTop &&
-      section.offsetTop + section.offsetHeight > fromTop
-    ) {
-      link.classList.add("current");
+  const smoothScroll = (target) => {
+    const startY = window.scrollY;
+    const targetY = target.getBoundingClientRect().top + startY - offsetNavbar;
+    const duration = 600;
+    let startTime = null;
+
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = easeInOutCubic(progress);
+
+      window.scrollTo(0, startY + (targetY - startY) * ease);
+
+      if (elapsed < duration) {
+        requestAnimationFrame(step);
+      }
+    };
+    requestAnimationFrame(step);
+  };
+
+  window.addEventListener("scroll", () => {
+    toggleSubirBtn();
+    updateActiveLink();
+  });
+
+  document.querySelectorAll(".scroll").forEach((elem) => {
+    elem.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = elem.getAttribute("href").substring(1);
+      const target = document.getElementById(targetId);
+      if (target) smoothScroll(target);
+    });
+  });
+
+  window.addEventListener("load", () => {
+    const savedId = sessionStorage.getItem("activeSection");
+    if (savedId) {
+      mainNavLinks.forEach((link) => {
+        link.classList.toggle("current", link.hash === savedId);
+      });
+      toggleSubirBtn();
     } else {
-      link.classList.remove("current");
+      setTimeout(() => {
+        requestAnimationFrame(() => {
+          updateActiveLink();
+          toggleSubirBtn();
+        });
+      }, 100);
     }
   });
 });
-
-// DESPLAZAMIENTO SMOOTH SCROLL
-window.onload = function () {
-  const easeInCubic = function (t) {
-    return t * t * t;
-  };
-  const scrollElems = document.getElementsByClassName("scroll");
-
-  const scrollToElem = (
-    start,
-    stamp,
-    duration,
-    scrollEndElemTop,
-    startScrollOffset
-  ) => {
-    const runtime = stamp - start;
-    let progress = runtime / duration;
-    const ease = easeInCubic(progress);
-
-    progress = Math.min(progress, 1);
-
-    const newScrollOffset = startScrollOffset + scrollEndElemTop * ease;
-    window.scroll(0, startScrollOffset + scrollEndElemTop * ease);
-
-    if (runtime < duration) {
-      requestAnimationFrame((timestamp) => {
-        const stamp = new Date().getTime();
-        scrollToElem(
-          start,
-          stamp,
-          duration,
-          scrollEndElemTop,
-          startScrollOffset
-        );
-      });
-    }
-  };
-
-  for (let i = 0; i < scrollElems.length; i++) {
-    const elem = scrollElems[i];
-
-    elem.addEventListener("click", function (e) {
-      e.preventDefault();
-      const scrollElemId = e.target.href.split("#")[1];
-      const scrollEndElem = document.getElementById(scrollElemId);
-
-      const anim = requestAnimationFrame(() => {
-        const stamp = new Date().getTime();
-        const duration = 600;
-        const start = stamp;
-
-        const startScrollOffset = window.pageYOffset;
-
-        const scrollEndElemTop = scrollEndElem.getBoundingClientRect().top;
-
-        scrollToElem(
-          start,
-          stamp,
-          duration,
-          scrollEndElemTop,
-          startScrollOffset
-        );
-      });
-    });
-  }
-};

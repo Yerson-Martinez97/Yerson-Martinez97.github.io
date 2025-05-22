@@ -1,5 +1,6 @@
 AOS.init({
+  disable: false, // 🔁 Permitir en móviles
   duration: 800,
-  once: true,
-  easing: 'ease-in-out'
+  easing: "ease-in-out",
+  once: true, // Solo una vez
 });

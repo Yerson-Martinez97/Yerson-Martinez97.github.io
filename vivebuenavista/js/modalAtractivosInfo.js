@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Cargar el archivo JSON
+  // Cargar el archivo JSON y setup modal (igual que antes)
   fetch("json/AtractivosInfo.json")
     .then((response) => response.json())
     .then((data) => {
@@ -42,11 +42,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
 
-      // Cerrar el modal cuando se hace clic en el botón de cierre
       const closeModalButton = document.getElementById("modal-close");
       closeModalButton.addEventListener("click", closeModal);
 
-      // Cerrar el modal si se hace clic fuera del contenido
       window.addEventListener("click", function (event) {
         if (event.target === document.getElementById("modal")) {
           closeModal();
@@ -57,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error al cargar el archivo JSON:", error);
     });
 
-  // Lógica de mostrar tarjetas
+  // Lógica para mostrar tarjetas con animación
   const cardsContainer = document.getElementById("linkAtractivos");
   const allCards = Array.from(
     cardsContainer.querySelectorAll(".cards-container .card")
@@ -68,47 +66,68 @@ document.addEventListener("DOMContentLoaded", function () {
   const initialVisibleCount = 1;
   const loadMoreCount = 3;
   let currentIndex = initialVisibleCount;
-
   const totalCards = allCards.length;
 
   function showCards() {
     allCards.forEach((card, index) => {
       if (index < currentIndex) {
-        card.classList.remove("hidden");
+        if (card.classList.contains("hidden")) {
+          card.classList.remove("hidden");
+          card.classList.add("zoom-in");
+          card.addEventListener(
+            "animationend",
+            () => {
+              card.classList.remove("zoom-in");
+            },
+            { once: true }
+          );
+        }
       } else {
-        card.classList.add("hidden");
+        if (!card.classList.contains("hidden")) {
+          card.classList.add("zoom-out");
+          card.addEventListener(
+            "animationend",
+            () => {
+              card.classList.remove("zoom-out");
+              card.classList.add("hidden");
+            },
+            { once: true }
+          );
+        }
       }
     });
-
     updateLoadMoreButton();
   }
 
   function updateLoadMoreButton() {
     if (currentIndex >= totalCards) {
-      loadMoreBtn.innerHTML = "<i class='fa-solid fa-chevron-up'></i>";
+      loadMoreBtn.innerHTML =
+        "Mostrar menos <br> <i class='fa-solid fa-chevron-up'></i>";
     } else {
-      loadMoreBtn.innerHTML = "<i class='fa-solid fa-chevron-down'></i>";
+      loadMoreBtn.innerHTML =
+        "Mostrar más <br> <i class='fa-solid fa-chevron-down'></i>";
     }
   }
 
   loadMoreBtn.addEventListener("click", function () {
     if (currentIndex >= totalCards) {
-      currentIndex = initialVisibleCount; // Resetear a las primeras visibles
+      currentIndex = initialVisibleCount; // reset
     } else {
       currentIndex += loadMoreCount;
-      if (currentIndex > totalCards) {
-        currentIndex = totalCards;
-      }
+      if (currentIndex > totalCards) currentIndex = totalCards;
     }
-
     showCards();
   });
 
-  // Mostrar inicialmente las primeras tarjetas
-  showCards();
+  // Mostrar inicialmente las primeras tarjetas sin animación
+  allCards.forEach((card, i) => {
+    if (i < currentIndex) card.classList.remove("hidden");
+    else card.classList.add("hidden");
+  });
+  updateLoadMoreButton();
 });
 
-// Función para abrir el modal y cargar el contenido dinámicamente
+// Funciones modal (igual que antes)
 function openModal(title, description, images, location) {
   document.body.style.overflow = "hidden";
   const modal = document.getElementById("modal");
@@ -117,18 +136,16 @@ function openModal(title, description, images, location) {
   const modalImages = document.getElementById("modal-images");
   const modalBtnMap = document.getElementById("modal-btnMap");
 
-  // Setear título y descripción
   modalTitle.innerText = title;
   modalDescription.innerHTML = description;
 
   if (location) {
     modalBtnMap.href = location;
-    modalBtnMap.style.display = "inline-block"; // o "block", según tu diseño
+    modalBtnMap.style.display = "inline-block";
   } else {
     modalBtnMap.style.display = "none";
   }
 
-  // Limpiar imágenes anteriores
   modalImages.innerHTML = "";
 
   let lightbox = null;
@@ -152,13 +169,15 @@ function openModal(title, description, images, location) {
 
     lightbox = GLightbox({
       selector: ".glightbox",
+      touchNavigation: true,
+      loop: true,
+      zoomable: true,
     });
   }
 
   modal.style.display = "block";
 }
 
-// Función para cerrar el modal
 function closeModal() {
   document.body.style.overflow = "auto";
   const modal = document.getElementById("modal");

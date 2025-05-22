@@ -1,14 +1,17 @@
 /*  ESTILOS ATRACTIVOS*/
 .boxArtesanias {
-    width: 100%;
+    background: var(--secondary);
+    padding: 60px 20px;
     text-align: center;
-    background-color: var(--white);
 }
 
 .boxArtesanias h3 {
     display: block;
     width: 100%;
-    margin-bottom: 1rem;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .boxArtesanias .cards-container {
@@ -88,7 +91,6 @@
 
 /*Hover*/
 .boxArtesanias .card:hover {
-    border-color: var(--primary);
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -110,6 +112,14 @@
     cursor: pointer;
 }
 
+.boxArtesanias .card {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    cursor: pointer;
+}
+
 /* Imagen de fondo con overlay oscuro */
 .boxArtesanias .card::before {
     content: "";
@@ -118,14 +128,35 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.4)), url('../images/atractivos/murales/ayer-hoy.webp') center/cover no-repeat;
     z-index: 0;
     transition: transform 0.5s ease-out;
 }
 
-/* Zoom al hacer hover */
+.boxArtesanias .card.card-1::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)), url('../images/artesanias/jipijapa/image01.webp') center/cover no-repeat;
+}
+
+.boxArtesanias .card.card-2::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)), url('../images/artesanias/mueblesrusticos/image01.webp') center/cover no-repeat;
+}
+
 .boxArtesanias .card:hover::before {
+    transform: scale(1.05);
+}
+
+.boxArtesanias .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    /* Overlay oscuro */
+    z-index: 0;
+    transition: transform 0.5s ease-out;
+}
+
+.boxArtesanias .card:hover::after {
     transform: scale(1.05);
 }
 
@@ -134,4 +165,203 @@
 .boxArtesanias .card-button {
     position: relative;
     z-index: 1;
+}
+
+@media (max-width: 530px) {
+    .boxArtesanias .card {
+        min-height: 200px;
+    }
+}
+
+/* Estilos responsivos para Swiper sin romper el diseño actual */
+.artesanias-swiper {
+    height: 500px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Adaptar la altura en dispositivos más pequeños */
+@media (max-width: 768px) {
+    .artesanias-swiper {
+        height: 400px;
+    }
+}
+
+@media (max-width: 530px) {
+    .artesanias-swiper {
+        height: 350px;
+    }
+}
+
+/* Asegura que el wrapper y slides usen el 100% del alto del swiper */
+.artesanias-swiper .swiper-wrapper {
+    height: 100%;
+}
+
+.artesanias-swiper .swiper-slide {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    /* Estira la card a toda la altura */
+}
+
+/* Ya tienes este estilo, solo refuérzalo sin romper nada */
+.boxArtesanias .card {
+    height: 100%;
+    /* Se adapta al alto del swiper-slide */
+    width: 100%;
+}
+
+
+
+/* ============================================================================================= */
+/* ============================================================================================= */
+/* ============================================================================================= */
+/* Estilos para el Modal */
+.modalArtesania {
+    display: none;
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow-y: auto;
+    padding: 60px 20px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Animación para el modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modalArtesania .modalArtesania-content {
+    position: relative;
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modalArtesania .modalArtesania-inner {
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+    .modalArtesania .modalArtesania-inner {
+        padding: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .modalArtesania .modalArtesania-inner {
+        padding: 0;
+    }
+}
+
+.modalArtesania #modalArtesania-title {
+    color: var(--black);
+    background-color: var(--white);
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.modalArtesania #modalArtesania-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las imágenes dentro del modal */
+.modalArtesania .modalArtesania-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.modalArtesania .modalArtesania-images img {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 16 / 10;
+    /* Establece una relación de aspecto uniforme */
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    height: auto;
+    /* Importante: dejar que el alto lo determine el aspect-ratio */
+}
+
+
+/* Botón de mapa */
+.modalArtesania .btn {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    border: 2px solid var(--tertiary);
+    background-color: var(--tertiary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.modalArtesania .btn:hover {
+    background-color: var(--tertiary-dark);
+    color: #fff;
+}
+
+/* ============================================================================================= */
+/* Botón de cierre */
+.close {
+    color: #333;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Footer del modal */
+.modalArtesania-footer {
+    border: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }

@@ -141,11 +141,6 @@
     z-index: 1;
 }
 
-/* Asegurar que el contenido esté sobre la imagen */
-.boxAtractivos .card-details {
-    position: relative;
-    z-index: 1;
-}
 
 /*Text*/
 .boxAtractivos .text-title {
@@ -175,7 +170,7 @@
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 8px;
-    font-weight: 600;
+    /* font-weight: 600; */
     transition: all 0.3s ease;
     box-shadow: none;
 
@@ -185,6 +180,43 @@
 
 .boxAtractivos .btn:hover {
     animation: none;
+}
+
+.zoom-in {
+    animation: zoomIn 0.5s ease forwards;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.zoom-out {
+    animation: zoomOut 0.5s ease forwards;
+}
+
+@keyframes zoomIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+/* Asegura que las imágenes dentro del lightbox sean responsivas */
+.glightbox-clean .gslide-media img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
 }
 
 /* ============================================================================================= */

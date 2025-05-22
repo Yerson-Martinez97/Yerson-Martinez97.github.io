@@ -37,7 +37,7 @@
 
     <!-- Swiper -->
     <!-- <link rel="stylesheet" href="libraries/swiper/swiper-bundle.min.css" /> -->
-    <script src="libraries/swiper/swiper-bundle.min.js"></script>
+
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- AOS -->
@@ -66,7 +66,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link scroll current" href="#linkHome">Bienvenida</a>
+                        <a class="nav-link scroll" href="#linkHome">Bienvenida</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link scroll" href="#linkComoLlegar">Como Llegar</a>
@@ -114,6 +114,7 @@
         </script>
     </header>
     <!-- Fin Contenedor Header -->
+    <!-- ================================================================================================================= -->
 
     <!-- Contenedor Main -->
     <main>
@@ -155,7 +156,7 @@
             </div>
         </section>
         <!-- Fin Sección Como Llegar -->
-
+        <!-- ================================================================================================================= -->
         <!--  Sección Atractivos -->
         <!-- Modal -->
         <div id="modal" class="modal">
@@ -172,10 +173,9 @@
                 </div>
             </div>
         </div>
-
-        <section id="linkAtractivos" class="boxAtractivos" data-aos="zoom-in">
+        <section id="linkAtractivos" class="boxAtractivos">
             <h3>Atractivos</h3>
-            <div class="cards-container">
+            <div class="cards-container" data-aos="zoom-in">
                 <div class="card card-1" data-idAtractivo="Plazas">
                     <div class="card-details overlay">
                         <p class="text-title">Plaza Principal de BuenaVista</p>
@@ -223,36 +223,54 @@
                 </div>
             </div>
             <!-- Botón para cargar más tarjetas -->
-            <button id="load-more" class="btn">Cargar más <i class="fa-solid fa-chevron-down"></i></button>
+            <button id="load-more" data-aos="zoom-in" class="btn">Mostrar más <i
+                    class="fa-solid fa-chevron-down"></i></button>
         </section>
         <!-- Fin Sección Atractivos -->
 
+        <!-- ================================================================================================================= -->
+
         <!--  Sección Artesanias -->
-        <section id="linkArtesanias" class="boxArtesanias" data-aos="zoom-in">
-            <h3>Artesanias</h3>
-            <div class="cards-container">
-                <div class="card">
-                    <div class="card-details">
-                        <p class="text-title">JipiJapa</p>
-                        <!-- <p class="text-body">El Corazón de la Comunidad, en el centro de nuestro querido pueblo late la
-                            vida misma: la Plaza de Buenavista, un lugar donde la historia, la cultura y la naturaleza
-                            se encuentran...</p> -->
-                    </div>
-                    <button class="card-button"><i class="fa-solid fa-up-right-from-square"></i></button>
-                </div>
-                <div class="card" style="background-image: url('images/atractivos/murales/cafe.webp');">
-                    <div class="card-details overlay">
-                        <p class="text-title">Muebles Rústicos de Tacuara, Bejucos y Madera</p>
-                        <!-- <p class="text-body">El Corazón de la Comunidad, en el centro de nuestro querido pueblo late la
-                            vida misma...</p> -->
-                    </div>
-                    <button class="card-button"><i class="fa-solid fa-up-right-from-square"></i></button>
-                </div>
+        <div id="modalArtesania" class="modalArtesania">
+            <div class="modalArtesania-content">
+                <div class="modalArtesania-inner">
+                    <span id="modalArtesania-close" class="close">&times;</span>
+                    <h2 id="modalArtesania-title">Título de la artesanía</h2>
+                    <p id="modalArtesania-description">Descripción larga de la artesanía...</p>
 
+                    <div id="modalArtesania-images" class="modalArtesania-images">
+                        <!-- Las imágenes se inyectan aquí con JS -->
+                    </div>
 
+                    <!-- <div class="modalArtesania-footer">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <section id="linkArtesanias" class="boxArtesanias">
+            <h3>Artesanías</h3>
+            <div class="swiper artesanias-swiper" data-aos="zoom-in">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide card card-1" data-idArtesania="JipiJapa">
+                        <div class="card-details overlay">
+                            <p class="text-title">JipiJapa</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide card card-2" data-idArtesania="Muebles Rústicos">
+                        <div class="card-details overlay">
+                            <p class="text-title">Muebles Rústicos de Tacuara, Bejucos y Madera</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </section>
+
         <!-- Fin Sección Artesanias -->
+        <!-- ================================================================================================================= -->
 
         <!--  Sección Hotelerias -->
         <section id="linkHotelerias" class="boxHotelerias" data-aos="zoom-in">
@@ -326,21 +344,11 @@
             <h3>Ferias</h3>
             <div class="card">
 
-                <!-- Swiper JS -->
-                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
                 <!-- Initialize Swiper -->
-                <script>
-                    var swiper = new Swiper(".mySwiper", {
-                        pagination: {
-                            el: ".swiper-pagination",
-                            dynamicBullets: true,
-                        },
-                    });
-                </script>
-                <script>
+                <!-- <script>
                     const lightbox = GLightbox({ selector: '.glightbox' });
-                </script>
+                </script> -->
 
             </div>
         </section>
@@ -360,6 +368,8 @@
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
     <!-- Fin Contenedor Footer -->
+    <script src="js/app.js"></script>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -373,9 +383,16 @@
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="libraries/aos/aos.js"></script>
+
     <!-- Atractivos -->
     <script src="js/loadCardsAtractivos.js"></script>
     <script src="js/modalAtractivosInfo.js"></script>
+
+    <!-- Artesanias -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/swiperArtesanias.js"></script>
+    <script src="js/modalArtesaniasInfo.js"></script>
+
 </body>
 
 </html>
