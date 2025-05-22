@@ -45,6 +45,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/fslightbox/index.js"></script>
 
+
+    <!-- AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -155,13 +160,15 @@
         <!-- Modal -->
         <div id="modal" class="modal">
             <div class="modal-content">
-                <span id="modal-close" class="close">&times;</span>
-                <h2 id="modal-title"></h2>
-                <p id="modal-description"></p>
-                <!-- <button class="btn">Ver Ruta</button> -->
-                <div id="modal-images" class="modal-images"></div>
-                <div class="modal-footer">
-                    <a id="modal-btnMap" class="btn" target="_blank" rel="noopener">Ver Ruta</a>
+                <div class="modal-inner">
+                    <span id="modal-close" class="close">&times;</span>
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-description"></p>
+                    <!-- <button class="btn">Ver Ruta</button> -->
+                    <div id="modal-images" class="modal-images"></div>
+                    <div class="modal-footer">
+                        <a id="modal-btnMap" class="btn" target="_blank" rel="noopener">Ver Ruta</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -171,7 +178,7 @@
             <div class="cards-container">
                 <div class="card card-1" data-idAtractivo="Plazas">
                     <div class="card-details overlay">
-                        <p class="text-title">Plazas</p>
+                        <p class="text-title">Plaza Principal de BuenaVista</p>
                     </div>
                 </div>
                 <div class="card card-2" data-idAtractivo="Iglesia parroquial los santos desposorios">
@@ -189,41 +196,34 @@
                         <p class="text-title">Parque Nacional Amboró</p>
                     </div>
                 </div>
-
-                <!-- Tarjetas ocultas inicialmente -->
-                <!-- <div class="card card-5" style="display:none;" data-idAtractivo="Murales">
-                    <div class="card-details overlay">
-                        <p class="text-title">Murales</p>
-                    </div>
-                </div> -->
-                <div class="card card-5" data-idAtractivo="Murales">
+                <div class="card card-5 hidden" data-idAtractivo="Murales">
                     <div class="card-details overlay">
                         <p class="text-title">Murales</p>
                     </div>
                 </div>
-                <div class="card card-6" data-idAtractivo="Mirador">
+                <div class="card card-6 hidden" data-idAtractivo="Mirador">
                     <div class="card-details overlay">
                         <p class="text-title">Mirador</p>
                     </div>
                 </div>
-                <div class="card card-7" data-idAtractivo="RutaCafe">
+                <div class="card card-7 hidden" data-idAtractivo="RutaCafe">
                     <div class="card-details overlay">
                         <p class="text-title">Ruta del Café</p>
                     </div>
                 </div>
-                <div class="card card-8" data-idAtractivo="ArteCampo">
+                <div class="card card-8 hidden" data-idAtractivo="ArteCampo">
                     <div class="card-details overlay">
                         <p class="text-title">ArteCampo</p>
                     </div>
                 </div>
-                <div class="card card-9" data-idAtractivo="QueseriaSuiza">
+                <div class="card card-9 hidden" data-idAtractivo="QueseriaSuiza">
                     <div class="card-details overlay">
                         <p class="text-title">Queseria Suiza</p>
                     </div>
                 </div>
             </div>
             <!-- Botón para cargar más tarjetas -->
-            <button id="load-more" class="load-more-btn">Cargar más</button>
+            <button id="load-more" class="btn">Cargar más <i class="fa-solid fa-chevron-down"></i></button>
         </section>
         <!-- Fin Sección Atractivos -->
 

@@ -1,10 +1,8 @@
-// Esperar a que el documento cargue completamente
 document.addEventListener("DOMContentLoaded", function () {
   // Cargar el archivo JSON
   fetch("json/AtractivosInfo.json")
     .then((response) => response.json())
     .then((data) => {
-      // Detectar clic en una tarjeta
       const cards = document.querySelectorAll(".card");
       cards.forEach((card) => {
         card.addEventListener("click", function () {
@@ -13,25 +11,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
           if (atractivo) {
             if (Array.isArray(atractivo)) {
-              // Generar HTML con cada mural
               let contenidoHTML = "";
               atractivo.forEach((item) => {
                 contenidoHTML += `
-            <div class="mural-item">
-              <h3>${item.titulo}</h3>
-              <p>${item.descripcion || "Sin descripción disponible."}</p>
-              ${item.imagenes
-                ?.map((src) => `<img src="${src}" alt="${item.titulo}" />`)
-                .join("")}
-              <a href="${
-                item.location
-              }" target="_blank" class="btn btn-map">Ver en mapa</a>
-              <hr>
-            </div>
-          `;
+                  <div class="mural-item">
+                    <h3>${item.titulo}</h3>
+                    <p>${item.descripcion || "Sin descripción disponible."}</p>
+                    ${item.imagenes
+                      ?.map(
+                        (src) => `<img src="${src}" alt="${item.titulo}" />`
+                      )
+                      .join("")}
+                    <a href="${
+                      item.location
+                    }" target="_blank" class="btn btn-map">Ver en mapa</a>
+                    <hr>
+                  </div>
+                `;
               });
-
-              // Abrir modal con título general y contenido HTML
               openModal("Murales", contenidoHTML, [], null, true);
             } else {
               openModal(
@@ -59,6 +56,56 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => {
       console.error("Error al cargar el archivo JSON:", error);
     });
+
+  // Lógica de mostrar tarjetas
+  const cardsContainer = document.getElementById("linkAtractivos");
+  const allCards = Array.from(
+    cardsContainer.querySelectorAll(".cards-container .card")
+  );
+
+  const loadMoreBtn = document.getElementById("load-more");
+
+  const initialVisibleCount = 1;
+  const loadMoreCount = 3;
+  let currentIndex = initialVisibleCount;
+
+  const totalCards = allCards.length;
+
+  function showCards() {
+    allCards.forEach((card, index) => {
+      if (index < currentIndex) {
+        card.classList.remove("hidden");
+      } else {
+        card.classList.add("hidden");
+      }
+    });
+
+    updateLoadMoreButton();
+  }
+
+  function updateLoadMoreButton() {
+    if (currentIndex >= totalCards) {
+      loadMoreBtn.innerHTML = "<i class='fa-solid fa-chevron-up'></i>";
+    } else {
+      loadMoreBtn.innerHTML = "<i class='fa-solid fa-chevron-down'></i>";
+    }
+  }
+
+  loadMoreBtn.addEventListener("click", function () {
+    if (currentIndex >= totalCards) {
+      currentIndex = initialVisibleCount; // Resetear a las primeras visibles
+    } else {
+      currentIndex += loadMoreCount;
+      if (currentIndex > totalCards) {
+        currentIndex = totalCards;
+      }
+    }
+
+    showCards();
+  });
+
+  // Mostrar inicialmente las primeras tarjetas
+  showCards();
 });
 
 // Función para abrir el modal y cargar el contenido dinámicamente
@@ -72,7 +119,7 @@ function openModal(title, description, images, location) {
 
   // Setear título y descripción
   modalTitle.innerText = title;
-  modalDescription.innerHTML = description; // ← este cambio
+  modalDescription.innerHTML = description;
 
   if (location) {
     modalBtnMap.href = location;

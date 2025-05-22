@@ -4,7 +4,7 @@
     --primary-dark: #c06139 !important;
     --secondary: #f6f6f6 !important;
     --tertiary: #4CAF50 !important;
-    --tertiary-dark: #387579 !important;
+    --tertiary-dark: #2b622d !important;
     --white: #fff !important;
     --black: #000 !important;
     --grey: #777;
@@ -27,7 +27,7 @@ body {
 }
 
 body {
-    font-family: "water", 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
 }
 
@@ -40,10 +40,10 @@ a:hover {
 }
 
 h3 {
-    font-size: 30px;
+    /* font-size: 30px;
     text-align: center;
     margin-bottom: 20px;
-    font-weight: bold;
+    font-weight: bold; */
 }
 
 p {

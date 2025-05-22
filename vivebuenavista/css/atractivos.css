@@ -7,29 +7,26 @@
 .boxAtractivos h3 {
     display: block;
     width: 100%;
-    margin-bottom: 1rem;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .boxAtractivos .cards-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que las tarjetas se ajusten a nuevas filas */
+    justify-content: center;
+    /* Centra las tarjetas horizontalmente */
     gap: 16px;
+    /* Espacio entre las tarjetas */
     padding: 16px;
 }
 
-@media (max-width: 1024px) {
-    .boxAtractivos .cards-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .boxAtractivos .cards-container {
-        grid-template-columns: 1fr;
-    }
-}
-
 .boxAtractivos .card {
+    flex: 0 1 calc(25% - 16px);
+    /* Cada tarjeta ocupa un 25% del ancho, menos el espacio entre ellas */
     height: 254px;
     border-radius: .5rem;
     background: #f5f5f5;
@@ -44,65 +41,18 @@
     background-position: center;
 }
 
-.boxAtractivos .card-details {
-    color: black;
-    height: 100%;
-    gap: .5em;
-    display: grid;
-    place-content: center;
-    position: relative;
-    z-index: 1;
+@media (max-width: 1024px) {
+    .boxAtractivos .card {
+        flex: 0 1 calc(50% - 16px);
+        /* 2 columnas en pantallas medianas */
+    }
 }
 
-.boxAtractivos .btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: 2px solid #007bff;
-    background-color: #fff;
-    color: #007bff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.boxAtractivos .btn:hover {
-    background-color: #007bff;
-    color: #fff;
-    transform: translateY(-3px);
-    /* Efecto de elevación en hover */
-}
-
-.boxAtractivos .card-button {
-    transform: translate(-50%, 125%);
-    width: 60%;
-    border-radius: 1rem;
-    border: none;
-    background-color: var(--primary);
-    color: #fff;
-    font-size: 1rem;
-    padding: .5rem 1rem;
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    opacity: 0;
-    transition: 0.3s ease-out;
-}
-
-.boxAtractivos .text-body {
-    color: rgb(230, 230, 230);
-    position: relative;
-    z-index: 1;
-}
-
-/*Text*/
-.boxAtractivos .text-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: var(--white);
-    position: relative;
-    z-index: 1;
+@media (max-width: 600px) {
+    .boxAtractivos .card {
+        flex: 0 1 calc(100% - 16px);
+        /* 1 columna en pantallas pequeñas */
+    }
 }
 
 /*Hover*/
@@ -115,7 +65,6 @@
     opacity: 1;
 }
 
-
 /* Imagen de fondo con overlay oscuro */
 .boxAtractivos .card::before {
     content: "";
@@ -124,76 +73,118 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: linear-gradient(rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.4)), url('../images/atractivos/plaza/images01.webp') center/cover no-repeat; */
     z-index: 0;
     transition: transform 0.5s ease-out;
     transform: scale(1.05);
 }
 
-/* Tarjeta 1 */
 .boxAtractivos .card.card-1::before {
     background: linear-gradient(rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)), url('../images/atractivos/plaza/image01.webp') center/cover no-repeat;
 }
 
-/* Tarjeta 2 */
 .boxAtractivos .card.card-2::before {
     background: linear-gradient(rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)), url('../images/atractivos/iglesia/image01.webp') center/cover no-repeat;
 }
 
-/* Tarjeta 3 */
 .boxAtractivos .card.card-3::before {
     background: linear-gradient(rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)), url('../images/atractivos/rio/image01.webp') center/cover no-repeat;
 }
 
-/* Tarjeta 4 */
 .boxAtractivos .card.card-4::before {
     background: linear-gradient(rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)), url('../images/atractivos/parque/image01.webp') center/cover no-repeat;
 }
 
-/* Tarjeta 5 */
 .boxAtractivos .card.card-5::before {
     background: linear-gradient(rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)), url('../images/atractivos/murales/jukumari/image01.webp') center/cover no-repeat;
 }
 
-/* Tarjeta 6 */
 .boxAtractivos .card.card-6::before {
     background: linear-gradient(rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)), url('../images/atractivos/mirador/image02.webp') center/cover no-repeat;
 }
 
-/* Tarjeta 7 */
 .boxAtractivos .card.card-7::before {
     background: linear-gradient(rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)), url('../images/atractivos/rutacafe/image01.webp') center/cover no-repeat;
 }
 
-/* Tarjeta 8 */
 .boxAtractivos .card.card-8::before {
     background: linear-gradient(rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)), url('../images/atractivos/artecampo/image01.webp') center/cover no-repeat;
 }
 
-/* Tarjeta 9 */
 .boxAtractivos .card.card-9::before {
     background: linear-gradient(rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)), url('../images/atractivos/queseria/image01.webp') center/cover no-repeat;
+}
+
+.boxAtractivos .card.hidden {
+    display: none;
 }
 
 .boxAtractivos .card:hover::before {
     transform: scale(1);
 }
 
-/* Asegurar que el contenido esté sobre la imagen */
-.boxAtractivos .card-details,
-.boxAtractivos .card-button {
+.boxAtractivos .card-details {
+    color: black;
+    height: 100%;
+    gap: .5em;
+    display: grid;
+    place-content: center;
     position: relative;
     z-index: 1;
+}
+
+/* Asegurar que el contenido esté sobre la imagen */
+.boxAtractivos .card-details {
+    position: relative;
+    z-index: 1;
+}
+
+/*Text*/
+.boxAtractivos .text-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--black);
+    background-color: var(--white);
+    position: relative;
+    border-radius: 5px;
+    padding: 10px 5px;
+    z-index: 1;
+}
+
+@keyframes floatDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+        /* Puedes ajustar la profundidad del movimiento */
+    }
+}
+
+.boxAtractivos .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: none;
+
+    /* Animación de arribo */
+    animation: floatDown 1.5s ease-in-out infinite;
+}
+
+.boxAtractivos .btn:hover {
+    animation: none;
 }
 
 /* ============================================================================================= */
@@ -203,7 +194,7 @@
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 1100;
     left: 0;
     top: 0;
     width: 100%;
@@ -211,17 +202,8 @@
     background-color: rgba(0, 0, 0, 0.4);
     overflow: auto;
     padding-top: 60px;
+    animation: fadeIn 0.4s ease-in-out;
 }
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 100%;
-    max-width: 1800px;
-}
-
 
 /* Animación para el modal */
 @keyframes fadeIn {
@@ -234,24 +216,88 @@
     }
 }
 
-/* Título del modal */
-#modal-title {
-    font-size: 24px;
-    margin-bottom: 15px;
+.modal .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 1800px;
+
+}
+
+.modal .modal-inner {
+    padding: 0 100px;
+    /* Reduce el ancho horizontal del contenido */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+    .modal .modal-inner {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal .modal-inner {
+        padding: 0 10px;
+    }
+}
+
+
+.modal #modal-title {
+    color: var(--black);
+    background-color: var(--white);
+    position: relative;
+    border-radius: 5px;
+    padding: 10px 5px;
+    z-index: 1;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.modal #modal-description {
+    font-size: 1.4rem;
+}
+
+/* Estilos para las imágenes dentro del modal */
+.modal .modal-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-#modal-description h3 {
-    margin-bottom: 1.8rem;
-    /* o el espacio que prefieras */
-}
-
-#modal-description p {
+.modal .btn {
+    display: block;
+    /* Cambia a block para poder centrar con margin auto */
+    width: 200px;
+    margin: 20px auto 0 auto;
+    /* Centrado horizontal y separación superior */
+    padding: 12px 24px;
+    border: 2px solid var(--tertiary);
+    background-color: var(--tertiary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
     font-size: 1.5rem;
-    /* o el espacio que prefieras */
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-/* Descripción del modal */
+.modal .btn:hover {
+    background-color: var(--tertiary-dark);
+    color: #fff;
+    /* transform: translateY(-3px); */
+}
+
+/* ============================================================================================= */
 #modal-description img {
     display: block;
     margin: 0 auto;
@@ -261,9 +307,16 @@
     border-radius: 5px;
 }
 
+#modal-description .mural-item h3 {
+    font-weight: bold;
+    margin-bottom: 1.8rem;
+}
 
+#modal-description .mural-item p {
+    font-size: 1.4rem;
+}
 
-
+/* ============================================================================================= */
 /* Botón de cierre */
 .close {
     color: #333;
@@ -283,29 +336,31 @@
     text-decoration: none;
 }
 
+/* ============================================================================================= */
+/* ============================================================================================= */
+/* ============================================================================================= */
+/* MOSTRAR IMAGENES EN GRANDE */
 /* Estilo para cuando el modal se muestra */
 .modal.show {
     display: flex;
 }
 
-/* Estilos para las imágenes dentro del modal */
-.modal-images {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
 .modal-image {
-    width: 300px;
-    height: 150px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    /* Mantiene la proporción original */
+    aspect-ratio: 2 / 1;
+    /* Mantiene relación 2:1 si la imagen lo permite */
     object-fit: cover;
-    /* border-radius: 8px; */
+    /* Recorta para que llene el espacio */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
     transition: all 0.3s ease;
-
+    margin: 0 auto;
+    /* Centrado horizontal */
+    display: block;
+    /* Asegura que funcione el margin auto */
 }
 
 .modal-image:hover {
@@ -314,42 +369,11 @@
     /* 0.6 es más oscuro, puedes ajustar */
 }
 
-
-
-.modal .btn {
-    display: block;
-    /* Cambia a block para poder centrar con margin auto */
-    width: 200px;
-    margin: 20px auto 0 auto;
-    /* Centrado horizontal y separación superior */
-    padding: 12px 24px;
-    border: 2px solid var(--tertiary);
-    background-color: var(--tertiary);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.modal .btn:hover {
-    background-color: var(--tertiary);
-    color: #fff;
-    transform: translateY(-3px);
-}
+/* ============================================================================================= */
 
 .modal-footer {
     border: none;
     display: flex;
     justify-content: center;
     margin-top: 20px;
-}
-
-.img-modal {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
 }

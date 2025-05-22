@@ -1,6 +1,6 @@
 {
     "Plazas": {
-        "titulo": "La Plazas de BuenaVista",
+        "titulo": "La Plaza Principal de BuenaVista",
         "descripcion": "El Corazón de la Comunidad, en el centro de nuestro querido pueblo late la vida misma: la Plaza de Buenavista, un lugar donde la historia, la cultura y la naturaleza se encuentran. \nCon su paseo peatonal, rodeada de frondosos árboles y coloridos jardines, la plaza es el punto de encuentro para locales y visitantes. Aquí se celebran fiestas, se comparten sonrisas y se crean recuerdos inolvidables.\n Al caer la tarde, el ambiente se llena de encanto y el cálido resplandor de la luz del sol realza su belleza. La Plaza es el lugar perfecto para sentarse, disfrutar de un buen café, observar la vida pasar y conectar con la esencia de Buenavista.\n",
         "imagenes": [
             "images/atractivos/plaza/image01.webp",
@@ -30,8 +30,7 @@
     },
     "Parque Nacional Amboró": {
         "titulo": "Parque Nacional Amboró",
-        "descripcion": "Descripción del Parque Nacional Amboró aquí...",
-        "imagenes": [
+        "descripcion": "Se ha consolidado como el punto de partida ideal para aventureros, ecoturistas y amantes de la naturaleza.\n Sus senderos, ríos, montañas y bosques son el escenario perfecto para la observación de aves, caminatas, paseos en bicicleta y otras actividades al aire libre que conectan al visitante con la tierra y su biodiversidad.","imagenes": [
             "images/atractivos/parque/image01.webp",
             "images/atractivos/parque/image02.webp"
         ]
