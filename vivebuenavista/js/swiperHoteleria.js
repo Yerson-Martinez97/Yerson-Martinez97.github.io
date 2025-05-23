@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const swiper = new Swiper(".swiper", {
+  const swiperHoteleria = new Swiper(".swiperHoteleria", {
     slidesPerView: 1,
     spaceBetween: 16,
     breakpoints: {

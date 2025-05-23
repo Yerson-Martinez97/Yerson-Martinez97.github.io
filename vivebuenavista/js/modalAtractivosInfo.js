@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const loadMoreBtn = document.getElementById("load-more");
 
-  const initialVisibleCount = 1;
+  const initialVisibleCount = 2;
   const loadMoreCount = 3;
   let currentIndex = initialVisibleCount;
   const totalCards = allCards.length;

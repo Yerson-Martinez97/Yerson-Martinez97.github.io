@@ -81,9 +81,10 @@
 
 /*Text*/
 .boxArtesanias .text-title {
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: bold;
     color: white;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
     /* Asegúrate de que el título también se vea bien */
     position: relative;
     z-index: 1;
@@ -177,10 +178,26 @@
 .artesanias-swiper {
     height: 500px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+}
+
+.artesanias-swiper .swiper-button-next, .artesanias-swiper .swiper-button-prev {
+    color: var(--white);
+}
+
+.artesanias-swiper .swiper-pagination-bullet {
+    background-color: #fff;
+    /* color de los bullets inactivos */
+    opacity: 1;
+    /* opcional, para mejor visibilidad */
+}
+
+.artesanias-swiper .swiper-pagination-bullet-active {
+    background-color: #ccc;
+    /* color del bullet activo */
 }
 
 /* Adaptar la altura en dispositivos más pequeños */
@@ -214,8 +231,6 @@
     /* Se adapta al alto del swiper-slide */
     width: 100%;
 }
-
-
 
 /* ============================================================================================= */
 /* ============================================================================================= */

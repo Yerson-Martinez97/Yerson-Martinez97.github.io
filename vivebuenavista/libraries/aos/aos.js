@@ -3,4 +3,6 @@ AOS.init({
   duration: 800,
   easing: "ease-in-out",
   once: true, // Solo una vez
+  offset: 400, // El número en píxeles determina qué tan antes se activa el efecto
+  startEvent: "scroll", // Utiliza el evento 'scroll' para iniciar las animaciones
 });

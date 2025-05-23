@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("json/ArtesaniasInfo.json")
     .then((res) => res.json())
     .then((data) => {
-      document.querySelectorAll(".swiper-slide.card").forEach((card) => {
+      document.querySelectorAll(".swiper .swiper-slide.card").forEach((card) => {
         card.addEventListener("click", function () {
           const idArtesania = this.getAttribute("data-idArtesania");
           const artesania = data[idArtesania];

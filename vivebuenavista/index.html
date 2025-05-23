@@ -45,9 +45,12 @@
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- Tus scripts que usan estas librerías -->
     <script src="js/swiperArtesanias.js"></script>
     <script src="js/modalArtesaniasInfo.js"></script>
+    <script src="js/swiperHoteleria.js"></script>
+    <script src="js/modalHoteleriaInfo.js"></script>
 
 </head>
 
@@ -172,9 +175,9 @@
                 </div>
             </div>
         </div>
-        <section id="linkAtractivos" class="boxAtractivos">
+        <section id="linkAtractivos" class="boxAtractivos" data-aos="zoom-in">
             <h3>Atractivos</h3>
-            <div class="cards-container" data-aos="zoom-in">
+            <div class="cards-container">
                 <div class="card card-1" data-idAtractivo="Plazas">
                     <div class="card-details overlay">
                         <p class="text-title">Plaza Principal de BuenaVista</p>
@@ -222,34 +225,16 @@
                 </div>
             </div>
             <!-- Botón para cargar más tarjetas -->
-            <button id="load-more" data-aos="zoom-in" class="btn">Mostrar más <i
-                    class="fa-solid fa-chevron-down"></i></button>
+            <button id="load-more" class="btn">Mostrar más <i class="fa-solid fa-chevron-down"></i></button>
         </section>
         <!-- Fin Sección Atractivos -->
 
         <!-- ================================================================================================================= -->
 
         <!--  Sección Artesanias -->
-        <div id="modalArtesania" class="modalArtesania">
-            <div class="modalArtesania-content">
-                <div class="modalArtesania-inner">
-                    <span id="modalArtesania-close" class="close">&times;</span>
-                    <h2 id="modalArtesania-title">Título de la artesanía</h2>
-                    <p id="modalArtesania-description">Descripción larga de la artesanía...</p>
-
-                    <div id="modalArtesania-images" class="modalArtesania-images">
-                        <!-- Las imágenes se inyectan aquí con JS -->
-                    </div>
-
-                    <!-- <div class="modalArtesania-footer">
-                    </div> -->
-                </div>
-            </div>
-        </div>
-
-        <section id="linkArtesanias" class="boxArtesanias">
+        <section id="linkArtesanias" class="boxArtesanias" data-aos="zoom-in">
             <h3>Artesanías</h3>
-            <div class="swiper artesanias-swiper" data-aos="zoom-in">
+            <div class="swiper artesanias-swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide card card-1" data-idArtesania="JipiJapa">
                         <div class="card-details overlay">
@@ -267,12 +252,59 @@
                 <div class="swiper-button-prev"></div>
             </div>
         </section>
+        <div id="modalArtesania" class="modalArtesania">
+            <div class="modalArtesania-content">
+                <div class="modalArtesania-inner">
+                    <span id="modalArtesania-close" class="close">&times;</span>
+                    <h2 id="modalArtesania-title">Título de la artesanía</h2>
+                    <p id="modalArtesania-description">Descripción larga de la artesanía...</p>
 
+                    <div id="modalArtesania-images" class="modalArtesania-images">
+                        <!-- Las imágenes se inyectan aquí con JS -->
+                    </div>
+
+                    <!-- <div class="modalArtesania-footer">
+                    </div> -->
+                </div>
+            </div>
+        </div>
         <!-- Fin Sección Artesanias -->
         <!-- ================================================================================================================= -->
 
-        <!--  Sección Hotelerias -->
-        <section id="linkHotelerias" class="boxHotelerias" data-aos="zoom-in">
+        <!--  Sección Hoteleria -->
+        <section id="linkHoteleria" class="boxHoteleria" data-aos="zoom-in">
+            <h3>Hotelería</h3>
+            <div class="swiperHoteleria hoteleria-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide card card-1" data-idHoteleria="ElCafetal">
+                        <div class="card-details overlay">
+                            <p class="text-title">Hotel Hacienda El Cafetal</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide card card-2" data-idHoteleria="SantaMaria">
+                        <div class="card-details overlay">
+                            <p class="text-title">Hotel Santa María la Antigua</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+
+        <div id="modalHoteleria" class="modalHoteleria">
+            <div class="modal-content">
+                <div class="modal-inner">
+                    <span id="modalHoteleria-close" class="close">&times;</span>
+                    <h2 id="modalHoteleria-title">Título de la artesanía</h2>
+                    <p id="modalHoteleria-description">Descripción larga de la artesanía...</p>
+                    <div id="modalHoteleria-images" class="modalHoteleria-images"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <section id="linkHotelerias" class="boxHotelerias" data-aos="zoom-in">
             <h3>Hotelerias</h3>
             <div class="cards-container">
                 - Hotel Hacienda El Cafetal
@@ -295,7 +327,7 @@
                 <br>
                 - Cabaña La Quinta Maravilla
             </div>
-        </section>
+        </section> -->
         <!-- Fin Sección Hotelerias -->
 
         <!--  Sección Restaurantes -->
@@ -383,12 +415,13 @@
     <script src="libraries/aos/aos.js"></script> <!-- Si este es necesario, sino eliminar duplicado -->
 
     <!-- Swiper (para Artesanías) -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
 
     <!-- Scripts propios -->
     <script src="js/app.js"></script>
     <script src="js/loadCardsAtractivos.js"></script>
     <script src="js/modalAtractivosInfo.js"></script>
+    <!-- <script src="js/modalHoteleriaInfo.js"></script> -->
 
 
 </body>
