@@ -29,8 +29,7 @@
     position: relative;
     z-index: 2;
     /* Asegura que los elementos estén sobre el overlay */
-    background: none;
-    /* Quitamos el fondo blanco */
+    background: var(--white);
     padding: 60px 20px;
     text-align: center;
 }

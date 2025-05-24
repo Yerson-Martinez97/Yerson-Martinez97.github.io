@@ -1,20 +1,6 @@
 @font-face {
-    font-family: 'coffe';
-    src: url(../fonts/CoffeCake.ttf) format("truetype"); 
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'water';
-    src: url(../fonts/WaterLemon.ttf) format("truetype"); 
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'barber';
-    src: url(../fonts/BarberChop.otf) format("truetype"); 
+    font-family: 'icomoon';
+    src: url(../fonts/icomoon.ttf) format("truetype"); 
     font-weight: normal;
     font-style: normal;
 }

@@ -9,8 +9,11 @@
     <meta name="description" content="Landing Page">
     <title>Vive Buena Vista</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+    <link rel="stylesheet" href="libraries/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+
 
     <!-- Font Awesome (solo uno, elegir la versión que prefieras) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -18,7 +21,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+    <link href="libraries/aos/aos.css" rel="stylesheet">
+
 
     <!-- GLightbox CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
@@ -27,30 +32,32 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- Icomoon Icons -->
-    <link rel="stylesheet" type="text/css" href="icons/icomoon.css">
+    <!-- <link rel="stylesheet" type="text/css" href="icons/icomoon.css"> -->
 
     <!-- Fuentes propias -->
-    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/fonts.min.css">
 
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/estilos.min.css">
+    <link rel="stylesheet" href="css/header.min.css">
     <link rel="stylesheet" href="css/comollegar.css">
     <link rel="stylesheet" href="css/atractivos.css">
     <link rel="stylesheet" href="css/artesanias.css">
-    <!-- <link rel="stylesheet" href="css/hoteleria.css"> -->
+    <link rel="stylesheet" href="css/hoteleria.css">
     <!-- <link rel="stylesheet" href="css/restaurante.css"> -->
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/extra.css">
 
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
     <!-- Tus scripts que usan estas librerías -->
-    <script src="js/swiperArtesanias.js"></script>
+    <script src="js/swiperArtesanias.min.js"></script>
     <script src="js/modalArtesaniasInfo.js"></script>
+
     <script src="js/swiperAtractivos.js"></script>
     <script src="js/modalAtractivosInfo.js"></script>
+
+    <script src="js/modalHoteleriaInfo.js"></script>
     <!-- <script src="js/swiperHoteleria.js"></script> -->
     <!-- <script src="js/modalHoteleriaInfo.js"></script> -->
 
@@ -82,7 +89,7 @@
                         <a class="nav-link scroll" href="#linkArtesanias">Artesanías</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link scroll" href="#linkHotelerias">Hotelería</a>
+                        <a class="nav-link scroll" href="#linkHoteleria">Hotelería</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link scroll" href="#linkRestaurantes">Restaurante</a>
@@ -281,37 +288,84 @@
         <!-- ================================================================================================================= -->
 
         <!--  Sección Hoteleria -->
-        <section id="linkHoteleria" class="boxHoteleria" data-aos="zoom-in">
+        <section id="linkHoteleria" class="boxHoteleria" data-aos="zoom-idn">
             <h3>Hotelería</h3>
 
-            <!-- Select para filtrar -->
-            <select id="filterSelect" onchange="filterCards()">
-                <option value="all">Todos</option>
-                <option value="alejados">Alejados de Buena Vista</option>
-                <option value="cerca">Cerca de la Plaza</option>
-                <option value="cabalas">Cabalas</option>
-            </select>
+            <!-- Botones para filtrar -->
+            <div class="filter-buttons">
+                <button class="active" onclick="filterCards('all')" data-filter="all">Todos</button>
+                <button onclick="filterCards('alejados')" data-filter="alejados">Alejados</button>
+                <button onclick="filterCards('cercano')" data-filter="cercano">Cerca de la Plaza</button>
+                <button onclick="filterCards('cabañas')" data-filter="cabañas">Cabañas</button>
+            </div>
+
 
             <!-- Cards -->
             <div class="cards">
-                <div class="card" data-category="alejados">
-                    <h4>Alejados de Buena Vista</h4>
-                    <p>Descripción del hotel 1...</p>
+                <div class="card card-1" data-category="alejados">
+                    <div class="card-overlay">
+                        <h4>Hotel Hacienda El Cafetal</h4>
+                        <p>Descripción del hotel...</p>
+                    </div>
                 </div>
-                <div class="card" data-category="cerca">
-                    <h4>Cerca de la Plaza</h4>
-                    <p>Descripción del hotel 2...</p>
+                <div class="card card-2" data-category="alejados">
+                    <div class="card-overlay">
+                        <h4>Hotel Santa María la Antigua</h4>
+                        <p>Descripción del hotel...</p>
+                    </div>
                 </div>
-                <div class="card" data-category="cabalas">
-                    <h4>Cabala</h4>
-                    <p>Descripción del hotel 3...</p>
+                <div class="card card-3" data-category="cercano">
+                    <div class="card-overlay">
+                        <h4>La Pascanita Hostal</h4>
+                        <p>Descripción del hotel...</p>
+                    </div>
                 </div>
-                <div class="card" data-category="alejados">
-                    <h4>Alejados de Buena Vista</h4>
-                    <p>Descripción del hotel 4...</p>
+                <div class="card card-4" data-category="cercano">
+                    <div class="card-overlay">
+                        <h4>Bosque de Ángeles</h4>
+                        <p>Descripción del hotel...</p>
+                    </div>
+                </div>
+                <div class="card card-5" data-category="cercano">
+                    <div class="card-overlay">
+                        <h4>Hotel posada El Carmen</h4>
+                        <p>Descripción del hotel...</p>
+                    </div>
+                </div>
+                <div class="card card-6" data-category="cercano">
+                    <div class="card-overlay">
+                        <h4>Hostal El Jardín de Margarita</h4>
+                        <p>Descripción del hotel...</p>
+                    </div>
+                </div>
+                <div class="card card-7" data-category="cercano">
+                    <div class="card-overlay">
+                        <h4>Hostal Buena Vista</h4>
+                        <p>Descripción del hotel...</p>
+                    </div>
+                </div>
+                <div class="card card-8" data-category="cabañas">
+                    <div class="card-overlay">
+                        <h4>Cabañas Talavera</h4>
+                        <p>Descripción del hotel...</p>
+                    </div>
+                </div>
+                <div class="card card-9" data-category="cabañas">
+                    <div class="card-overlay">
+                        <h4>Pozazul cabañas & camping</h4>
+                        <p>Descripción del hotel...</p>
+                    </div>
+                </div>
+                <div class="card card-10" data-category="cabañas">
+                    <div class="card-overlay">
+                        <h4>Cabaña La Quinta Maravilla</h4>
+                        <p>Descripción del hotel...</p>
+                    </div>
                 </div>
             </div>
         </section>
+
+
 
 
         <div id="modalHoteleria" class="modalHoteleria">
@@ -392,22 +446,24 @@
     </script>
 
     <!-- Librerías de terceros -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        crossorigin="anonymous"></script> -->
+    <script src="libraries/jquery/jquery-3.3.1.slim.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        crossorigin="anonymous"></script> -->
+    <script src="libraries/poppers/popper.min.js"></script>
+
+
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
 
     <!-- AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="libraries/aos/aos.js"></script> <!-- Si este es necesario, sino eliminar duplicado -->
-
-    <!-- Swiper (para Artesanías) -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+    <script src="libraries/aos/aos.js"></script>
+    <script src="libraries/aos/config.js"></script>
 
     <!-- Scripts propios -->
     <script src="js/app.js"></script>

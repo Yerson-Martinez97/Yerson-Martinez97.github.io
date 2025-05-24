@@ -14,6 +14,10 @@
     --stone-gray: #A9A9A9;
 }
 
+.primary {
+    color: var(--primary) !important;
+}
+
 *,
 ::after,
 ::before {
@@ -28,7 +32,7 @@ body {
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'icomoon', 'Open Sans', sans-serif;
     font-size: 14px;
 }
 
@@ -109,159 +113,6 @@ p {
     }
 }
 
-/* ESTILOS NAVBAR */
-.navbar {
-    box-shadow: 0 2px 2px -2px #dcdcdc;
-}
-
-.navbar-brand {
-    display: none;
-}
-
-.navbar-brand small {
-    color: var(--primary);
-}
-
-.nav-link:hover {
-    border-bottom: 2px solid var(--primary);
-}
-
-.navbar-toggler {
-    border: none;
-}
-
-.navbar-light .navbar-toggler {
-    color: rgba(0, 0, 0, 1);
-}
-
-.bg-light {
-    background-color: #ffffff !important;
-}
-
-
-/* MEDIA QUERIES */
-@media screen and (max-width:800px) {
-
-    /* ESTILOS NAVBAR */
-    .navbar-brand {
-        display: block;
-    }
-
-    .nav-link:hover {
-        border-bottom: none;
-    }
-
-    .nav-item {
-        text-align: center;
-    }
-
-    .current {
-        border-bottom: 2px solid #f5f5f5;
-    }
-
-    /* ESTILOS HEADER */
-    /* header {
-        height: auto;
-    }
-
-    .boxHeader {
-        flex-wrap: wrap;
-        height: 900px;
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .boxHeader .textosHeader {
-        width: 90%;
-        margin-bottom: 100px;
-        text-align: left;
-        left: 0;
-        margin: 0 auto;
-    }
-
-    .boxHeader h1 {
-        font-size: 40px;
-    }
-
-    .boxHeader .textosHeader h1 {
-        width: 100%;
-    }
-
-    .boxHeader .textosHeader p {
-        width: 100%;
-        margin: 0 auto;
-        text-align: left;
-    }
-
-    .boxHeader .imgHeader {
-        width: 100%;
-        top: -40px;
-        right: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .imgHeader img {
-        width: 95%;
-    } */
-
-    /* ESTILOS FOOTER */
-    /* .boxContacto {
-        height: 100%;
-    } */
-}
-
-@media screen and (max-width:400px) {
-    .current {
-        border-bottom: 2px solid #f5f5f5;
-    }
-
-    h3 {
-        font-size: 25px;
-    }
-
-    /* ESTILOS NAVBAR */
-    .navbar-brand {
-        display: block;
-    }
-
-    .nav-link:hover {
-        border-bottom: none;
-    }
-
-    .nav-item {
-        text-align: center;
-    }
-
-    /* ESTILOS HEADER */
-    /* .boxHeader {
-        height: 700px;
-    }
-
-    .boxHeader .textosHeader {
-        width: 90%;
-    }
-
-    .boxHeader h1 {
-        font-size: 25px;
-    }
-
-    .boxHeader h2 {
-        font-size: 20px;
-        font-weight: 300;
-    } */
-
-    /* ESTILOS FOOTER */
-    footer {
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-}
 
 .boxComoLlegar, .boxAtractivos, .boxArtesanias, .boxHotelerias, .boxRestaurantes, .boxFerias {
     padding: 80px 20px;
