@@ -293,77 +293,75 @@
 
             <!-- Botones para filtrar -->
             <div class="filter-buttons">
-                <button class="active" onclick="filterCards('all')" data-filter="all">Todos</button>
+                <button onclick="filterCards('all')" data-filter="all">Todos</button>
                 <button onclick="filterCards('alejados')" data-filter="alejados">Alejados</button>
                 <button onclick="filterCards('cercano')" data-filter="cercano">Cerca de la Plaza</button>
                 <button onclick="filterCards('cabañas')" data-filter="cabañas">Cabañas</button>
             </div>
 
-
             <!-- Cards -->
             <div class="cards">
-                <div class="card card-1" data-category="alejados">
+                <div class="card card-1" data-category="alejados" data-index="0">
                     <div class="card-overlay">
                         <h4>Hotel Hacienda El Cafetal</h4>
-                        <p>Descripción del hotel...</p>
                     </div>
                 </div>
-                <div class="card card-2" data-category="alejados">
+                <div class="card card-2" data-category="alejados" data-index="1">
                     <div class="card-overlay">
                         <h4>Hotel Santa María la Antigua</h4>
-                        <p>Descripción del hotel...</p>
                     </div>
                 </div>
-                <div class="card card-3" data-category="cercano">
+                <div class="card card-3" data-category="cercano" data-index="2">
                     <div class="card-overlay">
                         <h4>La Pascanita Hostal</h4>
-                        <p>Descripción del hotel...</p>
                     </div>
                 </div>
-                <div class="card card-4" data-category="cercano">
+                <div class="card card-4" data-category="cercano" data-index="3">
                     <div class="card-overlay">
                         <h4>Bosque de Ángeles</h4>
-                        <p>Descripción del hotel...</p>
                     </div>
                 </div>
-                <div class="card card-5" data-category="cercano">
+                <div class="card card-5" data-category="cercano" data-index="4">
                     <div class="card-overlay">
                         <h4>Hotel posada El Carmen</h4>
-                        <p>Descripción del hotel...</p>
                     </div>
                 </div>
-                <div class="card card-6" data-category="cercano">
+                <div class="card card-6" data-category="cercano" data-index="5">
                     <div class="card-overlay">
                         <h4>Hostal El Jardín de Margarita</h4>
-                        <p>Descripción del hotel...</p>
                     </div>
                 </div>
-                <div class="card card-7" data-category="cercano">
+                <div class="card card-7" data-category="cercano" data-index="6">
                     <div class="card-overlay">
                         <h4>Hostal Buena Vista</h4>
-                        <p>Descripción del hotel...</p>
                     </div>
                 </div>
-                <div class="card card-8" data-category="cabañas">
+                <div class="card card-8" data-category="cabañas" data-index="7">
                     <div class="card-overlay">
                         <h4>Cabañas Talavera</h4>
-                        <p>Descripción del hotel...</p>
                     </div>
                 </div>
-                <div class="card card-9" data-category="cabañas">
+                <div class="card card-9" data-category="cabañas" data-index="8">
                     <div class="card-overlay">
                         <h4>Pozazul cabañas & camping</h4>
-                        <p>Descripción del hotel...</p>
                     </div>
                 </div>
-                <div class="card card-10" data-category="cabañas">
+                <div class="card card-10" data-category="cabañas" data-index="9">
                     <div class="card-overlay">
                         <h4>Cabaña La Quinta Maravilla</h4>
-                        <p>Descripción del hotel...</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Botones "Ver más" y "Mostrar menos" -->
+            <a href="#" id="ver-mas" class="btn-more" onclick="loadMoreCards(event)">
+                <i class="fa-solid fa-chevron-down"></i> Ver más
+            </a>
+            <a href="#" id="ver-menos" class="btn-less" onclick="showLessCards(event)" style="display: none;">
+                <i class="fa-solid fa-chevron-up"></i> Mostrar menos
+            </a>
         </section>
+
 
 
 
