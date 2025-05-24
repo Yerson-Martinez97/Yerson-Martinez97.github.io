@@ -6,12 +6,12 @@
 }
 
 .boxArtesanias h3 {
-    display: block;
-    width: 100%;
-    font-size: 30px;
+    font-size: 2.2rem;
     text-align: center;
     margin-bottom: 20px;
-    font-weight: bold;
+    color: var(--dark);
+    position: relative;
+    z-index: 3;
 }
 
 .boxArtesanias .cards-container {
@@ -33,19 +33,6 @@
     }
 }
 
-.boxArtesanias .card {
-    /* width: 190px; */
-    margin: 1rem 0;
-    height: 254px;
-    border-radius: .5rem;
-    background: #f5f5f5;
-    position: relative;
-    padding: 1.8rem;
-    border: 2px solid #c3c6ce;
-    transition: 0.5s ease-out;
-    overflow: visible;
-}
-
 .boxArtesanias .card-details {
     color: black;
     height: 100%;
@@ -56,38 +43,32 @@
     z-index: 1;
 }
 
-.boxArtesanias .card-button {
-    transform: translate(-50%, 125%);
-    width: 60%;
-    border-radius: 1rem;
-    border: none;
-    background-color: var(--primary);
-    color: #fff;
-    font-size: 1rem;
-    padding: .5rem 1rem;
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    opacity: 0;
-    transition: 0.3s ease-out;
-}
-
-.boxArtesanias .text-body {
-    color: rgb(230, 230, 230);
-    /* Cambiar a un tono claro si está sobre fondo oscuro */
-    position: relative;
-    z-index: 1;
-}
-
 /*Text*/
 .boxArtesanias .text-title {
     font-size: 1.8em;
     font-weight: bold;
     color: white;
     text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
-    /* Asegúrate de que el título también se vea bien */
     position: relative;
     z-index: 1;
+}
+
+.boxArtesanias .card {
+    margin: 1rem 0;
+    border-radius: .5rem;
+    background: #f5f5f5;
+    position: relative;
+    padding: 1.8rem;
+    border: 2px solid #c3c6ce;
+    transition: 0.5s ease-out;
+    height: 100%;
+    /* Se adapta al alto del swiper-slide */
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 /*Hover*/
@@ -98,27 +79,6 @@
 .boxArtesanias .card:hover .card-button {
     transform: translate(-50%, 50%);
     opacity: 1;
-}
-
-.boxArtesanias .card {
-    position: relative;
-    overflow: hidden;
-    margin: 1rem 0;
-    height: 254px;
-    border-radius: .5rem;
-    background: #f5f5f5;
-    padding: 1.8rem;
-    border: 2px solid #c3c6ce;
-    transition: 0.5s ease-out;
-    cursor: pointer;
-}
-
-.boxArtesanias .card {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    cursor: pointer;
 }
 
 /* Imagen de fondo con overlay oscuro */
@@ -225,17 +185,11 @@
     /* Estira la card a toda la altura */
 }
 
-/* Ya tienes este estilo, solo refuérzalo sin romper nada */
-.boxArtesanias .card {
-    height: 100%;
-    /* Se adapta al alto del swiper-slide */
-    width: 100%;
-}
 
 /* ============================================================================================= */
 /* ============================================================================================= */
 /* ============================================================================================= */
-/* Estilos para el Modal */
+/* Modal */
 .modalArtesania {
     display: none;
     position: fixed;
@@ -246,7 +200,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     overflow-y: auto;
-    padding: 60px 20px;
+    /* padding: 60px 20px; */
     animation: fadeIn 0.4s ease-in-out;
 }
 
@@ -265,27 +219,27 @@
     position: relative;
     background-color: #fff;
     margin: auto;
-    padding: 20px;
+    padding: 20px 50px;
     border-radius: 8px;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.modalArtesania .modalArtesania-inner {
+.modalArtesania .modal-inner {
     padding: 0;
     width: 100%;
     box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
-    .modalArtesania .modalArtesania-inner {
+    .modalArtesania .modal-inner {
         padding: 0;
     }
 }
 
 @media (max-width: 600px) {
-    .modalArtesania .modalArtesania-inner {
+    .modalArtesania .modal-inner {
         padding: 0;
     }
 }
@@ -302,7 +256,7 @@
 }
 
 .modalArtesania #modalArtesania-description {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 1.6;
     text-align: justify;
     margin-bottom: 20px;
@@ -318,44 +272,39 @@
     margin-bottom: 20px;
 }
 
+/* Imagen de las imágenes del modal */
 .modalArtesania .modalArtesania-images img {
     width: 100%;
     max-width: 300px;
     aspect-ratio: 16 / 10;
-    /* Establece una relación de aspecto uniforme */
-    border-radius: 8px;
+    border-radius: 0px;
     object-fit: cover;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     height: auto;
-    /* Importante: dejar que el alto lo determine el aspect-ratio */
+    transition: filter 0.3s ease;
+    /* Transición suave */
+    filter: brightness(1);
 }
 
-
-/* Botón de mapa */
-.modalArtesania .btn {
-    display: block;
-    width: 200px;
-    margin: 0 auto;
-    padding: 12px 24px;
-    border: 2px solid var(--tertiary);
-    background-color: var(--tertiary);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: center;
-    transition: all 0.3s ease;
+/* Hover sobre las imágenes dentro del modal */
+.modalArtesania .modalArtesania-images img:hover {
+    filter: brightness(.9);
 }
 
-.modalArtesania .btn:hover {
-    background-color: var(--tertiary-dark);
-    color: #fff;
+@media (max-width: 720px) {
+    .modalArtesania .modalArtesania-images img {
+        max-width: 100%;
+        /* Se ajusta el ancho para que ocupe todo el disponible */
+        aspect-ratio: 16 / 10;
+        /* Permite que la imagen se ajuste sin distorsión */
+        height: auto;
+        /* Asegura que la altura se ajuste automáticamente */
+    }
 }
 
 /* ============================================================================================= */
 /* Botón de cierre */
-.close {
+.modalArtesania .close {
     color: #333;
     position: absolute;
     top: 15px;
@@ -367,16 +316,8 @@
     transition: color 0.3s;
 }
 
-.close:hover,
-.close:focus {
+.modalArtesania .close:hover,
+.modalArtesania .close:focus {
     color: #000;
     text-decoration: none;
-}
-
-/* Footer del modal */
-.modalArtesania-footer {
-    border: none;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
 }

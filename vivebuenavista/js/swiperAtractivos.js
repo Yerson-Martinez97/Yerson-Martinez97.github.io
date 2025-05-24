@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var swiperArtesanias = new Swiper(
-    ".boxArtesanias .swiper.artesanias-swiper",
+  var swiperAtractivos = new Swiper(
+    ".boxAtractivos .swiper.atractivos-swiper",
     {
       spaceBetween: 30,
       centeredSlides: true,
       loop: true,
-      effect: "fade",
+      effect: "slide",
       autoplay: {
-        delay: 5000,
+        delay: 3000,
         disableOnInteraction: false,
       },
       pagination: {
@@ -25,21 +25,21 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   // Selector del modal
-  var modalArtesania = document.querySelector(".modalArtesania");
+  var modalAtractivo = document.querySelector(".modalAtractivo");
 
   // Función para verificar si el modal está visible
   function checkModalVisibility() {
-    var style = window.getComputedStyle(modalArtesania);
+    var style = window.getComputedStyle(modalAtractivo);
     if (style.display === "flex") {
-      swiperArtesanias.autoplay.stop(); // Detener el autoplay si el modal está visible
+      swiperAtractivos.autoplay.stop(); // Detener el autoplay si el modal está visible
     } else {
-      swiperArtesanias.autoplay.start(); // Reiniciar el autoplay si el modal NO está visible
+      swiperAtractivos.autoplay.start(); // Reiniciar el autoplay si el modal NO está visible
     }
   }
 
   if ("MutationObserver" in window) {
     var observer = new MutationObserver(checkModalVisibility);
-    observer.observe(modalArtesania, {
+    observer.observe(modalAtractivo, {
       attributes: true,
       attributeFilter: ["style"],
     });

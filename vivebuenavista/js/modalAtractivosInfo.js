@@ -1,185 +1,103 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Cargar el archivo JSON y setup modal (igual que antes)
+document.addEventListener("DOMContentLoaded", () => {
   fetch("json/AtractivosInfo.json")
-    .then((response) => response.json())
+    .then((res) => res.json())
     .then((data) => {
-      const cards = document.querySelectorAll(".card");
-      cards.forEach((card) => {
-        card.addEventListener("click", function () {
-          const idAtractivo = this.getAttribute("data-idAtractivo");
-          const atractivo = data[idAtractivo];
+      document
+        .querySelectorAll(".swiper.atractivos-swiper .swiper-slide.card")
+        .forEach((card) => {
+          card.addEventListener("click", function () {
+            const idAtractivo = this.getAttribute("data-idAtractivo");
+            const atractivo = data[idAtractivo];
 
-          if (atractivo) {
-            if (Array.isArray(atractivo)) {
-              let contenidoHTML = "";
-              atractivo.forEach((item) => {
-                contenidoHTML += `
-                  <div class="mural-item">
-                    <h3>${item.titulo}</h3>
-                    <p>${item.descripcion || "Sin descripción disponible."}</p>
-                    ${item.imagenes
-                      ?.map(
-                        (src) => `<img src="${src}" alt="${item.titulo}" />`
-                      )
-                      .join("")}
-                    <a href="${
-                      item.location
-                    }" target="_blank" class="btn btn-map">Ver en mapa</a>
-                    <hr>
-                  </div>
-                `;
-              });
-              openModal("Murales", contenidoHTML, [], null, true);
+            if (atractivo) {
+              openModalAtractivo(
+                atractivo.title || "Sin título",
+                atractivo.description || "Sin descripción",
+                atractivo.images || [],
+                atractivo.location || ""
+              );
             } else {
-              openModal(
-                atractivo.titulo,
-                atractivo.descripcion,
-                atractivo.imagenes,
-                atractivo.location
+              openModalAtractivo(
+                "Información no disponible",
+                "No se encontró información para esta artesanía.",
+                [],
+                null
               );
             }
-          }
+          });
         });
-      });
 
-      const closeModalButton = document.getElementById("modal-close");
-      closeModalButton.addEventListener("click", closeModal);
+      document
+        .getElementById("modalAtractivo-close")
+        .addEventListener("click", closeModalAtractivo);
 
-      window.addEventListener("click", function (event) {
-        if (event.target === document.getElementById("modal")) {
-          closeModal();
+      window.addEventListener("click", (e) => {
+        if (e.target === document.getElementById("modalAtractivo")) {
+          closeModalAtractivo();
         }
       });
     })
     .catch((error) => {
-      console.error("Error al cargar el archivo JSON:", error);
+      console.error("Error al cargar el JSON:", error);
     });
-
-  // Lógica para mostrar tarjetas con animación
-  const cardsContainer = document.getElementById("linkAtractivos");
-  const allCards = Array.from(
-    cardsContainer.querySelectorAll(".cards-container .card")
-  );
-
-  const loadMoreBtn = document.getElementById("load-more");
-
-  const initialVisibleCount = 2;
-  const loadMoreCount = 3;
-  let currentIndex = initialVisibleCount;
-  const totalCards = allCards.length;
-
-  function showCards() {
-    allCards.forEach((card, index) => {
-      if (index < currentIndex) {
-        if (card.classList.contains("hidden")) {
-          card.classList.remove("hidden");
-          card.classList.add("zoom-in");
-          card.addEventListener(
-            "animationend",
-            () => {
-              card.classList.remove("zoom-in");
-            },
-            { once: true }
-          );
-        }
-      } else {
-        if (!card.classList.contains("hidden")) {
-          card.classList.add("zoom-out");
-          card.addEventListener(
-            "animationend",
-            () => {
-              card.classList.remove("zoom-out");
-              card.classList.add("hidden");
-            },
-            { once: true }
-          );
-        }
-      }
-    });
-    updateLoadMoreButton();
-  }
-
-  function updateLoadMoreButton() {
-    if (currentIndex >= totalCards) {
-      loadMoreBtn.innerHTML =
-        "Mostrar menos <br> <i class='fa-solid fa-chevron-up'></i>";
-    } else {
-      loadMoreBtn.innerHTML =
-        "Mostrar más <br> <i class='fa-solid fa-chevron-down'></i>";
-    }
-  }
-
-  loadMoreBtn.addEventListener("click", function () {
-    if (currentIndex >= totalCards) {
-      currentIndex = initialVisibleCount; // reset
-    } else {
-      currentIndex += loadMoreCount;
-      if (currentIndex > totalCards) currentIndex = totalCards;
-    }
-    showCards();
-  });
-
-  // Mostrar inicialmente las primeras tarjetas sin animación
-  allCards.forEach((card, i) => {
-    if (i < currentIndex) card.classList.remove("hidden");
-    else card.classList.add("hidden");
-  });
-  updateLoadMoreButton();
 });
 
-// Funciones modal (igual que antes)
-function openModal(title, description, images, location) {
-  document.body.style.overflow = "hidden";
-  const modal = document.getElementById("modal");
-  const modalTitle = document.getElementById("modal-title");
-  const modalDescription = document.getElementById("modal-description");
-  const modalImages = document.getElementById("modal-images");
-  const modalBtnMap = document.getElementById("modal-btnMap");
+// Variable global para controlar GLightbox
+let atractivoLightbox = null;
 
-  modalTitle.innerText = title;
-  modalDescription.innerHTML = description;
+// Función para abrir el modal
+function openModalAtractivo(title, description, images, location) {
+  document.body.style.overflow = "hidden";
+
+  const modalAtractivo = document.getElementById("modalAtractivo");
+  const modalAtractivoTitle = document.getElementById("modalAtractivo-title");
+  const modalAtractivoDescription = document.getElementById(
+    "modalAtractivo-description"
+  );
+  const modalAtractivoImages = document.getElementById("modalAtractivo-images");
+  const modalAtractivoBtnMap = document.getElementById("modalAtractivo-btnMap");
+
+  modalAtractivoTitle.innerText = title;
+  modalAtractivoDescription.innerText = description;
+  modalAtractivoImages.innerHTML = "";
 
   if (location) {
-    modalBtnMap.href = location;
-    modalBtnMap.style.display = "inline-block";
+    modalAtractivoBtnMap.href = location;
   } else {
-    modalBtnMap.style.display = "none";
+    modalAtractivoBtnMap.style.display = "none";
   }
 
-  modalImages.innerHTML = "";
+  if (atractivoLightbox) atractivoLightbox.destroy();
 
-  let lightbox = null;
-
-  if (images && images.length > 0) {
-    images.forEach((imageSrc) => {
+  if (Array.isArray(images) && images.length > 0) {
+    images.forEach((src) => {
       const a = document.createElement("a");
-      a.href = imageSrc;
-      a.classList.add("glightbox");
-      a.setAttribute("data-gallery", "galeria");
+      a.href = src;
+      a.classList.add("glightbox-atractivo");
+      a.setAttribute("data", "galeria-atractivo");
 
       const img = document.createElement("img");
-      img.src = imageSrc;
-      img.classList.add("modal-image");
+      img.src = src;
+      img.alt = title;
+      img.classList.add("modalAtractivo-image");
 
       a.appendChild(img);
-      modalImages.appendChild(a);
+      modalAtractivoImages.appendChild(a);
     });
 
-    if (lightbox) lightbox.destroy();
-
-    lightbox = GLightbox({
-      selector: ".glightbox",
+    atractivoLightbox = GLightbox({
+      selector: ".glightbox-atractivo",
       touchNavigation: true,
       loop: true,
       zoomable: true,
     });
   }
-
-  modal.style.display = "block";
+  modalAtractivo.style.display = "flex";
 }
 
-function closeModal() {
+// Función para cerrar el modal
+function closeModalAtractivo() {
   document.body.style.overflow = "auto";
-  const modal = document.getElementById("modal");
-  modal.style.display = "none";
+  const modalAtractivo = document.getElementById("modalAtractivo");
+  modalAtractivo.style.display = "none";
 }

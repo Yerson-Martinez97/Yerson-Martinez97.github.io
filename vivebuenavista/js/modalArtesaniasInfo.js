@@ -2,35 +2,37 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("json/ArtesaniasInfo.json")
     .then((res) => res.json())
     .then((data) => {
-      document.querySelectorAll(".swiper .swiper-slide.card").forEach((card) => {
-        card.addEventListener("click", function () {
-          const idArtesania = this.getAttribute("data-idArtesania");
-          const artesania = data[idArtesania];
+      document
+        .querySelectorAll(".swiper.artesanias-swiper .swiper-slide.card")
+        .forEach((card) => {
+          card.addEventListener("click", function () {
+            const idArtesania = this.getAttribute("data-idArtesania");
+            const artesania = data[idArtesania];
 
-          if (artesania) {
-            openModal(
-              artesania.titulo || "Sin título",
-              artesania.descripcion || "Sin descripción",
-              artesania.imagenes || []
-            );
-          } else {
-            openModal(
-              "Información no disponible",
-              "No se encontró información para esta artesanía.",
-              [],
-              null
-            );
-          }
+            if (artesania) {
+              openModalArtesania(
+                artesania.title || "Sin título",
+                artesania.description || "Sin descripción",
+                artesania.images || []
+              );
+            } else {
+              openModalArtesania(
+                "Información no disponible",
+                "No se encontró información para esta artesanía.",
+                [],
+                null
+              );
+            }
+          });
         });
-      });
 
       document
         .getElementById("modalArtesania-close")
-        .addEventListener("click", closeModal);
+        .addEventListener("click", closeModalArtesania);
 
       window.addEventListener("click", (e) => {
         if (e.target === document.getElementById("modalArtesania")) {
-          closeModal();
+          closeModalArtesania();
         }
       });
     })
@@ -43,19 +45,19 @@ document.addEventListener("DOMContentLoaded", () => {
 let artesaniaLightbox = null;
 
 // Función para abrir el modal
-function openModal(title, description, images) {
+function openModalArtesania(title, description, images) {
   document.body.style.overflow = "hidden";
 
-  const modal = document.getElementById("modalArtesania");
-  const modalTitle = document.getElementById("modalArtesania-title");
-  const modalDescription = document.getElementById(
+  const modalArtesania = document.getElementById("modalArtesania");
+  const modalArtesaniaTitle = document.getElementById("modalArtesania-title");
+  const modalArtesaniaDescription = document.getElementById(
     "modalArtesania-description"
   );
-  const modalImages = document.getElementById("modalArtesania-images");
+  const modalArtesaniaImages = document.getElementById("modalArtesania-images");
 
-  modalTitle.innerText = title;
-  modalDescription.innerText = description;
-  modalImages.innerHTML = "";
+  modalArtesaniaTitle.innerText = title;
+  modalArtesaniaDescription.innerText = description;
+  modalArtesaniaImages.innerHTML = "";
 
   if (artesaniaLightbox) artesaniaLightbox.destroy();
 
@@ -72,7 +74,7 @@ function openModal(title, description, images) {
       img.classList.add("modalArtesania-image");
 
       a.appendChild(img);
-      modalImages.appendChild(a);
+      modalArtesaniaImages.appendChild(a);
     });
 
     artesaniaLightbox = GLightbox({
@@ -82,13 +84,12 @@ function openModal(title, description, images) {
       zoomable: true,
     });
   }
-
-  modal.style.display = "flex";
+  modalArtesania.style.display = "flex";
 }
 
 // Función para cerrar el modal
-function closeModal() {
+function closeModalArtesania() {
   document.body.style.overflow = "auto";
-  const modal = document.getElementById("modalArtesania");
-  modal.style.display = "none";
+  const modalArtesania = document.getElementById("modalArtesania");
+  modalArtesania.style.display = "none";
 }

@@ -37,20 +37,22 @@
     <link rel="stylesheet" href="css/comollegar.css">
     <link rel="stylesheet" href="css/atractivos.css">
     <link rel="stylesheet" href="css/artesanias.css">
-    <link rel="stylesheet" href="css/hoteleria.css">
-    <link rel="stylesheet" href="css/restaurante.css">
+    <!-- <link rel="stylesheet" href="css/hoteleria.css"> -->
+    <!-- <link rel="stylesheet" href="css/restaurante.css"> -->
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/extra.css">
 
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- Tus scripts que usan estas librerías -->
     <script src="js/swiperArtesanias.js"></script>
     <script src="js/modalArtesaniasInfo.js"></script>
-    <script src="js/swiperHoteleria.js"></script>
-    <script src="js/modalHoteleriaInfo.js"></script>
+    <script src="js/swiperAtractivos.js"></script>
+    <script src="js/modalAtractivosInfo.js"></script>
+    <!-- <script src="js/swiperHoteleria.js"></script> -->
+    <!-- <script src="js/modalHoteleriaInfo.js"></script> -->
 
 </head>
 
@@ -160,73 +162,83 @@
         <!-- Fin Sección Como Llegar -->
         <!-- ================================================================================================================= -->
         <!--  Sección Atractivos -->
-        <!-- Modal -->
-        <div id="modal" class="modal">
-            <div class="modal-content">
+        <section id="linkAtractivos" class="boxAtractivos">
+            <div data-aos="fade-up">
+                <h3>Atractivos</h3>
+                <div class="swiper atractivos-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide card card-1" data-idAtractivo="Plazas">
+                            <div class="card-details overlay">
+                                <p class="text-title">Plaza Principal de BuenaVista</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-2" data-idAtractivo="IglesiaSantosDesposorios">
+                            <div class="card-details overlay">
+                                <p class="text-title">Iglesia parroquial los santos desposorios de Buena Vista</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-3" data-idAtractivo="RioSurutu">
+                            <div class="card-details overlay">
+                                <p class="text-title">Río Surutú: Parque Nacional Amboró</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-4" data-idAtractivo="Parque">
+                            <div class="card-details overlay">
+                                <p class="text-title">El Parque Nacional Amboró</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-5" data-idAtractivo="Murales">
+                            <div class="card-details overlay">
+                                <p class="text-title">Murales de Buena Vista</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-6" data-idAtractivo="Mirador">
+                            <div class="card-details overlay">
+                                <p class="text-title">Mirador de Buena Vista</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-7" data-idAtractivo="RutaCafe">
+                            <div class="card-details overlay">
+                                <p class="text-title">Ruta del Café</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-8" data-idAtractivo="ArteCampo">
+                            <div class="card-details overlay">
+                                <p class="text-title">ArteCampo</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-9" data-idAtractivo="QueseriaSuiza">
+                            <div class="card-details overlay">
+                                <p class="text-title">Quesería</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <div id="modalAtractivo" class="modalAtractivo">
+            <div class="modalAtractivo-content">
                 <div class="modal-inner">
-                    <span id="modal-close" class="close">&times;</span>
-                    <h2 id="modal-title"></h2>
-                    <p id="modal-description"></p>
-                    <!-- <button class="btn">Ver Ruta</button> -->
-                    <div id="modal-images" class="modal-images"></div>
-                    <div class="modal-footer">
-                        <a id="modal-btnMap" class="btn" target="_blank" rel="noopener">Ver Ruta</a>
+                    <span id="modalAtractivo-close" class="close">&times;</span>
+                    <h2 id="modalAtractivo-title">Título del Atractivo</h2>
+                    <p id="modalAtractivo-description">Descripción larga del atractivo...</p>
+
+                    <!-- Las imágenes se inyectan aquí con JS -->
+                    <div id="modalAtractivo-images" class="modalAtractivo-images"></div>
+
+                    <!-- Botón de ruta (a Google Maps o similar) -->
+                    <div class="modalAtractivo-footer">
+                        <a href="https://www.google.com/maps" id="modalAtractivo-btnMap" class="btn-map"
+                            target="_blank">
+                            Ver Ruta
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <section id="linkAtractivos" class="boxAtractivos" data-aos="zoom-in">
-            <h3>Atractivos</h3>
-            <div class="cards-container">
-                <div class="card card-1" data-idAtractivo="Plazas">
-                    <div class="card-details overlay">
-                        <p class="text-title">Plaza Principal de BuenaVista</p>
-                    </div>
-                </div>
-                <div class="card card-2" data-idAtractivo="Iglesia parroquial los santos desposorios">
-                    <div class="card-details overlay">
-                        <p class="text-title">Iglesia parroquial los santos desposorios</p>
-                    </div>
-                </div>
-                <div class="card card-3" data-idAtractivo="Río Surutú">
-                    <div class="card-details overlay">
-                        <p class="text-title">Río Surutú</p>
-                    </div>
-                </div>
-                <div class="card card-4" data-idAtractivo="Parque Nacional Amboró">
-                    <div class="card-details overlay">
-                        <p class="text-title">Parque Nacional Amboró</p>
-                    </div>
-                </div>
-                <div class="card card-5 hidden" data-idAtractivo="Murales">
-                    <div class="card-details overlay">
-                        <p class="text-title">Murales</p>
-                    </div>
-                </div>
-                <div class="card card-6 hidden" data-idAtractivo="Mirador">
-                    <div class="card-details overlay">
-                        <p class="text-title">Mirador</p>
-                    </div>
-                </div>
-                <div class="card card-7 hidden" data-idAtractivo="RutaCafe">
-                    <div class="card-details overlay">
-                        <p class="text-title">Ruta del Café</p>
-                    </div>
-                </div>
-                <div class="card card-8 hidden" data-idAtractivo="ArteCampo">
-                    <div class="card-details overlay">
-                        <p class="text-title">ArteCampo</p>
-                    </div>
-                </div>
-                <div class="card card-9 hidden" data-idAtractivo="QueseriaSuiza">
-                    <div class="card-details overlay">
-                        <p class="text-title">Queseria Suiza</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Botón para cargar más tarjetas -->
-            <button id="load-more" class="btn">Mostrar más <i class="fa-solid fa-chevron-down"></i></button>
-        </section>
         <!-- Fin Sección Atractivos -->
 
         <!-- ================================================================================================================= -->
@@ -254,7 +266,7 @@
         </section>
         <div id="modalArtesania" class="modalArtesania">
             <div class="modalArtesania-content">
-                <div class="modalArtesania-inner">
+                <div class="modal-inner">
                     <span id="modalArtesania-close" class="close">&times;</span>
                     <h2 id="modalArtesania-title">Título de la artesanía</h2>
                     <p id="modalArtesania-description">Descripción larga de la artesanía...</p>
@@ -262,9 +274,6 @@
                     <div id="modalArtesania-images" class="modalArtesania-images">
                         <!-- Las imágenes se inyectan aquí con JS -->
                     </div>
-
-                    <!-- <div class="modalArtesania-footer">
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -274,36 +283,50 @@
         <!--  Sección Hoteleria -->
         <section id="linkHoteleria" class="boxHoteleria" data-aos="zoom-in">
             <h3>Hotelería</h3>
-            <div class="swiperHoteleria hoteleria-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide card card-1" data-idHoteleria="ElCafetal">
-                        <div class="card-details overlay">
-                            <p class="text-title">Hotel Hacienda El Cafetal</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide card card-2" data-idHoteleria="SantaMaria">
-                        <div class="card-details overlay">
-                            <p class="text-title">Hotel Santa María la Antigua</p>
-                        </div>
-                    </div>
+
+            <!-- Select para filtrar -->
+            <select id="filterSelect" onchange="filterCards()">
+                <option value="all">Todos</option>
+                <option value="alejados">Alejados de Buena Vista</option>
+                <option value="cerca">Cerca de la Plaza</option>
+                <option value="cabalas">Cabalas</option>
+            </select>
+
+            <!-- Cards -->
+            <div class="cards">
+                <div class="card" data-category="alejados">
+                    <h4>Alejados de Buena Vista</h4>
+                    <p>Descripción del hotel 1...</p>
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="card" data-category="cerca">
+                    <h4>Cerca de la Plaza</h4>
+                    <p>Descripción del hotel 2...</p>
+                </div>
+                <div class="card" data-category="cabalas">
+                    <h4>Cabala</h4>
+                    <p>Descripción del hotel 3...</p>
+                </div>
+                <div class="card" data-category="alejados">
+                    <h4>Alejados de Buena Vista</h4>
+                    <p>Descripción del hotel 4...</p>
+                </div>
             </div>
         </section>
 
+
         <div id="modalHoteleria" class="modalHoteleria">
-            <div class="modal-content">
+            <div class="modalHoteleria-content">
                 <div class="modal-inner">
                     <span id="modalHoteleria-close" class="close">&times;</span>
                     <h2 id="modalHoteleria-title">Título de la artesanía</h2>
                     <p id="modalHoteleria-description">Descripción larga de la artesanía...</p>
-                    <div id="modalHoteleria-images" class="modalHoteleria-images"></div>
+
+                    <div id="modalHoteleria-images" class="modalHoteleria-images">
+                        <!-- Las imágenes se inyectan aquí con JS -->
+                    </div>
                 </div>
             </div>
         </div>
-
         <!-- <section id="linkHotelerias" class="boxHotelerias" data-aos="zoom-in">
             <h3>Hotelerias</h3>
             <div class="cards-container">
@@ -334,38 +357,7 @@
         <section id="linkRestaurantes" class="boxRestaurantes" data-aos="fade-up">
             <h3>Restaurantes</h3>
             <div class="cards-container">
-                <!-- ESTE DIV ES IMPORTANTE -->
-                <div class="card">
-                    <div class="card__content">
-                        <p class="card__title">Restaurante "La Cunumisita"</p>
-                        <!-- <p class="card__description">
-                    Lorem ipsum dolor sit amet
-                </p> -->
-                    </div>
-                    <img src="images/restaurantes/01/image01.webp" alt="" class="card__image">
-                    <button class="card__button">Ver más</button>
-                </div>
-                <div class="card">
-                    <div class="card__content">
-                        <p class="card__title">Lisis Restaurante</p>
-                    </div>
-                    <img src="images/restaurantes/01/image01.webp" alt="" class="card__image">
-                    <button class="card__button">Ver más</button>
-                </div>
-                <div class="card">
-                    <div class="card__content">
-                        <p class="card__title">Quesería Suiza</p>
-                    </div>
-                    <img src="images/restaurantes/01/image01.webp" alt="" class="card__image">
-                    <button class="card__button">Ver más</button>
-                </div>
-                <div class="card">
-                    <div class="card__content">
-                        <p class="card__title">Bar Restaurante La Pascana De Los Tigres</p>
-                    </div>
-                    <img src="images/restaurantes/01/image01.webp" alt="" class="card__image">
-                    <button class="card__button">Ver más</button>
-                </div>
+
             </div>
         </section>
         <!-- Fin Sección Restaurantes -->
@@ -419,10 +411,8 @@
 
     <!-- Scripts propios -->
     <script src="js/app.js"></script>
-    <script src="js/loadCardsAtractivos.js"></script>
-    <script src="js/modalAtractivosInfo.js"></script>
-    <!-- <script src="js/modalHoteleriaInfo.js"></script> -->
-
+    <!-- <script src="js/loadCardsAtractivos.js"></script> -->
+    <!-- <script src="js/modalAtractivosInfo.js"></script> -->
 
 </body>
 

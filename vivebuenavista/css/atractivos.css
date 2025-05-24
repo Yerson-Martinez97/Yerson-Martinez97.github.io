@@ -1,62 +1,115 @@
-.boxAtractivos {
-    background: var(--white);
-    padding: 60px 20px;
-    text-align: center;
-
-    max-width: 1100px;
-    margin: 0 auto;
+#linkAtractivos {
+    /* Fondo con imagen y parallax */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('../images/atractivos/atractivos.webp') center/cover no-repeat fixed;
+    /* Gradiente encima de la imagen */
+    background-attachment: fixed; /* Efecto parallax */
+    position: relative;
+    z-index: 1;
+    padding: 50px 0; /* Agrega un poco de espacio alrededor del contenido */
 }
 
 
-.boxAtractivos h3 {
-    display: block;
+/* Overlay negro con transparencia, pero sin tapar el contenido */
+#linkAtractivos::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    font-size: 30px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    /* Color negro con transparencia */
+    z-index: -1;
+    /* Asegura que el overlay esté por debajo del contenido */
+}
+
+/* Estilo para el contenedor y el texto */
+.boxAtractivos {
+    position: relative;
+    z-index: 2;
+    /* Asegura que los elementos estén sobre el overlay */
+    background: none;
+    /* Quitamos el fondo blanco */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* Título dentro de .boxAtractivos */
+.boxAtractivos h3 {
+    /* font-size: 30px; */
+    font-size: 2.2rem;
     text-align: center;
     margin-bottom: 20px;
-    font-weight: bold;
+    /* font-weight: bold; */
+    color: var(--dark);
+    /* Color blanco para que se lea sobre el overlay */
+    position: relative;
+    z-index: 3;
+    /* Asegura que el título esté por encima del overlay */
+}
+
+/* Resto de los estilos para los elementos, como las cards */
+.boxAtractivos .swiper-slide {
+    z-index: 3;
+    /* Asegura que las cards estén sobre el overlay */
 }
 
 .boxAtractivos .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    /* Permite que las tarjetas se ajusten a nuevas filas */
-    justify-content: center;
-    /* Centra las tarjetas horizontalmente */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    /* Espacio entre las tarjetas */
     padding: 16px;
 }
 
-.boxAtractivos .card {
-    width: 320px; /* Establece un ancho fijo de 300px */
-    height: 254px; /* Si deseas mantener la altura constante */
-    border-radius: .5rem;
-    background: #f5f5f5;
-    position: relative;
-    margin: 1rem 0;
-    padding: 1.8rem;
-    border: 2px solid #c3c6ce;
-    transition: 0.5s ease-out;
-    overflow: hidden;
-    cursor: pointer;
-    background-size: cover;
-    background-position: center;
-}
-
-
 @media (max-width: 1024px) {
-    .boxAtractivos .card {
-        flex: 0 1 calc(50% - 16px);
-        /* 2 columnas en pantallas medianas */
+    .boxAtractivos .cards-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 600px) {
-    .boxAtractivos .card {
-        flex: 0 1 calc(100% - 16px);
-        /* 1 columna en pantallas pequeñas */
+    .boxAtractivos .cards-container {
+        grid-template-columns: 1fr;
     }
+}
+
+.boxAtractivos .card-details {
+    color: black;
+    height: 100%;
+    gap: .5em;
+    display: grid;
+    place-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+/*Text*/
+.boxAtractivos .text-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 1;
+}
+
+.boxAtractivos .card {
+    margin: 1rem 0;
+    border-radius: .5rem;
+    background: #f5f5f5;
+    position: relative;
+    padding: 1.8rem;
+    border: 2px solid #c3c6ce;
+    transition: 0.5s ease-out;
+    height: 100%;
+    /* Se adapta al alto del swiper-slide */
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 /*Hover*/
@@ -79,7 +132,6 @@
     height: 100%;
     z-index: 0;
     transition: transform 0.5s ease-out;
-    transform: scale(1.05);
 }
 
 .boxAtractivos .card.card-1::before {
@@ -109,7 +161,7 @@
 
 .boxAtractivos .card.card-6::before {
     background: linear-gradient(rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.4)), url('../images/atractivos/mirador/image02.webp') center/cover no-repeat;
+            rgba(0, 0, 0, 0.4)), url('../images/atractivos/mirador/image01.webp') center/cover no-repeat;
 }
 
 .boxAtractivos .card.card-7::before {
@@ -127,108 +179,114 @@
             rgba(0, 0, 0, 0.4)), url('../images/atractivos/queseria/image01.webp') center/cover no-repeat;
 }
 
-.boxAtractivos .card.hidden {
-    display: none;
-}
-
 .boxAtractivos .card:hover::before {
-    transform: scale(1);
+    transform: scale(1.05);
 }
 
-.boxAtractivos .card-details {
-    color: black;
-    height: 100%;
-    gap: .5em;
-    display: grid;
-    place-content: center;
+.boxAtractivos .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    /* Overlay oscuro */
+    z-index: 0;
+    transition: transform 0.5s ease-out;
+}
+
+.boxAtractivos .card:hover::after {
+    transform: scale(1.05);
+}
+
+/* Asegurar que el contenido esté sobre la imagen */
+.boxAtractivos .card-details,
+.boxAtractivos .card-button {
     position: relative;
     z-index: 1;
 }
 
+@media (max-width: 530px) {
+    .boxAtractivos .card {
+        min-height: 200px;
+    }
+}
 
-/*Text*/
-.boxAtractivos .text-title {
-    font-size: 1.5em;
-    font-weight: bold;
+/* Estilos responsivos para Swiper sin romper el diseño actual */
+.atractivos-swiper {
+    height: 500px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.atractivos-swiper .swiper-button-next, .atractivos-swiper .swiper-button-prev {
     color: var(--white);
-    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
-    /* background-color: var(--white); */
-    position: relative;
-    border-radius: 5px;
-    padding: 10px 5px;
-    z-index: 1;
 }
 
-@keyframes floatDown {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(5px);
-        /* Puedes ajustar la profundidad del movimiento */
-    }
+.atractivos-swiper .swiper-pagination-bullet {
+    background-color: #fff;
+    /* color de los bullets inactivos */
+    opacity: 1;
+    /* opcional, para mejor visibilidad */
 }
 
-.boxAtractivos .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 8px;
-    /* font-weight: 600; */
-    transition: all 0.3s ease;
-    box-shadow: none;
-
-    /* Animación de arribo */
-    animation: floatDown 1.5s ease-in-out infinite;
+.atractivos-swiper .swiper-pagination-bullet-active {
+    background-color: #ccc;
+    /* color del bullet activo */
 }
 
-.boxAtractivos .btn:hover {
-    animation: none;
-}
-
-.zoom-in {
-    animation: zoomIn 0.5s ease forwards;
-    opacity: 0;
-    transform: scale(0.8);
-}
-
-.zoom-out {
-    animation: zoomOut 0.5s ease forwards;
-}
-
-@keyframes zoomIn {
-    to {
-        opacity: 1;
-        transform: scale(1);
+/* Adaptar la altura en dispositivos más pequeños */
+@media (max-width: 768px) {
+    .atractivos-swiper {
+        height: 400px;
     }
 }
 
-@keyframes zoomOut {
-    from {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    to {
-        opacity: 0;
-        transform: scale(0.8);
+@media (max-width: 530px) {
+    .atractivos-swiper {
+        height: 350px;
     }
 }
 
-/* Asegura que las imágenes dentro del lightbox sean responsivas */
-.glightbox-clean .gslide-media img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 8px;
+/* Asegura que el wrapper y slides usen el 100% del alto del swiper */
+.atractivos-swiper .swiper-wrapper {
+    height: 100%;
+}
+
+.atractivos-swiper .swiper-slide {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    /* Estira la card a toda la altura */
+}
+
+.swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color: #000 !important;
+    background: var(--white) !important;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    color: var(--white) !important;
+    background: var(--primary) !important;
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background-color: var(--primary);
+    /* Cambia el color a lo que prefieras */
 }
 
 /* ============================================================================================= */
 /* ============================================================================================= */
 /* ============================================================================================= */
-/* Estilos para el Modal */
-.modal {
+/* Modal */
+.modalAtractivo {
     display: none;
     position: fixed;
     z-index: 1100;
@@ -237,8 +295,8 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
-    overflow: auto;
-    padding-top: 60px;
+    overflow-y: auto;
+    /* padding: 60px 20px; */
     animation: fadeIn 0.4s ease-in-out;
 }
 
@@ -253,55 +311,55 @@
     }
 }
 
-.modal .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
+.modalAtractivo .modalAtractivo-content {
+    position: relative;
+    background-color: #fff;
+    margin: auto;
+    padding: 20px 50px;
+    border-radius: 8px;
     width: 100%;
-    max-width: 100%;
-
+    max-width: 1200px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.modal .modal-inner {
-    padding: 0 100px;
-    /* Reduce el ancho horizontal del contenido */
+.modalAtractivo .modal-inner {
+    padding: 0;
     width: 100%;
     box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
-    .modal .modal-inner {
-        padding: 0 20px;
+    .modalAtractivo .modal-inner {
+        padding: 0;
     }
 }
 
 @media (max-width: 600px) {
-    .modal .modal-inner {
-        padding: 0 10px;
+    .modalAtractivo .modal-inner {
+        padding: 0;
     }
 }
 
-
-.modal #modal-title {
+.modalAtractivo #modalAtractivo-title {
     color: var(--black);
     background-color: var(--white);
-    position: relative;
     border-radius: 5px;
-    padding: 10px 5px;
-    z-index: 1;
-    font-size: 30px;
+    padding: 15px;
+    font-size: 1.8rem;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-weight: bold;
 }
 
-.modal #modal-description {
+.modalAtractivo #modalAtractivo-description {
     font-size: 1.4rem;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 20px;
 }
 
 /* Estilos para las imágenes dentro del modal */
-.modal .modal-images {
+.modalAtractivo .modalAtractivo-images {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -310,7 +368,37 @@
     margin-bottom: 20px;
 }
 
-.modal .btn {
+/* Imagen de las imágenes del modal */
+.modalAtractivo .modalAtractivo-images img {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 16 / 10;
+    border-radius: 0px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    height: auto;
+    transition: filter 0.3s ease;
+    /* Transición suave */
+    filter: brightness(1);
+}
+
+/* Hover sobre las imágenes dentro del modal */
+.modalAtractivo .modalAtractivo-images img:hover {
+    filter: brightness(.9);
+}
+
+@media (max-width: 720px) {
+    .modalAtractivo .modalAtractivo-images img {
+        max-width: 100%;
+        /* Se ajusta el ancho para que ocupe todo el disponible */
+        aspect-ratio: 16 / 10;
+        /* Permite que la imagen se ajuste sin distorsión */
+        height: auto;
+        /* Asegura que la altura se ajuste automáticamente */
+    }
+}
+
+.btn-map {
     display: block;
     /* Cambia a block para poder centrar con margin auto */
     width: 200px;
@@ -322,40 +410,20 @@
     color: var(--white);
     text-decoration: none;
     border-radius: 8px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 600;
     text-align: center;
     transition: all 0.3s ease;
 }
 
-.modal .btn:hover {
+.btn-map:hover {
     background-color: var(--tertiary-dark);
     color: #fff;
-    /* transform: translateY(-3px); */
-}
-
-/* ============================================================================================= */
-#modal-description img {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    border-radius: 5px;
-}
-
-#modal-description .mural-item h3 {
-    font-weight: bold;
-    margin-bottom: 1.8rem;
-}
-
-#modal-description .mural-item p {
-    font-size: 1.4rem;
 }
 
 /* ============================================================================================= */
 /* Botón de cierre */
-.close {
+.modalAtractivo .close {
     color: #333;
     position: absolute;
     top: 15px;
@@ -367,50 +435,8 @@
     transition: color 0.3s;
 }
 
-.close:hover,
-.close:focus {
+.modalAtractivo .close:hover,
+.modalAtractivo .close:focus {
     color: #000;
     text-decoration: none;
-}
-
-/* ============================================================================================= */
-/* ============================================================================================= */
-/* ============================================================================================= */
-/* MOSTRAR IMAGENES EN GRANDE */
-/* Estilo para cuando el modal se muestra */
-.modal.show {
-    display: flex;
-}
-
-.modal-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    /* Mantiene la proporción original */
-    aspect-ratio: 2 / 1;
-    /* Mantiene relación 2:1 si la imagen lo permite */
-    object-fit: cover;
-    /* Recorta para que llene el espacio */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    margin: 0 auto;
-    /* Centrado horizontal */
-    display: block;
-    /* Asegura que funcione el margin auto */
-}
-
-.modal-image:hover {
-    /* transform: scale(1.05); */
-    filter: brightness(0.6);
-    /* 0.6 es más oscuro, puedes ajustar */
-}
-
-/* ============================================================================================= */
-
-.modal-footer {
-    border: none;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
 }
