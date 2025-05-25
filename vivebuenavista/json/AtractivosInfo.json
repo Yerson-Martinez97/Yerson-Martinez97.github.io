@@ -43,7 +43,7 @@
             "images": [
                 "images/atractivos/murales/jukumari/image01.webp"
             ],
-            "location": "https://www.google.com/maps/dir/-17.460241416593423,-63.66031428880418/-17.460537974619516, -63.661182303268674"
+            "location": "https://www.google.com/maps/dir/-17.460241416593423,-63.66031428880418/-17.460561162447608,-63.66117022960458"
         },
         {
             "title": "Con Sabor a Café y Chocolate",
@@ -51,7 +51,7 @@
             "images": [
                 "images/atractivos/murales/consaboracafeychocolate/image01.webp"
             ],
-            "location": "https://www.google.com/maps/dir/-17.460241416593423,-63.66031428880418/-17.46088618837854, -63.660494475846555"
+            "location": "https://www.google.com/maps/dir/-17.460241416593423,-63.66031428880418/-17.460910407970953,-63.66048460322536"
         },
         {
             "title": "Buenavista: Ayer y Hoy",
@@ -59,7 +59,7 @@
             "images": [
                 "images/atractivos/murales/ayeryhoy/image01.webp"
             ],
-            "location": "https://www.google.com/maps/dir/-17.460241416593423,-63.66031428880418/-17.460476399921426, -63.658965756210414"
+            "location": "https://www.google.com/maps/dir/-17.460241416593423,-63.66031428880418/-17.46053454792603,-63.65894180500107"
         },
         {
             "title": "La Tejedora de Jipi Japa",
@@ -67,7 +67,7 @@
             "images": [
                 "images/atractivos/murales/jipijapa/image01.webp"
             ],
-            "location": "https://www.google.com/maps/dir/-17.460241416593423,-63.66031428880418/-17.45903114162247, -63.66101587594919"
+            "location": "https://www.google.com/maps/dir/-17.460241416593423,-63.66031428880418/-17.459053302163184,-63.66101674537539"
         },
         {
             "title": "Flora y Fauna",
@@ -75,7 +75,7 @@
             "images": [
                 "images/atractivos/murales/florayfauna/image01.webp"
             ],
-            "location": "https://www.google.com/maps/dir/-17.460241416593423,-63.66031428880418/-17.45858905028554, -63.66057475187021"
+            "location": "https://www.google.com/maps/dir/-17.460241416593423,-63.66031428880418/-17.458674437850544,-63.66056129338156"
         },
         {
             "title": "Manifestaciones Artísticas",
@@ -83,7 +83,7 @@
             "images": [
                 "images/atractivos/murales/manifestacionesartisticas/image01.webp"
             ],
-            "location": "https://www.google.com/maps/dir/-17.460241416593423,-63.66031428880418/-17.460408579163683, -63.65881146295731"
+            "location": "https://www.google.com/maps/dir/-17.460241416593423,-63.66031428880418/-17.460512292604296,-63.658807639249595"
         }
     ],
     "Mirador": {

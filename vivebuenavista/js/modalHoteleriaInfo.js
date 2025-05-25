@@ -19,20 +19,36 @@ function showCards(num) {
     }
   });
 
-  // Mostrar u ocultar el enlace "Ver más" dependiendo de la cantidad de tarjetas filtradas
+  // Mostrar u ocultar el enlace "Ver más" y "Ver menos"
   const seeMoreLink = document.getElementById("ver-mas");
+  const seeLessLink = document.getElementById("ver-menos");
+
   if (filteredCards.length > visibleCards) {
     seeMoreLink.style.display = "block"; // Mostrar el enlace si hay más tarjetas
+    seeLessLink.style.display = "none"; // Ocultar el enlace de "Ver menos"
+  } else if (filteredCards.length <= visibleCards && visibleCards > 3) {
+    seeMoreLink.style.display = "none"; // Ocultar "Ver más" si no hay más tarjetas
+    seeLessLink.style.display = "block"; // Mostrar "Ver menos"
   } else {
-    seeMoreLink.style.display = "none"; // Ocultar el enlace si no hay más tarjetas
+    seeMoreLink.style.display = "none"; // Ocultar el enlace de "Ver más" cuando no haya más tarjetas
+    seeLessLink.style.display = "none"; // No mostrar "Ver menos" si ya hay 3 tarjetas visibles
   }
 }
 
-// Cargar 3 tarjetas más
-function loadMoreCards(event) {
+// Función para cargar más o ver menos
+function toggleCards(event) {
   event.preventDefault(); // Evita el comportamiento predeterminado del enlace
-  visibleCards += cardsPerLoad; // Aumentar el número de tarjetas visibles
-  showCards(visibleCards); // Mostrar las tarjetas
+
+  const seeMoreLink = document.getElementById("ver-mas");
+  const seeLessLink = document.getElementById("ver-menos");
+
+  if (event.target.id === "ver-mas") {
+    visibleCards += cardsPerLoad; // Aumentar el número de tarjetas visibles
+    showCards(visibleCards); // Mostrar las tarjetas
+  } else if (event.target.id === "ver-menos") {
+    visibleCards = 3; // Restablecer a 3 tarjetas visibles
+    showCards(visibleCards); // Mostrar las primeras 3 tarjetas
+  }
 }
 
 // Filtrar las tarjetas según el filtro seleccionado

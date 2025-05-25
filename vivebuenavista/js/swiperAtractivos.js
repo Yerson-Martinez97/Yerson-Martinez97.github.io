@@ -11,43 +11,42 @@ document.addEventListener("DOMContentLoaded", function () {
         disableOnInteraction: false,
       },
       pagination: {
-        el: ".swiper-pagination",
+        el: ".boxAtractivos .swiper-pagination",
         clickable: true,
-        type: "progressbar",
+        type: "bullets",
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '">' + (index + 1) + "</span>";
+        },
       },
       navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: ".boxAtractivos .swiper-button-next",
+        prevEl: ".boxAtractivos .swiper-button-prev",
       },
       direction: "horizontal",
-      speed: 1500,
+      speed: 1000,
     }
   );
 
-  // Selector del modal
   var modalAtractivo = document.querySelector(".modalAtractivo");
 
-  // Función para verificar si el modal está visible
-  function checkModalVisibility() {
+  function checkAtractivosModal() {
     var style = window.getComputedStyle(modalAtractivo);
     if (style.display === "flex") {
-      swiperAtractivos.autoplay.stop(); // Detener el autoplay si el modal está visible
+      swiperAtractivos.autoplay.stop();
     } else {
-      swiperAtractivos.autoplay.start(); // Reiniciar el autoplay si el modal NO está visible
+      swiperAtractivos.autoplay.start();
     }
   }
 
   if ("MutationObserver" in window) {
-    var observer = new MutationObserver(checkModalVisibility);
-    observer.observe(modalAtractivo, {
+    var observerAtractivos = new MutationObserver(checkAtractivosModal);
+    observerAtractivos.observe(modalAtractivo, {
       attributes: true,
       attributeFilter: ["style"],
     });
   } else {
-    // Fallback para navegadores antiguos (IE)
-    setInterval(checkModalVisibility, 500); // Usar polling en lugar de MutationObserver
+    setInterval(checkAtractivosModal, 500);
   }
 
-  // Verificar el estado inicial en caso de que el modal ya esté visible al cargar la página
-  checkModalVisibility();
+  checkAtractivosModal();
 });

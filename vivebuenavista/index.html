@@ -35,10 +35,10 @@
     <!-- <link rel="stylesheet" type="text/css" href="icons/icomoon.css"> -->
 
     <!-- Fuentes propias -->
-    <link rel="stylesheet" href="css/fonts.min.css">
+    <link rel="stylesheet" href="css/fonts.css">
 
-    <link rel="stylesheet" href="css/estilos.min.css">
-    <link rel="stylesheet" href="css/header.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/comollegar.css">
     <link rel="stylesheet" href="css/atractivos.css">
     <link rel="stylesheet" href="css/artesanias.css">
@@ -46,20 +46,7 @@
     <!-- <link rel="stylesheet" href="css/restaurante.css"> -->
     <link rel="stylesheet" href="css/footer.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
-    <!-- Tus scripts que usan estas librerías -->
-    <script src="js/swiperArtesanias.min.js"></script>
-    <script src="js/modalArtesaniasInfo.js"></script>
-
-    <script src="js/swiperAtractivos.js"></script>
-    <script src="js/modalAtractivosInfo.js"></script>
-
-    <script src="js/modalHoteleriaInfo.js"></script>
-    <!-- <script src="js/swiperHoteleria.js"></script> -->
-    <!-- <script src="js/modalHoteleriaInfo.js"></script> -->
 
 </head>
 
@@ -131,7 +118,6 @@
     <main>
         <a id="subir" class="icon-arrow-up scroll" href="#linkHome"></a>
         <!-- Sección Como Llegar -->
-        <!-- HTML -->
         <section id="linkComoLlegar" class="boxComoLlegar" data-aos="fade-up">
             <div class="container">
                 <h2>¿Cómo llegar a <span class="primary"><strong>Buena Vista</strong></span>?</h2>
@@ -251,24 +237,59 @@
         <!-- ================================================================================================================= -->
 
         <!--  Sección Artesanias -->
-        <section id="linkArtesanias" class="boxArtesanias" data-aos="zoom-in">
-            <h3>Artesanías</h3>
-            <div class="swiper artesanias-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide card card-1" data-idArtesania="JipiJapa">
-                        <div class="card-details overlay">
-                            <p class="text-title">JipiJapa</p>
+        <!-- <section id="linkArtesanias" class="boxArtesanias">
+            <div data-aos="fade-up">
+                <h3>Artesanías</h3>
+                <div class="swiper artesanias-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide card card-1" data-idArtesania="JipiJapa">
+                            <div class="card-details overlay">
+                                <p class="text-title">JipiJapa</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide card card-2" data-idArtesania="Muebles Rústicos">
-                        <div class="card-details overlay">
-                            <p class="text-title">Muebles Rústicos de Tacuara, Bejucos y Madera</p>
+                        <div class="swiper-slide card card-2" data-idArtesania="Muebles Rústicos">
+                            <div class="card-details overlay">
+                                <p class="text-title">Muebles Rústicos de Tacuara, Bejucos y Madera</p>
+                            </div>
                         </div>
+
                     </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+            </div>
+        </section> -->
+        <section id="linkArtesanias" class="boxArtesanias">
+            <div data-aos="fade-up">
+                <h3>Artesanias</h3>
+                <div class="swiper artesanias-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide card card-1" data-idArtesania="JipiJapa">
+                            <div class="card-details overlay">
+                                <p class="text-title">JipiJapa</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-2" data-idArtesania="Muebles Rústicos">
+                            <div class="card-details overlay">
+                                <p class="text-title">Muebles Rústicos de Tacuara, Bejucos y Madera</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-1" data-idArtesania="JipiJapa">
+                            <div class="card-details overlay">
+                                <p class="text-title">JipiJapa</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-2" data-idArtesania="Muebles Rústicos">
+                            <div class="card-details overlay">
+                                <p class="text-title">Muebles Rústicos de Tacuara, Bejucos y Madera</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
         </section>
         <div id="modalArtesania" class="modalArtesania">
@@ -288,90 +309,94 @@
         <!-- ================================================================================================================= -->
 
         <!--  Sección Hoteleria -->
-        <section id="linkHoteleria" class="boxHoteleria" data-aos="zoom-idn">
-            <h3>Hotelería</h3>
+        <section id="linkHoteleria" class="boxHoteleria">
+            <div data-aos="fade-up">
+                <h3>Hotelería</h3>
+                <!-- Botones para filtrar -->
+                <div class="filter-buttons">
+                    <button onclick="filterCards('all')" data-filter="all">Todos</button>
+                    <button onclick="filterCards('alejados')" data-filter="alejados">Alejados</button>
+                    <button onclick="filterCards('cercano')" data-filter="cercano">Cerca de la Plaza</button>
+                    <button onclick="filterCards('cabañas')" data-filter="cabañas">Cabañas</button>
+                </div>
 
-            <!-- Botones para filtrar -->
-            <div class="filter-buttons">
-                <button onclick="filterCards('all')" data-filter="all">Todos</button>
-                <button onclick="filterCards('alejados')" data-filter="alejados">Alejados</button>
-                <button onclick="filterCards('cercano')" data-filter="cercano">Cerca de la Plaza</button>
-                <button onclick="filterCards('cabañas')" data-filter="cabañas">Cabañas</button>
+                <!-- Cards -->
+                <div class="cards">
+                    <div class="card card-1" data-category="alejados">
+                        <div class="card-overlay">
+                            <h4>Hotel Hacienda El Cafetal</h4>
+                        </div>
+                    </div>
+                    <div class="card card-2" data-category="alejados" data-index="1">
+                        <div class="card-overlay">
+                            <h4>Hotel Santa María la Antigua</h4>
+                            <!-- <p>Descripción del hotel...</p> -->
+                        </div>
+                    </div>
+                    <div class="card card-3" data-category="cercano" data-index="2">
+                        <div class="card-overlay">
+                            <h4>La Pascanita Hostal</h4>
+                            <!-- <p>Descripción del hotel...</p> -->
+                        </div>
+                    </div>
+                    <div class="card card-4" data-category="cercano" data-index="3">
+                        <div class="card-overlay">
+                            <h4>Bosque de Ángeles</h4>
+                            <!-- <p>Descripción del hotel...</p> -->
+                        </div>
+                    </div>
+                    <div class="card card-5" data-category="cercano" data-index="4">
+                        <div class="card-overlay">
+                            <h4>Hotel posada El Carmen</h4>
+                            <!-- <p>Descripción del hotel...</p> -->
+                        </div>
+                    </div>
+                    <div class="card card-6" data-category="cercano" data-index="5">
+                        <div class="card-overlay">
+                            <h4>Hostal El Jardín de Margarita</h4>
+                            <!-- <p>Descripción del hotel...</p> -->
+                        </div>
+                    </div>
+                    <div class="card card-7" data-category="cercano" data-index="6">
+                        <div class="card-overlay">
+                            <h4>Hostal Buena Vista</h4>
+                            <!-- <p>Descripción del hotel...</p> -->
+                        </div>
+                    </div>
+                    <div class="card card-8" data-category="cabañas" data-index="7">
+                        <div class="card-overlay">
+                            <h4>Cabañas Talavera</h4>
+                            <!-- <p>Descripción del hotel...</p> -->
+                        </div>
+                    </div>
+                    <div class="card card-9" data-category="cabañas" data-index="8">
+                        <div class="card-overlay">
+                            <h4>Pozazul cabañas & camping</h4>
+                            <!-- <p>Descripción del hotel...</p> -->
+                        </div>
+                    </div>
+                    <div class="card card-10" data-category="cabañas" data-index="9">
+                        <div class="card-overlay">
+                            <h4>Cabaña La Quinta Maravilla</h4>
+                            <!-- <p>Descripción del hotel...</p> -->
+                        </div>
+                    </div>
+                </div>
+                <a href="#" id="ver-mas" class="btn-more" onclick="toggleCards(event)">
+                    <i class="fa-solid fa-chevron-down"></i> Ver más
+                </a>
+                <a href="#" id="ver-menos" class="btn-more" onclick="toggleCards(event)" style="display: none;">
+                    <i class="fa-solid fa-chevron-up"></i> Ver menos
+                </a>
             </div>
-
-            <!-- Cards -->
-            <div class="cards">
-                <div class="card card-1" data-category="alejados" data-index="0">
-                    <div class="card-overlay">
-                        <h4>Hotel Hacienda El Cafetal</h4>
-                    </div>
-                </div>
-                <div class="card card-2" data-category="alejados" data-index="1">
-                    <div class="card-overlay">
-                        <h4>Hotel Santa María la Antigua</h4>
-                    </div>
-                </div>
-                <div class="card card-3" data-category="cercano" data-index="2">
-                    <div class="card-overlay">
-                        <h4>La Pascanita Hostal</h4>
-                    </div>
-                </div>
-                <div class="card card-4" data-category="cercano" data-index="3">
-                    <div class="card-overlay">
-                        <h4>Bosque de Ángeles</h4>
-                    </div>
-                </div>
-                <div class="card card-5" data-category="cercano" data-index="4">
-                    <div class="card-overlay">
-                        <h4>Hotel posada El Carmen</h4>
-                    </div>
-                </div>
-                <div class="card card-6" data-category="cercano" data-index="5">
-                    <div class="card-overlay">
-                        <h4>Hostal El Jardín de Margarita</h4>
-                    </div>
-                </div>
-                <div class="card card-7" data-category="cercano" data-index="6">
-                    <div class="card-overlay">
-                        <h4>Hostal Buena Vista</h4>
-                    </div>
-                </div>
-                <div class="card card-8" data-category="cabañas" data-index="7">
-                    <div class="card-overlay">
-                        <h4>Cabañas Talavera</h4>
-                    </div>
-                </div>
-                <div class="card card-9" data-category="cabañas" data-index="8">
-                    <div class="card-overlay">
-                        <h4>Pozazul cabañas & camping</h4>
-                    </div>
-                </div>
-                <div class="card card-10" data-category="cabañas" data-index="9">
-                    <div class="card-overlay">
-                        <h4>Cabaña La Quinta Maravilla</h4>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Botones "Ver más" y "Mostrar menos" -->
-            <a href="#" id="ver-mas" class="btn-more" onclick="loadMoreCards(event)">
-                <i class="fa-solid fa-chevron-down"></i> Ver más
-            </a>
-            <a href="#" id="ver-menos" class="btn-less" onclick="showLessCards(event)" style="display: none;">
-                <i class="fa-solid fa-chevron-up"></i> Mostrar menos
-            </a>
         </section>
-
-
-
-
 
         <div id="modalHoteleria" class="modalHoteleria">
             <div class="modalHoteleria-content">
                 <div class="modal-inner">
                     <span id="modalHoteleria-close" class="close">&times;</span>
-                    <h2 id="modalHoteleria-title">Título de la artesanía</h2>
-                    <p id="modalHoteleria-description">Descripción larga de la artesanía...</p>
+                    <h2 id="modalHoteleria-title">Título del hotel</h2>
+                    <p id="modalHoteleria-description">Descripción larga del hotel...</p>
 
                     <div id="modalHoteleria-images" class="modalHoteleria-images">
                         <!-- Las imágenes se inyectan aquí con JS -->
@@ -467,7 +492,17 @@
     <script src="js/app.js"></script>
     <!-- <script src="js/loadCardsAtractivos.js"></script> -->
     <!-- <script src="js/modalAtractivosInfo.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
+    <!-- Tus scripts que usan estas librerías -->
+    <script src="js/swiperAtractivos.js"></script>
+    <script src="js/modalAtractivosInfo.js"></script>
 
+    <script src="js/swiperArtesanias.js"></script>
+    <script src="js/modalArtesaniasInfo.js"></script>
+
+    <script src="js/modalHoteleriaInfo.js"></script>
 </body>
 
 </html>

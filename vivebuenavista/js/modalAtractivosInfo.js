@@ -9,7 +9,33 @@ document.addEventListener("DOMContentLoaded", () => {
             const idAtractivo = this.getAttribute("data-idAtractivo");
             const atractivo = data[idAtractivo];
 
-            if (atractivo) {
+            if (Array.isArray(atractivo)) {
+              let title = "Murales de Buena Vista";
+              let description = "";
+
+              atractivo.forEach((mural, index) => {
+                description += `
+        <div class="mural-item">
+          <h3 class="mural-title">${index + 1}. ${mural.title}</h3>`;
+                description += `
+          <p class="mural-description">${mural.description}</p>`;
+                if (Array.isArray(mural.images)) {
+                  description += `<div class="mural-images">`;
+                  mural.images.forEach((imgUrl) => {
+                    description += `<img src="${imgUrl}" alt="" class="mural-image">`;
+                  });
+                  description += `</div>`;
+                }
+
+                if (mural.location) {
+                  description += `<p class="mural-location"><a href="${mural.location}" target="_blank">Ver Ruta</a></p>`;
+                }
+
+                description += `</div>`;
+              });
+
+              openModalAtractivo(title, description, [], null);
+            } else if (atractivo) {
               openModalAtractivo(
                 atractivo.title || "Sin título",
                 atractivo.description || "Sin descripción",
@@ -19,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
               openModalAtractivo(
                 "Información no disponible",
-                "No se encontró información para esta artesanía.",
+                "No se encontró información para este atractivo.",
                 [],
                 null
               );
@@ -58,7 +84,7 @@ function openModalAtractivo(title, description, images, location) {
   const modalAtractivoBtnMap = document.getElementById("modalAtractivo-btnMap");
 
   modalAtractivoTitle.innerText = title;
-  modalAtractivoDescription.innerText = description;
+  modalAtractivoDescription.innerHTML = description;
   modalAtractivoImages.innerHTML = "";
 
   if (location) {

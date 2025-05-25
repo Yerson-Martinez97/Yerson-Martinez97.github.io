@@ -1,15 +1,21 @@
-/* Estilos globales para la sección de hotelería */
 #linkHoteleria {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url('../images/hoteleria/hotel.webp') center/cover no-repeat fixed;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hoteleria/hoteleria.webp');
+    background-position: 50% 100%;
+    /* Centrado horizontal y al final vertical */
+    background-size: cover;
+    /* Cubre toda el área sin distorsionar la imagen */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
     background-attachment: fixed;
+    /* La imagen permanece fija mientras haces scroll */
+
     position: relative;
     z-index: 1;
     padding: 50px 0;
-    min-height: 600px;
+    min-height: 95vh;
 }
 
-/* Overlay negro con transparencia, sin cubrir el contenido */
+/* Overlay negro con transparencia */
 #linkHoteleria::before {
     content: "";
     position: absolute;
@@ -19,7 +25,9 @@
     height: 100%;
     background: rgba(255, 255, 255, 0.8);
     z-index: -1;
+    /* Asegura que el overlay esté por debajo del contenido */
 }
+
 
 /* Estilo de la caja principal */
 .boxHoteleria {
@@ -33,6 +41,7 @@
 /* Estilos del título */
 .boxHoteleria h3 {
     font-size: 2.2rem;
+    text-align: center;
     margin-bottom: 20px;
     color: var(--dark);
     position: relative;
@@ -163,11 +172,40 @@
 
 /* Estilos del overlay en las cards */
 .card-overlay {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     padding: 1rem;
     width: 100%;
-    border-radius: 12px;
-    text-align: left;
+    text-align: center;
+    /* Centrado vertical y horizontal del contenido */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra el contenido horizontalmente */
+    justify-content: center;
+    /* Centra el contenido verticalmente */
+    height: 50%;
+    position: absolute;
+    top: 25%;
+    /* Centrado verticalmente (50% - 25% = 25% arriba de la mitad) */
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+/* Efecto hover: ampliamos el overlay y cambiamos la opacidad */
+.card:hover .card-overlay {
+    background: rgba(0, 0, 0, 0.2);
+    /* Oscurecer el fondo */
+    height: 100%;
+    top: 0;
+    /* Expande el overlay para cubrir más área */
+    transform: scale(1.05);
+    /* Efecto de expansión */
+}
+
+.card:hover .card-overlay h4 {
+    /* color: transparent; */
+    font-size: 1.8rem;
+    filter: blur(2px);
 }
 
 /* Estilo del título dentro de las cards */
@@ -175,7 +213,19 @@
     margin: 0 0 0.5rem;
     font-size: 1.2rem;
     font-weight: bold;
+    color: white;
+    /* Asegúrate de que el texto sea blanco para resaltar sobre el fondo oscuro */
 }
+
+/* Opcional: si quieres que los textos dentro del overlay tengan un espaciado más equilibrado, puedes añadir estos estilos */
+.card-overlay p {
+    font-size: 1rem;
+    color: white;
+    margin-top: 0.5rem;
+}
+
+
+
 
 /* Estilos de la sección de "Ver más" */
 .boxHoteleria .btn-more {
