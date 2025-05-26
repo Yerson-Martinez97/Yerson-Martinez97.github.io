@@ -2,16 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var swiperArtesanias = new Swiper(
     ".boxArtesanias .swiper.artesanias-swiper",
     {
-      slidesPerView: 1,
-      // breakpoints: {
-      //   768: {
-      //     slidesPerView: 2,
-      //   },
-      //   1024: {
-      //     slidesPerView: 2,
-      //   },
-      // },
-      spaceBetween: 20,
+      spaceBetween: 30,
       centeredSlides: true,
       loop: true,
       effect: "slide",
@@ -29,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         prevEl: ".boxArtesanias .swiper-button-prev",
       },
       direction: "horizontal",
-      speed: 1000,
+      // speed: 500,
     }
   );
 

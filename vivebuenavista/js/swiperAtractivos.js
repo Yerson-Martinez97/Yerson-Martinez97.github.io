@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         prevEl: ".boxAtractivos .swiper-button-prev",
       },
       direction: "horizontal",
-      speed: 1000,
+      // speed: 500,
     }
   );
 

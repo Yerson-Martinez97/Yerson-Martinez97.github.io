@@ -32,10 +32,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- Icomoon Icons -->
-    <!-- <link rel="stylesheet" type="text/css" href="icons/icomoon.css"> -->
+    <link rel="stylesheet" type="text/css" href="icons/icomoon.css">
 
     <!-- Fuentes propias -->
-    <link rel="stylesheet" href="css/fonts.css">
+    <!-- <link rel="stylesheet" href="css/fonts.css"> -->
 
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/header.css">
@@ -45,9 +45,6 @@
     <link rel="stylesheet" href="css/hoteleria.css">
     <!-- <link rel="stylesheet" href="css/restaurante.css"> -->
     <link rel="stylesheet" href="css/footer.css">
-
-
-
 </head>
 
 <body>
@@ -55,7 +52,7 @@
     <!-- Contenedor Header -->
     <header id="linkHome">
         <nav id="navFixed" class="navbar fixed-top navbar-expand-lg navbar-light bg-light p-10px">
-            <a class="navbar-brand" href="#linkHome">Vive Buena Vista<small>.</small></a>
+            <a class="navbar-brand" href="#linkHome">Vive BuenaVista<small>.</small></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -88,21 +85,19 @@
             </div>
         </nav>
 
-        <header>
-            <div class="boxHeader">
-                <img class="fondoParallax" src="images/welcome/buenavista.webp" alt="">
-                <div data-aos="fade-left" class="tucan-container">
-                    <img src="images/tucan.webp" alt="Tucán" class="tucan-img">
-                </div>
-                <div class="overlay"></div>
-                <div class="textosHeader" data-aos="fade-up">
-                    <h1><b>Donde empieza tu aventura</b></h1>
-                    <p>Descubre Buena Vista, un lugar lleno de historia, cultura y naturaleza en Santa Cruz. Vive su
-                        encanto auténtico y su calidez única. ¡Te esperamos!.</p>
-                    <a class="botonGetStarted scroll" href="#linkComoLlegar" rel="nofollow noopener">¿Cómo Llegar?</a>
-                </div>
+        <div class="boxHeader">
+            <img class="fondoParallax" src="images/welcome/buenavista.webp" alt="">
+            <div data-aos="fade-left" class="tucan-container">
+                <img src="images/tucan.webp" alt="Tucán" class="tucan-img">
             </div>
-        </header>
+            <div class="overlay"></div>
+            <div class="textosHeader" data-aos="fade-up">
+                <h1><b>Donde empieza tu aventura</b></h1>
+                <p>Descubre Buena Vista, un lugar lleno de historia, cultura y naturaleza en Santa Cruz. Vive su
+                    encanto auténtico y su calidez única. ¡Te esperamos!.</p>
+                <a class="botonGetStarted scroll" href="#linkComoLlegar" rel="nofollow noopener">¿Cómo Llegar?</a>
+            </div>
+        </div>
         <script>
             window.addEventListener("scroll", function () {
                 const fondo = document.querySelector(".fondoParallax");
@@ -218,17 +213,16 @@
                     <span id="modalAtractivo-close" class="close">&times;</span>
                     <h2 id="modalAtractivo-title">Título del Atractivo</h2>
                     <p id="modalAtractivo-description">Descripción larga del atractivo...</p>
-
-                    <!-- Las imágenes se inyectan aquí con JS -->
-                    <div id="modalAtractivo-images" class="modalAtractivo-images"></div>
-
                     <!-- Botón de ruta (a Google Maps o similar) -->
                     <div class="modalAtractivo-footer">
                         <a href="https://www.google.com/maps" id="modalAtractivo-btnMap" class="btn-map"
                             target="_blank">
+                            <i class="fa-solid fa-location-dot fa-lg"></i>
                             Ver Ruta
                         </a>
                     </div>
+                    <!-- Las imágenes se inyectan aquí con JS -->
+                    <div id="modalAtractivo-images" class="modalAtractivo-images"></div>
                 </div>
             </div>
         </div>
@@ -237,29 +231,6 @@
         <!-- ================================================================================================================= -->
 
         <!--  Sección Artesanias -->
-        <!-- <section id="linkArtesanias" class="boxArtesanias">
-            <div data-aos="fade-up">
-                <h3>Artesanías</h3>
-                <div class="swiper artesanias-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide card card-1" data-idArtesania="JipiJapa">
-                            <div class="card-details overlay">
-                                <p class="text-title">JipiJapa</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card card-2" data-idArtesania="Muebles Rústicos">
-                            <div class="card-details overlay">
-                                <p class="text-title">Muebles Rústicos de Tacuara, Bejucos y Madera</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-            </div>
-        </section> -->
         <section id="linkArtesanias" class="boxArtesanias">
             <div data-aos="fade-up">
                 <h3>Artesanias</h3>
@@ -322,60 +293,64 @@
 
                 <!-- Cards -->
                 <div class="cards">
-                    <div class="card card-1" data-category="alejados">
+                    <div class="card card-1" data-category="alejados" data-idHoteleria="HaciendaElCafetal">
                         <div class="card-overlay">
                             <h4>Hotel Hacienda El Cafetal</h4>
                         </div>
                     </div>
-                    <div class="card card-2" data-category="alejados" data-index="1">
+                    <div class="card card-2" data-category="alejados" data-index="1"
+                        data-idHoteleria="SantaMarialaAntigua">
                         <div class="card-overlay">
                             <h4>Hotel Santa María la Antigua</h4>
                             <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
-                    <div class="card card-3" data-category="cercano" data-index="2">
+                    <div class="card card-3" data-category="cercano" data-index="2" data-idHoteleria="LaPascanita">
                         <div class="card-overlay">
                             <h4>La Pascanita Hostal</h4>
                             <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
-                    <div class="card card-4" data-category="cercano" data-index="3">
+                    <div class="card card-4" data-category="cercano" data-index="3" data-idHoteleria="BosqueDeAngeles">
                         <div class="card-overlay">
                             <h4>Bosque de Ángeles</h4>
                             <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
-                    <div class="card card-5" data-category="cercano" data-index="4">
+                    <div class="card card-5" data-category="cercano" data-index="4" data-idHoteleria="PosadaElCarmen">
                         <div class="card-overlay">
                             <h4>Hotel posada El Carmen</h4>
                             <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
-                    <div class="card card-6" data-category="cercano" data-index="5">
+                    <div class="card card-6" data-category="cercano" data-index="5"
+                        data-idHoteleria="HostalJardinDeMargarita">
                         <div class="card-overlay">
                             <h4>Hostal El Jardín de Margarita</h4>
                             <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
-                    <div class="card card-7" data-category="cercano" data-index="6">
+                    <div class="card card-7" data-category="cercano" data-index="6" data-idHoteleria="HostalBuenaVista">
                         <div class="card-overlay">
                             <h4>Hostal Buena Vista</h4>
                             <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
-                    <div class="card card-8" data-category="cabañas" data-index="7">
+                    <div class="card card-8" data-category="cabañas" data-index="7" data-idHoteleria="CabañaTalavera">
                         <div class="card-overlay">
                             <h4>Cabañas Talavera</h4>
                             <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
-                    <div class="card card-9" data-category="cabañas" data-index="8">
+                    <div class="card card-9" data-category="cabañas" data-index="8"
+                        data-idHoteleria="PozazulCabañasyCamping">
                         <div class="card-overlay">
                             <h4>Pozazul cabañas & camping</h4>
                             <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
-                    <div class="card card-10" data-category="cabañas" data-index="9">
+                    <div class="card card-10" data-category="cabañas" data-index="9"
+                        data-idHoteleria="CabañaLaQuintaMaravilla">
                         <div class="card-overlay">
                             <h4>Cabaña La Quinta Maravilla</h4>
                             <!-- <p>Descripción del hotel...</p> -->
@@ -395,15 +370,33 @@
             <div class="modalHoteleria-content">
                 <div class="modal-inner">
                     <span id="modalHoteleria-close" class="close">&times;</span>
-                    <h2 id="modalHoteleria-title">Título del hotel</h2>
-                    <p id="modalHoteleria-description">Descripción larga del hotel...</p>
+                    <h2 id="modalHoteleria-title">Título</h2>
 
-                    <div id="modalHoteleria-images" class="modalHoteleria-images">
-                        <!-- Las imágenes se inyectan aquí con JS -->
+                    <div id="modalHoteleria-services"></div>
+                    <div id="modalHoteleria-atractions"></div>
+
+                    <p id="modalHoteleria-reservations">Reservas</p>
+
+
+                    <div class="modalHoteleria-location">
+                        <div id="location__title">Dirección</div>
+                        <div id="location__address"></div>
+                        <a id="modalHoteleria-btnMap" class="btn-map" href="#" target="_blank"
+                            rel="noopener noreferrer">
+                            Ver Ruta
+                        </a>
                     </div>
+
+                    <div id="modalHoteleria-images" class="modalHoteleria-images"></div>
+
+
+                    <div id="modalHoteleria-socialnetworks"></div>
+
+                    <a id="modalHoteleria-website" href="" target="_blank" rel="noopener noreferrer">Sitio Web</a>
                 </div>
             </div>
         </div>
+
         <!-- <section id="linkHotelerias" class="boxHotelerias" data-aos="zoom-in">
             <h3>Hotelerias</h3>
             <div class="cards-container">
@@ -479,9 +472,9 @@
     <script src="libraries/poppers/popper.min.js"></script>
 
 
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script> -->
+        crossorigin="anonymous"></script>
 
     <!-- AOS -->
     <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->

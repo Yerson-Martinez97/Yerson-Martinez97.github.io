@@ -1,10 +1,7 @@
 #linkArtesanias {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url('../images/artesanias/artesanias.webp') center/cover no-repeat fixed;
-    background-attachment: fixed;
+    background-color: var(--white);
     position: relative;
     z-index: 1;
-    padding: 50px 0;
 }
 
 
@@ -16,24 +13,25 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.8);
+    /* background: rgba(255, 255, 255, 0.8); */
     z-index: -1;
 }
 
 /* Estilo para el contenedor y el texto */
 .boxArtesanias {
-    position: relative;
-    z-index: 2;
-    background: var(--white);
-    padding: 60px 20px;
-    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* centra horizontal */
+    align-items: center;
+    /* centra vertical */
 }
 
 /* Título dentro de .boxArtesanias */
 .boxArtesanias h3 {
     font-size: 2.2rem;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     color: var(--dark);
     position: relative;
     z-index: 3;
@@ -76,10 +74,12 @@
 
 /*Text*/
 .boxArtesanias .text-title {
+    text-align: center;
+    padding: 0 50px;
     font-size: 1.8em;
     font-weight: bold;
     color: white;
-    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
+    text-shadow: 0px 1px 10px rgba(0, 0, 0, 1) !important;
     position: relative;
     z-index: 1;
 }
@@ -200,12 +200,16 @@
 
 /* Estilos responsivos para Swiper sin romper el diseño actual */
 .artesanias-swiper {
-    height: 500px;
-    width: 100%;
+    height: 80vh;
+    /* usa porcentaje del viewport */
+    width: 100vw;
+    /* usa porcentaje del viewport */
     max-width: 1000px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
+    max-height: 600px;
+    /* limita para pantallas muy grandes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .artesanias-swiper .swiper-button-next, .artesanias-swiper .swiper-button-prev {
@@ -269,6 +273,10 @@
     background-color: var(--primary);
 }
 
+/* .artesanias-swiper .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background-color: var(--primary);
+} */
+
 /* ============================================================================================= */
 /* ============================================================================================= */
 /* ============================================================================================= */
@@ -281,9 +289,8 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, .9);
     overflow-y: auto;
-    /* padding: 60px 20px; */
     animation: fadeIn 0.4s ease-in-out;
 }
 
@@ -300,13 +307,15 @@
 
 .modalArtesania .modalArtesania-content {
     position: relative;
-    background-color: #fff;
+    background-color: var(--white);
     margin: auto;
-    padding: 20px 20px;
+    padding: 20px 30px;
     border-radius: 8px;
     width: 100%;
-    max-width: 1200px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 1000px;
+    /* menos ancho máximo para móviles */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
 }
 
 .modalArtesania .modal-inner {
@@ -328,9 +337,8 @@
 }
 
 .modalArtesania #modalArtesania-title {
-    color: var(--black);
+    color: var(--dark);
     background-color: var(--white);
-    border-radius: 5px;
     padding: 15px;
     font-size: 1.8rem;
     text-align: center;
@@ -377,20 +385,17 @@
 @media (max-width: 720px) {
     .modalArtesania .modalArtesania-images img {
         max-width: 100%;
-        /* Se ajusta el ancho para que ocupe todo el disponible */
         aspect-ratio: 16 / 10;
         /* Permite que la imagen se ajuste sin distorsión */
         height: auto;
-        /* Asegura que la altura se ajuste automáticamente */
     }
 }
 
 .modalArtesania .btn-map {
     display: block;
-    /* Cambia a block para poder centrar con margin auto */
-    width: 200px;
+    width: 210px;
+    height: 64px;
     margin: 20px auto 0 auto;
-    /* Centrado horizontal y separación superior */
     padding: 12px 24px;
     border: 2px solid var(--tertiary);
     background-color: var(--tertiary);
@@ -411,20 +416,20 @@
 /* ============================================================================================= */
 /* Botón de cierre */
 .modalArtesania .close {
-    color: #333;
+    color: var(--primary);
     position: absolute;
     top: 15px;
     right: 25px;
-    font-size: 32px;
+    font-size: 50px;
     font-weight: bold;
     cursor: pointer;
     z-index: 10;
-    transition: color 0.3s;
+    transition: all 0.3s;
 }
 
 .modalArtesania .close:hover,
 .modalArtesania .close:focus {
-    color: #000;
+    color: var(--primary-dark);
     text-decoration: none;
 }
 
@@ -487,4 +492,10 @@
 .modalArtesania .mural-location a:hover {
     background-color: var(--tertiary-dark);
     color: #fff;
+}
+
+/* ============================================================================================= */
+.glightbox-container {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    /* fondo oscuro */
 }

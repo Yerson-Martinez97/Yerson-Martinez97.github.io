@@ -42,7 +42,7 @@
 .boxHoteleria h3 {
     font-size: 2.2rem;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     color: var(--dark);
     position: relative;
     z-index: 3;
@@ -58,16 +58,16 @@
     max-width: 100%;
 }
 
-.filter-buttons button {
+.boxHoteleria .filter-buttons button {
     padding: 0.5rem 1rem;
     border: none;
-    border-radius: 12px;
-    outline: 1px solid var(--primary);
+    border-radius: 5px;
+    outline: 1px solid var(--dark);
     background-color: var(--white);
-    color: var(--primary);
+    color: var(--dark);
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .filter-buttons button:hover {
@@ -77,6 +77,7 @@
 }
 
 .filter-buttons button.active {
+    outline: 1px solid var(--white);
     background-color: var(--primary-dark);
     color: var(--white);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
@@ -172,7 +173,7 @@
 
 /* Estilos del overlay en las cards */
 .card-overlay {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.6);
     padding: 1rem;
     width: 100%;
     text-align: center;
@@ -183,9 +184,9 @@
     /* Centra el contenido horizontalmente */
     justify-content: center;
     /* Centra el contenido verticalmente */
-    height: 50%;
+    height: 100%;
     position: absolute;
-    top: 25%;
+    top: 0%;
     /* Centrado verticalmente (50% - 25% = 25% arriba de la mitad) */
     transition: all 0.5s ease;
     cursor: pointer;
@@ -204,16 +205,17 @@
 
 .card:hover .card-overlay h4 {
     /* color: transparent; */
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     filter: blur(2px);
 }
 
 /* Estilo del título dentro de las cards */
 .card h4 {
-    margin: 0 0 0.5rem;
-    font-size: 1.2rem;
+    /* margin: 0 0 0.5rem; */
+    font-size: 1.6rem;
     font-weight: bold;
     color: white;
+    text-shadow: 0px 1px 10px rgba(0, 0, 0, 1) !important;
     /* Asegúrate de que el texto sea blanco para resaltar sobre el fondo oscuro */
 }
 
@@ -278,9 +280,9 @@
         padding: 30px 15px;
     }
 
-    .boxHoteleria h3 {
+    /* .boxHoteleria h3 {
         font-size: 24px;
-    }
+    } */
 
     .card {
         height: 250px;
@@ -305,4 +307,560 @@
         font-size: 0.85rem;
         padding: 0.35rem 0.7rem;
     }
+}
+
+
+/* ============================================================================================= */
+/* ============================================================================================= */
+/* ============================================================================================= */
+/* Modal */
+.modalHoteleria {
+    display: none;
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .9);
+    overflow-y: auto;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Animación para el modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modalHoteleria .modalHoteleria-content {
+    position: relative;
+    background-color: var(--white);
+    margin: auto;
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1000px;
+    /* menos ancho máximo para móviles */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+.modalHoteleria .modal-inner {
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+    .modalHoteleria .modal-inner {
+        padding: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .modalHoteleria .modal-inner {
+        padding: 0;
+    }
+}
+
+.modalHoteleria #modalHoteleria-title {
+    color: var(--dark);
+    background-color: var(--white);
+    padding: 15px;
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+/* RESERVATIONS */
+/* RESERVATIONS */
+.modalHoteleria #modalHoteleria-reservations {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Contenedor general de las reservas */
+.reservation-container {
+    display: flex;
+    justify-content: space-between;
+    /* Para separar los bloques de fijo y móvil */
+    gap: 30px;
+    /* Espacio entre los bloques */
+    margin-bottom: 20px;
+    /* Separación entre las reservas */
+}
+
+/* Estilo para el contenedor de números fijos */
+.fixed-container {
+    flex: 1;
+    /* Toma el 50% del espacio disponible */
+}
+
+/* Estilo para el contenedor de números móviles */
+.mobile-container, .fixed-container {
+    outline: 1px solid var(--dark);
+    border-radius: 2px;
+}
+
+/* Estilo para el contenedor de números móviles */
+.mobile-container {
+    flex: 1;
+    /* Toma el 50% del espacio disponible */
+}
+
+/* Estilo para los textos de los números */
+.modalHoteleria #modalHoteleria-reservations a, .modalHoteleria #modalHoteleria-reservations p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Estilo para el ícono de WhatsApp */
+#modalHoteleria-reservations .sn-whatsapp {
+    color: #128c7e;
+    font-size: 2rem;
+}
+
+/* MEDIA QUERY PARA PANTALLAS PEQUEÑAS (Móviles) */
+@media (max-width: 768px) {
+    .reservation-container {
+        flex-direction: column;
+        /* Cambiar a columna para pantallas pequeñas */
+        gap: 15px;
+        /* Reducir el espacio entre los bloques */
+    }
+
+    .fixed-container, .mobile-container {
+        flex: none;
+        /* Deja que los contenedores tomen el 100% del ancho disponible */
+    }
+
+    /* Ajustar el tamaño de fuente para pantallas pequeñas */
+    .modalHoteleria #modalHoteleria-reservations {
+        font-size: 1.2rem;
+    }
+
+    .modalHoteleria #modalHoteleria-reservations a, .modalHoteleria #modalHoteleria-reservations p {
+        font-size: 1rem;
+    }
+
+    #modalHoteleria-reservations .sn-whatsapp {
+        font-size: 1.8rem;
+        /* Hacer un poco más pequeño el ícono */
+    }
+}
+
+/* MEDIA QUERY PARA PANTALLAS MUY PEQUEÑAS (Móviles más pequeños) */
+@media (max-width: 480px) {
+    .modalHoteleria #modalHoteleria-reservations {
+        font-size: 1rem;
+        /* Reducir el tamaño de fuente aún más en pantallas pequeñas */
+    }
+
+    .modalHoteleria #modalHoteleria-reservations a, .modalHoteleria #modalHoteleria-reservations p {
+        font-size: 0.9rem;
+        /* Ajustar el tamaño de fuente */
+    }
+
+    #modalHoteleria-reservations .sn-whatsapp {
+        font-size: 1.6rem;
+        /* Reducir el ícono en pantallas aún más pequeñas */
+    }
+}
+
+
+/* WEBSITES */
+#modalHoteleria-website {
+    color: var(--blue);
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    padding: 20px;
+    background-color: transparent;
+    /* Cambié de rojo a transparente */
+    display: inline-block;
+    /* Asegura que el padding no afecte el tamaño del enlace */
+}
+
+
+#modalHoteleria-website:hover {
+    color: var(--blue-dark);
+    /* Azul más oscuro al hacer hover */
+}
+
+#modalHoteleria-website .icon-link {
+    color: var(--blue);
+}
+
+/* SOCIAL NETWORK */
+#modalHoteleria-socialnetworks {
+    font-size: 1.2rem;
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+#modalHoteleria-socialnetworks .title {
+    color: var(--dark);
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* UL como grid flexible */
+#modalHoteleria-socialnetworks ul {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    justify-items: center;
+    /* Centra cada ítem dentro del grid */
+}
+
+/* Cada red social como tarjeta */
+#modalHoteleria-socialnetworks ul li {
+    color: var(--dark);
+    border-radius: 10px;
+    padding: 8px;
+    transition: all 0.4s ease;
+    word-break: break-word;
+    display: flex;
+    justify-content: center;
+    /* Centra el contenido dentro de cada ítem */
+    align-items: center;
+    /* Centra el contenido dentro de cada ítem */
+}
+
+/* Hover: cambia color y sube ligeramente */
+#modalHoteleria-socialnetworks ul li:hover {
+    color: var(--black);
+    transform: translateY(-2px);
+}
+
+/* Enlace con ícono */
+#modalHoteleria-socialnetworks ul li a {
+    max-width: 100px;
+    padding: 8px 10px;
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+
+/* Íconos por red */
+.sn-facebook {
+    color: #3b5998;
+}
+
+#modalHoteleria-socialnetworks ul li:hover .sn-facebook {
+    text-shadow: 0 5px 10px rgba(59, 89, 152, 0.2);
+    /* color: var(--dark); */
+}
+
+.sn-tiktok {
+    color: #000;
+}
+
+#modalHoteleria-socialnetworks ul li:hover .sn-tiktok {
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sn-instagram {
+    color: #E4405F;
+}
+
+#modalHoteleria-socialnetworks ul li:hover .sn-instagram {
+    text-shadow: 0 5px 10px rgba(228, 64, 94, 0.2);
+}
+
+.sn-facebook, .sn-tiktok, .sn-instagram {
+    font-size: 2.8rem;
+}
+
+@media (max-width: 600px) {
+    #modalHoteleria-socialnetworks ul li a {
+        grid-area: 2px;
+    }
+
+    .sn-facebook, .sn-tiktok, .sn-instagram {
+        font-size: 2rem;
+    }
+}
+
+/* Responsive extra para pantallas pequeñas */
+@media (max-width: 480px) {
+    #modalHoteleria-socialnetworks ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* SERVICES */
+#modalHoteleria-services, #modalHoteleria-atractions {
+    font-size: 1.2rem;
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#modalHoteleria-services .title, #modalHoteleria-atractions .title {
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--dark);
+    text-align: center;
+}
+
+#modalHoteleria-services ul, #modalHoteleria-atractions ul {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+}
+
+#modalHoteleria-services ul li, #modalHoteleria-atractions ul li {
+    margin-left: 20px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    list-style: disc;
+}
+
+#modalHoteleria-services ul,
+#modalHoteleria-services ul li,
+#modalHoteleria-atractions ul,
+#modalHoteleria-atractions ul li {
+    text-align: left;
+    /* o start */
+}
+
+.modalHoteleria-divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 25px 0;
+    border: none;
+}
+
+/* LOCATION */
+.modalHoteleria-location {
+    font-size: 1.2rem;
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#location__title {
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--dark);
+    text-align: center;
+}
+
+#location__address {
+    font-size: 1.2rem;
+    color: var(--dark);
+    font-style: italic;
+}
+
+/* IMAGES */
+/* Estilos para las imágenes dentro del modal */
+.modalHoteleria .modalHoteleria-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Imagen de las imágenes del modal */
+.modalHoteleria .modalHoteleria-images img {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 16 / 10;
+    border-radius: 0px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    height: auto;
+    transition: filter 0.3s ease;
+    /* Transición suave */
+    filter: brightness(1);
+}
+
+/* Hover sobre las imágenes dentro del modal */
+.modalHoteleria .modalHoteleria-images img:hover {
+    filter: brightness(.9);
+}
+
+@media (max-width: 720px) {
+    .modalHoteleria .modalHoteleria-images img {
+        max-width: 100%;
+        aspect-ratio: 16 / 10;
+        /* Permite que la imagen se ajuste sin distorsión */
+        height: auto;
+    }
+}
+
+.modalHoteleria .btn-map {
+    display: block;
+    width: 210px;
+    height: 64px;
+    margin: 20px auto 0 auto;
+    padding: 12px 24px;
+    border: 2px solid var(--tertiary);
+    background-color: var(--tertiary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.modalHoteleria .btn-map:hover {
+    background-color: var(--tertiary-dark);
+    color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modalHoteleria .btn-map {
+        width: 180px;
+        /* Reduce el ancho en pantallas medianas */
+        font-size: 1.2rem;
+        /* Reduce el tamaño de la fuente */
+        padding: 10px 20px;
+        /* Reduce el padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .modalHoteleria .btn-map {
+        width: 160px;
+        /* Reduce el ancho en pantallas pequeñas */
+        font-size: 1rem;
+        /* Reduce el tamaño de la fuente */
+        padding: 8px 16px;
+        /* Reduce aún más el padding */
+    }
+}
+
+/* Cerrar el modal */
+.modalHoteleria .close {
+    color: var(--primary);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+/* ============================================================================================= */
+/* Botón de cierre */
+.modalHoteleria .close {
+    color: var(--primary);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.modalHoteleria .close:hover,
+.modalHoteleria .close:focus {
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+/* ============================================================================================= */
+.modalHoteleria .mural-item {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.modalHoteleria .mural-title {
+    font-size: 1.6rem;
+    color: var(--dark);
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.modalHoteleria .mural-description {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: var(--dark);
+
+}
+
+.modalHoteleria .mural-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.modalHoteleria .mural-image {
+    flex: 1 1 300px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+
+.modalHoteleria .mural-location a {
+    display: block;
+    width: 200px;
+    margin: 20px auto 0 auto;
+    padding: 10px 20px;
+    border: 2px solid var(--tertiary);
+    background-color: var(--tertiary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.modalHoteleria .mural-location a:hover {
+    background-color: var(--tertiary-dark);
+    color: #fff;
+}
+
+/* ============================================================================================= */
+.glightbox-container {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    /* fondo oscuro */
 }
