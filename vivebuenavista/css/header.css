@@ -122,16 +122,11 @@ header .boxHeader {
     padding: 2rem 0;
     background: rgba(255, 255, 255, 0.85);
     background-color: rgba(225, 218, 202, 0.8);
-    /* transparencia */
     backdrop-filter: blur(8px);
-    /* aplica el blur */
     -webkit-backdrop-filter: blur(8px);
-    /* soporte para Safari */
     text-align: center;
     border-radius: 5px;
 }
-
-
 
 .boxHeader .textsHeader h1 {
     color: var(--primary);
@@ -177,15 +172,15 @@ header .boxHeader {
 .boxHeader .tucan-container {
     position: absolute;
     right: 10px;
-    top: 10%;
+    bottom: 10px;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 1;
 }
 
 .boxHeader .tucan-img {
     width: 150px;
     height: auto;
-    animation: moveUpDown 10s infinite ease-in-out;
+    animation: moveUpDown 15s infinite ease-in-out;
 }
 
 /* Definición de la animación */

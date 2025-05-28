@@ -7,14 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
       delay: 3000,
       disableOnInteraction: false,
     },
-    pagination: {
-      el: ".boxAtractivos .swiper-pagination",
-      clickable: true,
-      type: "bullets",
-      renderBullet: function (index, className) {
-        return '<span class="' + className + '">' + (index + 1) + "</span>";
-      },
-    },
   });
   var modalFeria = document.querySelector(".modalFeria");
 

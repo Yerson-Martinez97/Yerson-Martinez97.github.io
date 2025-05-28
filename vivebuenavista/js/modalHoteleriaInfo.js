@@ -193,7 +193,7 @@ function openModalHoteleria(
       if (reservation.Mobile && reservation.Mobile.length > 0) {
         const mobileContainer = document.createElement("div");
         mobileContainer.classList.add("mobile-container");
-        mobileContainer.innerHTML = "<strong>Whatsapp:</strong><br>";
+        mobileContainer.innerHTML = "<strong>Whatsapp</strong><br>";
 
         reservation.Mobile.forEach((mobilePhone) => {
           mobileContainer.innerHTML += `

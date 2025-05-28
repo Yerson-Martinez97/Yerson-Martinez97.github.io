@@ -39,6 +39,7 @@
 html,
 body {
     height: 100%;
+    background-color: var(--secondary) !important;
 }
 
 body {

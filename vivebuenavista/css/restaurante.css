@@ -4,7 +4,6 @@
     z-index: 1;
 }
 
-
 /* Overlay negro con transparencia, pero sin tapar el contenido */
 #linkRestaurante::before {
     content: "";
@@ -13,7 +12,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: rgba(255, 255, 255, 0.8); */
     z-index: -1;
 }
 
@@ -22,9 +20,7 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    /* centra horizontal */
     align-items: center;
-    /* centra vertical */
 }
 
 /* Título dentro de .boxRestaurante */
@@ -40,7 +36,6 @@
 /* Resto de los estilos para los elementos, como las cards */
 .boxRestaurante .swiper-slide {
     z-index: 3;
-    /* Asegura que las cards estén sobre el overlay */
 }
 
 .boxRestaurante .cards-container {
@@ -152,7 +147,6 @@
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.4);
-    /* Overlay oscuro */
     z-index: 0;
     transition: transform 0.5s ease-out;
 }
@@ -177,12 +171,9 @@
 /* Estilos responsivos para Swiper sin romper el diseño actual */
 .restaurante-swiper {
     height: 80vh;
-    /* usa porcentaje del viewport */
     width: 100vw;
-    /* usa porcentaje del viewport */
     max-width: 1000px;
     max-height: 600px;
-    /* limita para pantallas muy grandes */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -194,14 +185,11 @@
 
 .restaurante-swiper .swiper-pagination-bullet {
     background-color: #fff;
-    /* color de los bullets inactivos */
     opacity: 1;
-    /* opcional, para mejor visibilidad */
 }
 
 .restaurante-swiper .swiper-pagination-bullet-active {
     background-color: #ccc;
-    /* color del bullet activo */
 }
 
 /* Adaptar la altura en dispositivos más pequeños */

@@ -359,7 +359,6 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     height: auto;
     transition: filter 0.3s ease;
-    /* Transición suave */
     filter: brightness(1);
     box-shadow: 0 5px 20px 2px rgba(77, 107, 105, 1);
 }
@@ -373,7 +372,6 @@
     .modalAtractivo .modalAtractivo-images img {
         max-width: 100%;
         aspect-ratio: 16 / 10;
-        /* Permite que la imagen se ajuste sin distorsión */
         height: auto;
     }
 }
@@ -410,7 +408,7 @@
 .modalAtractivo .close {
     color: var(--primary);
     position: absolute;
-    top: 15px;
+    top: 10px;
     right: 25px;
     font-size: 50px;
     font-weight: bold;
