@@ -298,7 +298,7 @@
 .modalFeria .close {
     color: var(--primary);
     position: absolute;
-    top: 15px;
+    top: 10px;
     right: 25px;
     font-size: 50px;
     font-weight: bold;
