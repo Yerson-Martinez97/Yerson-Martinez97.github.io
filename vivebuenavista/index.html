@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="author" content="Oscar Cornejo">
-    <meta name="description" content="Landing Page">
+    <meta name="author" content="">
+    <meta name="description" content="Vive BuenaVista">
     <title>Vive Buena Vista</title>
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -26,7 +26,7 @@
 
 
     <!-- GLightbox CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet" />
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="css/artesanias.css">
     <link rel="stylesheet" href="css/hoteleria.css">
     <!-- <link rel="stylesheet" href="css/restaurante.css"> -->
+    <link rel="stylesheet" href="css/ferias.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
 
@@ -52,7 +53,7 @@
     <!-- Contenedor Header -->
     <header id="linkHome">
         <nav id="navFixed" class="navbar fixed-top navbar-expand-lg navbar-light bg-light p-10px">
-            <a class="navbar-brand" href="#linkHome">Vive BuenaVista<small>.</small></a>
+            <a class="navbar-brand" href="#linkHome">Vive <small>BuenaVista</small></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -88,14 +89,15 @@
         <div class="boxHeader">
             <img class="fondoParallax" src="images/welcome/buenavista.webp" alt="">
             <div data-aos="fade-left" class="tucan-container">
-                <img src="images/tucan.webp" alt="Tucán" class="tucan-img">
+                <img src="images/tucan.webp" alt="Tucán" class="tucan-img" oncontextmenu="return false;"
+                    draggable="false">
             </div>
             <div class="overlay"></div>
-            <div class="textosHeader" data-aos="fade-up">
+            <div class="textsHeader" data-aos="fade-up">
                 <h1><b>Donde empieza tu aventura</b></h1>
-                <p>Descubre Buena Vista, un lugar lleno de historia, cultura y naturaleza en Santa Cruz. Vive su
+                <p>Descubre BuenaVista, un lugar lleno de historia, cultura y naturaleza en Santa Cruz. Vive su
                     encanto auténtico y su calidez única. ¡Te esperamos!.</p>
-                <a class="botonGetStarted scroll" href="#linkComoLlegar" rel="nofollow noopener">¿Cómo Llegar?</a>
+                <a class="btnGetStarted scroll" href="#linkComoLlegar" rel="nofollow noopener">¿Cómo Llegar?</a>
             </div>
         </div>
         <script>
@@ -120,23 +122,24 @@
 
                 <div class="info-grid">
                     <div class="info-card">
-                        <h3><i class="fa-solid fa-van-shuttle fa-flip-horizontal"></i>
+                        <p>
+                            <i class="fa-solid fa-van-shuttle fa-flip-horizontal"></i>
                             <span class="label">Salida</span>
-                        </h3>
+                        </p>
                         <p class="value">Ex Terminal <strong>“La Ramada”</strong></p>
                     </div>
                     <div class="info-card">
-                        <h3>
+                        <p>
                             <i class="fa-solid fa-clock"></i>
                             <span class="label">Duración</span>
-                        </h3>
+                        </p>
                         <p class="value"><strong>1h 54min</strong> (aproximado)</p>
                     </div>
                     <div class="info-card precio-card">
-                        <h3>
+                        <p>
                             <i class="fa-solid fa-coins"></i>
                             <span class="label">Costo</span>
-                        </h3>
+                        </p>
                         <p class="precio">Bs. <span>28</span></p>
                     </div>
                 </div>
@@ -202,8 +205,6 @@
                         </div>
                     </div>
                     <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
                 </div>
             </div>
         </section>
@@ -213,7 +214,6 @@
                     <span id="modalAtractivo-close" class="close">&times;</span>
                     <h2 id="modalAtractivo-title">Título del Atractivo</h2>
                     <p id="modalAtractivo-description">Descripción larga del atractivo...</p>
-                    <!-- Botón de ruta (a Google Maps o similar) -->
                     <div class="modalAtractivo-footer">
                         <a href="https://www.google.com/maps" id="modalAtractivo-btnMap" class="btn-map"
                             target="_blank">
@@ -221,7 +221,6 @@
                             Ver Ruta
                         </a>
                     </div>
-                    <!-- Las imágenes se inyectan aquí con JS -->
                     <div id="modalAtractivo-images" class="modalAtractivo-images"></div>
                 </div>
             </div>
@@ -234,32 +233,17 @@
         <section id="linkArtesanias" class="boxArtesanias">
             <div data-aos="fade-up">
                 <h3>Artesanias</h3>
-                <div class="swiper artesanias-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide card card-1" data-idArtesania="JipiJapa">
-                            <div class="card-details overlay">
-                                <p class="text-title">JipiJapa</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card card-2" data-idArtesania="Muebles Rústicos">
-                            <div class="card-details overlay">
-                                <p class="text-title">Muebles Rústicos de Tacuara, Bejucos y Madera</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card card-1" data-idArtesania="JipiJapa">
-                            <div class="card-details overlay">
-                                <p class="text-title">JipiJapa</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card card-2" data-idArtesania="Muebles Rústicos">
-                            <div class="card-details overlay">
-                                <p class="text-title">Muebles Rústicos de Tacuara, Bejucos y Madera</p>
-                            </div>
+                <div class="cards">
+                    <div class="card card-1" data-idArtesania="JipiJapa">
+                        <div class="card-details overlay">
+                            <p class="text-title">JipiJapa</p>
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+                    <div class="card card-2" data-idArtesania="Muebles Rústicos">
+                        <div class="card-details overlay">
+                            <p class="text-title">Muebles Rústicos de Tacuara, Bejucos y Madera</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -271,7 +255,6 @@
                     <p id="modalArtesania-description">Descripción larga de la artesanía...</p>
 
                     <div id="modalArtesania-images" class="modalArtesania-images">
-                        <!-- Las imágenes se inyectan aquí con JS -->
                     </div>
                 </div>
             </div>
@@ -283,7 +266,6 @@
         <section id="linkHoteleria" class="boxHoteleria">
             <div data-aos="fade-up">
                 <h3>Hotelería</h3>
-                <!-- Botones para filtrar -->
                 <div class="filter-buttons">
                     <button onclick="filterCards('all')" data-filter="all">Todos</button>
                     <button onclick="filterCards('alejados')" data-filter="alejados">Alejados</button>
@@ -291,9 +273,9 @@
                     <button onclick="filterCards('cabañas')" data-filter="cabañas">Cabañas</button>
                 </div>
 
-                <!-- Cards -->
                 <div class="cards">
-                    <div class="card card-1" data-category="alejados" data-idHoteleria="HaciendaElCafetal">
+                    <div class="card card-1" data-category="alejados" data-index="0"
+                        data-idHoteleria="HaciendaElCafetal">
                         <div class="card-overlay">
                             <h4>Hotel Hacienda El Cafetal</h4>
                         </div>
@@ -302,58 +284,49 @@
                         data-idHoteleria="SantaMarialaAntigua">
                         <div class="card-overlay">
                             <h4>Hotel Santa María la Antigua</h4>
-                            <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
                     <div class="card card-3" data-category="cercano" data-index="2" data-idHoteleria="LaPascanita">
                         <div class="card-overlay">
                             <h4>La Pascanita Hostal</h4>
-                            <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
                     <div class="card card-4" data-category="cercano" data-index="3" data-idHoteleria="BosqueDeAngeles">
                         <div class="card-overlay">
                             <h4>Bosque de Ángeles</h4>
-                            <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
                     <div class="card card-5" data-category="cercano" data-index="4" data-idHoteleria="PosadaElCarmen">
                         <div class="card-overlay">
                             <h4>Hotel posada El Carmen</h4>
-                            <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
                     <div class="card card-6" data-category="cercano" data-index="5"
                         data-idHoteleria="HostalJardinDeMargarita">
                         <div class="card-overlay">
                             <h4>Hostal El Jardín de Margarita</h4>
-                            <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
                     <div class="card card-7" data-category="cercano" data-index="6" data-idHoteleria="HostalBuenaVista">
                         <div class="card-overlay">
                             <h4>Hostal Buena Vista</h4>
-                            <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
                     <div class="card card-8" data-category="cabañas" data-index="7" data-idHoteleria="CabañaTalavera">
                         <div class="card-overlay">
                             <h4>Cabañas Talavera</h4>
-                            <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
                     <div class="card card-9" data-category="cabañas" data-index="8"
                         data-idHoteleria="PozazulCabañasyCamping">
                         <div class="card-overlay">
-                            <h4>Pozazul cabañas & camping</h4>
-                            <!-- <p>Descripción del hotel...</p> -->
+                            <h4>Pozazul Cabañas & Camping</h4>
                         </div>
                     </div>
                     <div class="card card-10" data-category="cabañas" data-index="9"
                         data-idHoteleria="CabañaLaQuintaMaravilla">
                         <div class="card-overlay">
                             <h4>Cabaña La Quinta Maravilla</h4>
-                            <!-- <p>Descripción del hotel...</p> -->
                         </div>
                     </div>
                 </div>
@@ -371,13 +344,9 @@
                 <div class="modal-inner">
                     <span id="modalHoteleria-close" class="close">&times;</span>
                     <h2 id="modalHoteleria-title">Título</h2>
-
                     <div id="modalHoteleria-services"></div>
                     <div id="modalHoteleria-atractions"></div>
-
                     <p id="modalHoteleria-reservations">Reservas</p>
-
-
                     <div class="modalHoteleria-location">
                         <div id="location__title">Dirección</div>
                         <div id="location__address"></div>
@@ -386,65 +355,110 @@
                             Ver Ruta
                         </a>
                     </div>
-
                     <div id="modalHoteleria-images" class="modalHoteleria-images"></div>
-
-
                     <div id="modalHoteleria-socialnetworks"></div>
-
                     <a id="modalHoteleria-website" href="" target="_blank" rel="noopener noreferrer">Sitio Web</a>
                 </div>
             </div>
         </div>
-
-        <!-- <section id="linkHotelerias" class="boxHotelerias" data-aos="zoom-in">
-            <h3>Hotelerias</h3>
-            <div class="cards-container">
-                - Hotel Hacienda El Cafetal
-                <br>
-                - Hotel Santa María la Antigua
-                <br>
-                - La Pascanita Hostal
-                <br>
-                - Bosque de ángeles
-                <br>
-                - Hotel posada El Carmen
-                <br>
-                - Hostal El Jardín de Margarita
-                <br>
-                - Hostal Buena Vista
-                <br>
-                - Cabañas Talavera
-                <br>
-                - Pozazul cabañas & camping
-                <br>
-                - Cabaña La Quinta Maravilla
-            </div>
-        </section> -->
         <!-- Fin Sección Hotelerias -->
 
-        <!--  Sección Restaurantes -->
-        <section id="linkRestaurantes" class="boxRestaurantes" data-aos="fade-up">
-            <h3>Restaurantes</h3>
-            <div class="cards-container">
-
+        <!--  Sección Restaurante -->
+        <section id="linkRestaurante" class="boxRestaurante">
+            <div data-aos="fade-up">
+                <h3>Restaurante</h3>
+                <div class="swiper restaurante-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide card card-1" data-idRestaurante="LaCunumisita">
+                            <div class="card-details overlay">
+                                <p class="text-title">Restaurante 'La Cunumisita'</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-2" data-idRestaurante="Muebles Rústicos">
+                            <div class="card-details overlay">
+                                <p class="text-title">Muebles Rústicos de Tacuara, Bejucos y Madera</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-1" data-idRestaurante="JipiJapa">
+                            <div class="card-details overlay">
+                                <p class="text-title">JipiJapa</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-2" data-idRestaurante="Muebles Rústicos">
+                            <div class="card-details overlay">
+                                <p class="text-title">Muebles Rústicos de Tacuara, Bejucos y Madera</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
         </section>
-        <!-- Fin Sección Restaurantes -->
+        <div id="modalRestaurante" class="modalRestaurante">
+            <div class="modalRestaurante-content">
+                <div class="modal-inner">
+                    <span id="modalRestaurante-close" class="close">&times;</span>
+                    <h2 id="modalRestaurante-title">Título de la artesanía</h2>
+                    <p id="modalRestaurante-description">Descripción larga de la artesanía...</p>
+
+                    <div id="modalRestaurante-images" class="modalRestaurante-images">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Sección Restaurante -->
+        <!-- ================================================================================================================= -->
 
         <!--  Sección Ferias -->
         <section id="linkFerias" class="boxFerias">
-            <h3>Ferias</h3>
-            <div class="card">
-
-
-                <!-- Initialize Swiper -->
-                <!-- <script>
-                    const lightbox = GLightbox({ selector: '.glightbox' });
-                </script> -->
-
+            <div data-aos="zoom-in">
+                <h3>Festividades</h3>
+                <div class="swiper ferias-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide card card-1" data-idFeria="FestivalNacionalDelCafe">
+                            <div class="card-details overlay">
+                                <p class="text-title">Festival Nacional Del Café</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-2" data-idFeria="MisaDeCampaña">
+                            <div class="card-details overlay">
+                                <p class="text-title">Misa de Campaña</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-1" data-idFeria="FeriaDeGanado">
+                            <div class="card-details overlay">
+                                <p class="text-title">Feria de Ganado - “Toro Tinku”</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-2" data-idFeria="RomeríaConCarretasYGruposFolcloricos">
+                            <div class="card-details overlay">
+                                <p class="text-title">Romería con Carretas y Grupos Folclóricos</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide card card-2" data-idFeria="CafeDeLaSiesta">
+                            <div class="card-details overlay">
+                                <p class="text-title">Café de la Siesta</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+        <div id="modalFeria" class="modalFeria">
+            <div class="modalFeria-content">
+                <div class="modal-inner">
+                    <span id="modalFeria-close" class="close">&times;</span>
+                    <h2 id="modalFeria-title">Título de la artesanía</h2>
+                    <p id="modalFeria-description">Descripción larga de la artesanía...</p>
+                    <p id="modalFeria-event">Descripción del evento...</p>
+
+                    <div id="modalFeria-images" class="modalFeria-images">
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Fin Sección Ferias -->
     </main>
     <!-- Fin Contenedor Main -->
@@ -485,17 +499,24 @@
     <script src="js/app.js"></script>
     <!-- <script src="js/loadCardsAtractivos.js"></script> -->
     <!-- <script src="js/modalAtractivosInfo.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
     <!-- Tus scripts que usan estas librerías -->
     <script src="js/swiperAtractivos.js"></script>
     <script src="js/modalAtractivosInfo.js"></script>
-
-    <script src="js/swiperArtesanias.js"></script>
+    <!--  -->
+    <!-- <script src="js/swiperArtesanias.js"></script> -->
     <script src="js/modalArtesaniasInfo.js"></script>
 
     <script src="js/modalHoteleriaInfo.js"></script>
+
+    <!-- <script src="js/swiperRestaurantes.js"></script> -->
+    <!-- <script src="js/modalRestaurantesInfo.js"></script> -->
+
+
+    <script src="js/swiperFerias.js"></script>
+    <script src="js/modalFeriasInfo.js"></script>
 </body>
 
 </html>

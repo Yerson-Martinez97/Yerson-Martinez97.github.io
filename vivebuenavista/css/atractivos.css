@@ -1,9 +1,15 @@
+/* Estilo para el contenedor y el texto */
 #linkAtractivos {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url('../images/atractivos/atractivos.webp') center/cover no-repeat fixed;
     background-attachment: fixed;
     position: relative;
     z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 
@@ -15,26 +21,16 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.8);
+    background-color: rgba(36, 49, 49, 0.8);
     z-index: -1;
-}
-
-/* Estilo para el contenedor y el texto */
-.boxAtractivos {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    /* centra horizontal */
-    align-items: center;
-    /* centra vertical */
 }
 
 /* Título dentro de .boxAtractivos */
 .boxAtractivos h3 {
-    font-size: 2.2rem;
+    font-size: var(--fontsize-big);
     text-align: center;
     margin-bottom: 80px;
-    color: var(--dark);
+    color: var(--secondary);
     position: relative;
     z-index: 3;
 }
@@ -65,7 +61,6 @@
 }
 
 .boxAtractivos .card-details {
-    color: black;
     height: 100%;
     gap: .5em;
     display: grid;
@@ -80,8 +75,8 @@
     padding: 0 50px;
     font-size: 1.8em;
     font-weight: bold;
-    color: white;
-    text-shadow: 0px 1px 10px rgba(0, 0, 0, 1) !important;
+    color: var(--secondary);
+    text-shadow: 0px 1px 10px rgba(77, 107, 105, 1) !important;
     position: relative;
     z-index: 1;
 }
@@ -89,9 +84,9 @@
 .boxAtractivos .card {
     margin: 1rem 0;
     border-radius: .5rem;
-    background: #f5f5f5;
+    background: var(--secondary);
     position: relative;
-    border: 2px solid #c3c6ce;
+    border: 2px solid var(--primary-dark);
     transition: 0.5s ease-out;
     height: 100%;
     width: 100%;
@@ -100,11 +95,13 @@
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 /*Hover*/
 .boxAtractivos .card:hover {
-    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(0, 0, 0, 0.2);
+
 }
 
 .boxAtractivos .card:hover .card-button {
@@ -218,15 +215,6 @@
     color: var(--white);
 }
 
-.atractivos-swiper .swiper-pagination-bullet {
-    background-color: var(--white);
-    opacity: 1;
-}
-
-.atractivos-swiper .swiper-pagination-bullet-active {
-    background-color: #ccc;
-}
-
 /* Adaptar la altura en dispositivos más pequeños */
 @media (max-width: 768px) {
     .atractivos-swiper {
@@ -253,6 +241,7 @@
 }
 
 .atractivos-swiper .swiper-pagination-bullet {
+    margin-bottom: 20px !important;
     width: 30px;
     height: 30px;
     text-align: center;
@@ -260,24 +249,20 @@
     font-size: 20px;
     color: #000;
     opacity: 1;
-    background: var(--white);
-    outline: 1px solid var(--dark);
-    color: var(--dark);
+    background: var(--secondary);
+    outline: 1px solid var(--primary);
+    color: var(--primary);
 }
 
 .atractivos-swiper .swiper-pagination-bullet:hover {
-    background-color: var(--dark);
+    background-color: var(--primary);
     color: var(--white);
 }
 
 .atractivos-swiper .swiper-pagination-bullet-active {
-    color: #fff;
-    background: var(--dark);
+    color: var(--white);
+    background: var(--primary);
 }
-
-/* .atractivos-swiper .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-    background-color: var(--primary);
-} */
 
 /* ============================================================================================= */
 /* ============================================================================================= */
@@ -291,7 +276,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, .9);
+    background-color: rgba(77, 107, 105, .9);
     overflow-y: auto;
     animation: fadeIn 0.4s ease-in-out;
 }
@@ -309,7 +294,7 @@
 
 .modalAtractivo .modalAtractivo-content {
     position: relative;
-    background-color: var(--white);
+    background-color: var(--secondary);
     margin: auto;
     padding: 20px 30px;
     border-radius: 8px;
@@ -318,6 +303,7 @@
     /* menos ancho máximo para móviles */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     box-sizing: border-box;
+    color: var(--primary);
 }
 
 .modalAtractivo .modal-inner {
@@ -339,19 +325,17 @@
 }
 
 .modalAtractivo #modalAtractivo-title {
-    color: var(--dark);
-    background-color: var(--white);
     padding: 15px;
-    font-size: 1.8rem;
+    font-size: var(--fontsize-big);
     text-align: center;
     margin-bottom: 15px;
     font-weight: bold;
 }
 
 .modalAtractivo #modalAtractivo-description {
-    font-size: 1.4rem;
+    font-size: var(--fontsize-medium);
     line-height: 1.6;
-    text-align: justify;
+    text-align: left;
     margin-bottom: 20px;
 }
 
@@ -360,7 +344,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px;
+    gap: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -377,6 +361,7 @@
     transition: filter 0.3s ease;
     /* Transición suave */
     filter: brightness(1);
+    box-shadow: 0 5px 20px 2px rgba(77, 107, 105, 1);
 }
 
 /* Hover sobre las imágenes dentro del modal */
@@ -393,27 +378,32 @@
     }
 }
 
-.modalAtractivo .btn-map {
+.modalAtractivo-footer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modalAtractivo a.btn-map {
     display: block;
     width: 210px;
     height: 64px;
     margin: 20px auto 0 auto;
     padding: 12px 24px;
-    border: 2px solid var(--tertiary);
-    background-color: var(--tertiary);
-    color: var(--white);
+    outline: 2px dashed var(--primary);
+    background-color: var(--secondary);
+    color: var(--primary);
     text-decoration: none;
     border-radius: 8px;
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: var(--fontsize-medium);
+    font-weight: bold;
     text-align: center;
     transition: all 0.3s ease;
 }
 
-.modalAtractivo .btn-map:hover {
-    background-color: var(--tertiary-dark);
-    color: #fff;
+.modalAtractivo a.btn-map:hover {
+    outline: 2px solid var(--primary);
 }
+
 
 /* ============================================================================================= */
 /* Botón de cierre */
@@ -438,23 +428,22 @@
 /* ============================================================================================= */
 .modalAtractivo .mural-item {
     margin-bottom: 30px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 2px solid var(--primary-dark);
     padding-bottom: 20px;
 }
 
 .modalAtractivo .mural-title {
-    font-size: 1.6rem;
-    color: var(--dark);
+    font-size: var(--fontsize-medium);
+    color: var(--primary);
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
 .modalAtractivo .mural-description {
-    margin-bottom: 10px;
-    font-size: 1.4rem;
+    margin-bottom: 20px;
+    font-size: var(--fontsize-medium);
     color: var(--dark);
-
 }
 
 .modalAtractivo .mural-images {
@@ -462,7 +451,8 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 20px 2px rgba(77, 107, 105, 1);
 }
 
 .modalAtractivo .mural-image {
@@ -470,30 +460,31 @@
     max-width: 100%;
     height: auto;
     border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(77, 107, 105, 0.1);
     object-fit: cover;
 }
 
 
 .modalAtractivo .mural-location a {
     display: block;
-    width: 200px;
+    width: 210px;
+    height: 64px;
     margin: 20px auto 0 auto;
     padding: 10px 20px;
-    border: 2px solid var(--tertiary);
-    background-color: var(--tertiary);
-    color: var(--white);
+    outline: 2px dashed var(--primary);
+    background-color: var(--secondary);
+    color: var(--primary);
     text-decoration: none;
     border-radius: 8px;
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: var(--fontsize-medium);
+    font-weight: bold;
     text-align: center;
     transition: all 0.3s ease;
+    border-bottom: 10px;
 }
 
 .modalAtractivo .mural-location a:hover {
-    background-color: var(--tertiary-dark);
-    color: #fff;
+    outline: 2px solid var(--primary);
 }
 
 /* ============================================================================================= */

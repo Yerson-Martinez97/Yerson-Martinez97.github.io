@@ -23,7 +23,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.8);
+    background-color: rgba(36, 49, 49, 0.8);
     z-index: -1;
     /* Asegura que el overlay esté por debajo del contenido */
 }
@@ -40,10 +40,10 @@
 
 /* Estilos del título */
 .boxHoteleria h3 {
-    font-size: 2.2rem;
+    font-size: var(--fontsize-big);
     text-align: center;
     margin-bottom: 80px;
-    color: var(--dark);
+    color: var(--secondary);
     position: relative;
     z-index: 3;
 }
@@ -62,24 +62,24 @@
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
-    outline: 1px solid var(--dark);
-    background-color: var(--white);
-    color: var(--dark);
+    outline: 1px solid var(--primary);
+    background-color: var(--secondary);
+    color: var(--primary);
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1.2rem;
 }
 
 .filter-buttons button:hover {
-    outline: 1px solid var(--white);
+    outline: 1px solid var(--secondary);
     background-color: var(--primary);
     color: var(--white);
 }
 
 .filter-buttons button.active {
-    outline: 1px solid var(--white);
+    outline: 1px solid var(--secondary);
     background-color: var(--primary-dark);
-    color: var(--white);
+    color: var(--secondary);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     animation: pulse 0.2s ease;
 }
@@ -100,20 +100,22 @@
 }
 
 /* Estilos de las cards */
-.cards {
+#linkHoteleria .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1rem;
     justify-content: center;
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
-.card {
+#linkHoteleria .card {
     position: relative;
     background-size: cover;
     background-position: center;
+    border: 1px solid var(--primary);
+    box-shadow: 0 4px 20px rgba(77, 107, 105, 0.7);
     border-radius: 12px;
     color: white;
     display: flex;
@@ -125,54 +127,54 @@
     width: 100%;
 }
 
-.card:hover {
+#linkHoteleria .card:hover {
     transform: scale(1.05);
     opacity: 0.9;
 }
 
 /* Fondo específico por card */
-.card.card-1 {
+#linkHoteleria .card.card-1 {
     background-image: url('../images/hoteleria/alejados/01/image01.webp');
 }
 
-.card.card-2 {
+#linkHoteleria .card.card-2 {
     background-image: url('../images/hoteleria/alejados/02/image04.webp');
 }
 
-.card.card-3 {
+#linkHoteleria .card.card-3 {
     background-image: url('../images/hoteleria/cerca/03/image01.webp');
 }
 
-.card.card-4 {
+#linkHoteleria .card.card-4 {
     background-image: url('../images/hoteleria/cerca/04/image03.webp');
 }
 
-.card.card-5 {
+#linkHoteleria .card.card-5 {
     background-image: url('../images/hoteleria/cerca/05/image01.webp');
 }
 
-.card.card-6 {
+#linkHoteleria .card.card-6 {
     background-image: url('../images/hoteleria/cerca/06/image02.webp');
 }
 
-.card.card-7 {
+#linkHoteleria .card.card-7 {
     background-image: url('../images/hoteleria/cerca/07/image02.webp');
 }
 
-.card.card-8 {
+#linkHoteleria .card.card-8 {
     background-image: url('../images/hoteleria/cabanas/08/image01.webp');
 }
 
-.card.card-9 {
+#linkHoteleria .card.card-9 {
     background-image: url('../images/hoteleria/cabanas//09/image01.webp');
 }
 
-.card.card-10 {
+#linkHoteleria .card.card-10 {
     background-image: url('../images/hoteleria/cabanas/10/image01.webp');
 }
 
 /* Estilos del overlay en las cards */
-.card-overlay {
+#linkHoteleria .card-overlay {
     background: rgba(0, 0, 0, 0.6);
     padding: 1rem;
     width: 100%;
@@ -193,7 +195,7 @@
 }
 
 /* Efecto hover: ampliamos el overlay y cambiamos la opacidad */
-.card:hover .card-overlay {
+#linkHoteleria .card:hover .card-overlay {
     background: rgba(0, 0, 0, 0.2);
     /* Oscurecer el fondo */
     height: 100%;
@@ -203,14 +205,14 @@
     /* Efecto de expansión */
 }
 
-.card:hover .card-overlay h4 {
+#linkHoteleria .card:hover .card-overlay h4 {
     /* color: transparent; */
     font-size: 1.6rem;
     filter: blur(2px);
 }
 
 /* Estilo del título dentro de las cards */
-.card h4 {
+#linkHoteleria .card h4 {
     /* margin: 0 0 0.5rem; */
     font-size: 1.6rem;
     font-weight: bold;
@@ -220,7 +222,7 @@
 }
 
 /* Opcional: si quieres que los textos dentro del overlay tengan un espaciado más equilibrado, puedes añadir estos estilos */
-.card-overlay p {
+#linkHoteleria .card-overlay p {
     font-size: 1rem;
     color: white;
     margin-top: 0.5rem;
@@ -340,12 +342,12 @@
 
 .modalHoteleria .modalHoteleria-content {
     position: relative;
-    background-color: var(--white);
+    background-color: var(--secondary);
     margin: auto;
     padding: 20px 30px;
     border-radius: 8px;
     width: 100%;
-    max-width: 1000px;
+    /* max-width: 1200px; */
     /* menos ancho máximo para móviles */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     box-sizing: border-box;
@@ -371,19 +373,18 @@
 }
 
 .modalHoteleria #modalHoteleria-title {
-    color: var(--dark);
-    background-color: var(--white);
+    color: var(--primary);
     padding: 15px;
-    font-size: 1.8rem;
+    font-size: var(--fontsize-big);
     text-align: center;
     margin: 15px 0;
     font-weight: bold;
 }
 
 /* RESERVATIONS */
-/* RESERVATIONS */
 .modalHoteleria #modalHoteleria-reservations {
-    font-size: 1.4rem;
+    color: var(--primary);
+    font-size: var(--fontsize-medium);
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -392,11 +393,8 @@
 .reservation-container {
     display: flex;
     justify-content: space-between;
-    /* Para separar los bloques de fijo y móvil */
     gap: 30px;
-    /* Espacio entre los bloques */
     margin-bottom: 20px;
-    /* Separación entre las reservas */
 }
 
 /* Estilo para el contenedor de números fijos */
@@ -407,7 +405,7 @@
 
 /* Estilo para el contenedor de números móviles */
 .mobile-container, .fixed-container {
-    outline: 1px solid var(--dark);
+    outline: 2px dashed var(--primary-dark);
     border-radius: 2px;
 }
 
@@ -419,7 +417,7 @@
 
 /* Estilo para los textos de los números */
 .modalHoteleria #modalHoteleria-reservations a, .modalHoteleria #modalHoteleria-reservations p {
-    font-size: 1.2rem;
+    font-size: var(--fontsize-standard);
     line-height: 1.6;
 }
 
@@ -504,7 +502,7 @@
 /* SOCIAL NETWORK */
 #modalHoteleria-socialnetworks {
     font-size: 1.2rem;
-    border: 1px solid var(--black);
+    /* border: 1px solid var(--black); */
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 20px;
@@ -616,7 +614,7 @@
 /* SERVICES */
 #modalHoteleria-services, #modalHoteleria-atractions {
     font-size: 1.2rem;
-    border: 1px solid var(--black);
+    border: 10px double var(--primary);
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
@@ -624,9 +622,9 @@
 
 #modalHoteleria-services .title, #modalHoteleria-atractions .title {
     font-weight: bold;
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    color: var(--dark);
+    font-size: var(--fontsize-medium);
+    margin-bottom: 20px;
+    color: var(--primary);
     text-align: center;
 }
 
@@ -641,6 +639,7 @@
     line-height: 1.5;
     margin-bottom: 20px;
     list-style: disc;
+    color: var(--primary-dark);
 }
 
 #modalHoteleria-services ul,
@@ -661,7 +660,7 @@
 /* LOCATION */
 .modalHoteleria-location {
     font-size: 1.2rem;
-    border: 1px solid var(--black);
+    border: 10px ridge var(--primary);
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
@@ -726,9 +725,9 @@
     height: 64px;
     margin: 20px auto 0 auto;
     padding: 12px 24px;
-    border: 2px solid var(--tertiary);
-    background-color: var(--tertiary);
-    color: var(--white);
+    border: 2px dashed var(--primary);
+    background-color: var(--secondary);
+    color: var(--primary);
     text-decoration: none;
     border-radius: 8px;
     font-size: 1.4rem;
@@ -738,8 +737,8 @@
 }
 
 .modalHoteleria .btn-map:hover {
-    background-color: var(--tertiary-dark);
-    color: #fff;
+    background-color: var(--primary);
+    color: var(--secondary);
 }
 
 /* Responsive adjustments */

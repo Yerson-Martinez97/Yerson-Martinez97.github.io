@@ -1,0 +1,314 @@
+#linkFerias {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('../images/ferias/ferias.webp') center/cover no-repeat fixed;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Overlay negro con transparencia, pero sin tapar el contenido */
+#linkFerias::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(36, 49, 49, 0.8);
+    z-index: -1;
+}
+
+/* Estilo para el contenedor y el texto */
+.boxFerias {
+    height: 100%;
+    min-height: 100vh;
+    max-width: 100vw;
+}
+
+/* Título dentro de .boxFerias */
+.boxFerias h3 {
+    font-size: var(--fontsize-big);
+    text-align: center;
+    margin-bottom: 80px;
+    color: var(--secondary);
+    position: relative;
+    z-index: 3;
+}
+
+/* Resto de los estilos para los elementos, como las cards */
+.boxFerias .swiper-slide {
+    z-index: 3;
+    /* Asegura que las cards estén sobre el overlay */
+}
+
+.boxFerias .cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding: 16px;
+}
+
+@media (max-width: 1024px) {
+    .boxFerias .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .boxFerias .cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.boxFerias .card-details {
+    border: 10px double var(--primary);
+    background-color: var(--secondary);
+    color: black;
+    height: 100%;
+    gap: .5em;
+    display: grid;
+    place-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.boxFerias .card-details:hover {
+    background-color: var(--secondary);
+}
+
+/*Text*/
+.boxFerias .text-title {
+    text-align: center;
+    padding: 0 50px;
+    font-size: var(--fontsize-big);
+    font-weight: bold;
+    color: var(--primary);
+    position: relative;
+    z-index: 1;
+}
+
+.boxFerias .card {
+    margin: 1rem 0;
+    border-radius: .5rem;
+    background: #fff;
+    position: relative;
+    border: 1px solid var(--primary-dark);
+    transition: 0.5s ease-out;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.5);
+}
+
+/*Hover*/
+.boxFerias .card:hover {
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.8);
+    background-color: rgb(255, 255, 255, 1);
+}
+
+@media (max-width: 530px) {
+    .boxFerias .card {
+        min-height: 200px;
+    }
+}
+
+/* Estilos responsivos para Swiper sin romper el diseño actual */
+.ferias-swiper {
+    height: 80vh;
+    width: 80vw;
+    max-width: 800px;
+    max-height: 600px;
+}
+
+@media (max-width:1200px) {
+    .ferias-swiper {
+        max-width: 400px;
+        max-height: 400px;
+    }
+}
+
+/* Adaptar la altura en dispositivos más pequeños */
+@media (max-width: 768px) {
+    .ferias-swiper {
+        height: 400px;
+    }
+}
+
+@media (max-width: 530px) {
+    .ferias-swiper {
+        height: 350px;
+    }
+}
+
+/* Asegura que el wrapper y slides usen el 100% del alto del swiper */
+.ferias-swiper .swiper-wrapper {
+    height: 100%;
+}
+
+.ferias-swiper .swiper-slide {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+/* Cards dentro del swiper: adaptabilidad de altura y proporción */
+.ferias-swiper .swiper-slide.card {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    /* Proporción adaptable */
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Para dispositivos pequeños */
+@media (max-width: 768px) {
+    .ferias-swiper .swiper-slide.card {
+        aspect-ratio: 2 / 3;
+        max-width: 95vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .ferias-swiper .swiper-slide.card {
+        aspect-ratio: 3 / 4;
+    }
+}
+
+.ferias-swiper .swiper-pagination-bullet {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 20px;
+    color: #000;
+    opacity: 1;
+    background: var(--white);
+    outline: 1px solid var(--dark);
+    color: var(--dark);
+}
+
+.ferias-swiper .swiper-pagination-bullet:hover {
+    background-color: var(--dark);
+    color: var(--white);
+}
+
+.ferias-swiper .swiper-pagination-bullet-active {
+    color: #fff;
+    background: var(--dark);
+}
+
+/* ============================================================================================= */
+/* ============================================================================================= */
+/* ============================================================================================= */
+/* Modal */
+.modalFeria {
+    display: none;
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(36, 49, 49, .9);
+    overflow-y: auto;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Animación para el modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modalFeria .modalFeria-content {
+    position: relative;
+    background-color: var(--secondary);
+    margin: auto;
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1000px;
+    /* menos ancho máximo para móviles */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+.modalFeria .modal-inner {
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+    .modalFeria .modal-inner {
+        padding: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .modalFeria .modal-inner {
+        padding: 0;
+    }
+}
+
+.modalFeria #modalFeria-title {
+    color: var(--primary);
+    padding: 15px;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.modalFeria #modalFeria-description {
+    color: var(--primary-dark);
+    font-size: var(--fontsize-medium);
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+#modalFeria-event {
+    text-align: center;
+    color: var(--black);
+    font-weight: bold;
+    font-size: var(--fontsize-standard);
+    font-style: oblique;
+}
+
+/* ============================================================================================= */
+/* Botón de cierre */
+.modalFeria .close {
+    color: var(--primary);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.modalFeria .close:hover,
+.modalFeria .close:focus {
+    color: var(--primary-dark);
+    text-decoration: none;
+}

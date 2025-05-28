@@ -1,17 +1,49 @@
-/*  ESTILOS ATRACTIVOS*/
-.boxRestaurantes {
-    width: 100%;
-    text-align: center;
+#linkRestaurante {
     background-color: var(--white);
+    position: relative;
+    z-index: 1;
 }
 
-.boxRestaurantes h3 {
-    display: block;
+
+/* Overlay negro con transparencia, pero sin tapar el contenido */
+#linkRestaurante::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin-bottom: 1rem;
+    height: 100%;
+    /* background: rgba(255, 255, 255, 0.8); */
+    z-index: -1;
 }
 
-.boxRestaurantes .cards-container {
+/* Estilo para el contenedor y el texto */
+.boxRestaurante {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* centra horizontal */
+    align-items: center;
+    /* centra vertical */
+}
+
+/* Título dentro de .boxRestaurante */
+.boxRestaurante h3 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 80px;
+    color: var(--dark);
+    position: relative;
+    z-index: 3;
+}
+
+/* Resto de los estilos para los elementos, como las cards */
+.boxRestaurante .swiper-slide {
+    z-index: 3;
+    /* Asegura que las cards estén sobre el overlay */
+}
+
+.boxRestaurante .cards-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
@@ -19,141 +51,451 @@
 }
 
 @media (max-width: 1024px) {
-    .boxRestaurantes .cards-container {
+    .boxRestaurante .cards-container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 600px) {
-    .boxRestaurantes .cards-container {
+    .boxRestaurante .cards-container {
         grid-template-columns: 1fr;
     }
 }
 
-.boxRestaurantes .card {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
-    height: 200px;
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.boxRestaurantes .card__image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.boxRestaurante .card-details {
+    color: black;
     height: 100%;
-    object-fit: cover;
-    opacity: 1;
-    transform: scale(1.1);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    gap: .5em;
+    display: grid;
+    place-content: center;
+    position: relative;
     z-index: 1;
 }
 
-.boxRestaurantes .card__content {
+/*Text*/
+.boxRestaurante .text-title {
+    text-align: center;
+    padding: 0 50px;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0px 1px 10px rgba(0, 0, 0, 1) !important;
+    position: relative;
+    z-index: 1;
+}
+
+.boxRestaurante .card {
+    margin: 1rem 0;
+    border-radius: .5rem;
+    background: #f5f5f5;
+    position: relative;
+    border: 2px solid #c3c6ce;
+    transition: 0.5s ease-out;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/*Hover*/
+.boxRestaurante .card:hover {
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+
+.boxRestaurante .card:hover .card-button {
+    transform: translate(-50%, 50%);
+    opacity: 1;
+}
+
+/* Imagen de fondo con overlay oscuro */
+.boxRestaurante .card::before {
+    content: "";
     position: absolute;
-    /* Cambia de relative a absolute */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Ocupa toda la tarjeta */
-    z-index: 2;
-    padding: 20px;
+    z-index: 0;
+    transition: transform 0.5s ease-out;
+}
+
+.boxRestaurante .card.card-1::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)), url('../images/restaurante/plaza/image01.webp') center/cover no-repeat;
+}
+
+.boxRestaurante .card.card-2::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)), url('../images/restaurante/iglesia/image01.webp') center/cover no-repeat;
+}
+
+.boxRestaurante .card.card-3::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)), url('../images/restaurante/rio/image01.webp') center/cover no-repeat;
+}
+
+.boxRestaurante .card.card-4::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)), url('../images/restaurante/parque/image01.webp') center/cover no-repeat;
+}
+
+.boxRestaurante .card.card-5::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)), url('../images/restaurante/murales/jukumari/image01.webp') center/cover no-repeat;
+}
+
+.boxRestaurante .card.card-6::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)), url('../images/restaurante/mirador/image01.webp') center/cover no-repeat;
+}
+
+.boxRestaurante .card.card-7::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)), url('../images/restaurante/rutacafe/image01.webp') center/cover no-repeat;
+}
+
+.boxRestaurante .card.card-8::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)), url('../images/restaurante/artecampo/image01.webp') center/cover no-repeat;
+}
+
+.boxRestaurante .card.card-9::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)), url('../images/restaurante/queseria/image01.webp') center/cover no-repeat;
+}
+
+.boxRestaurante .card:hover::before {
+    transform: scale(1.05);
+}
+
+.boxRestaurante .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    /* Overlay oscuro */
+    z-index: 0;
+    transition: transform 0.5s ease-out;
+}
+
+.boxRestaurante .card:hover::after {
+    transform: scale(1.05);
+}
+
+/* Asegurar que el contenido esté sobre la imagen */
+.boxRestaurante .card-details,
+.boxRestaurante .card-button {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 530px) {
+    .boxRestaurante .card {
+        min-height: 200px;
+    }
+}
+
+/* Estilos responsivos para Swiper sin romper el diseño actual */
+.restaurante-swiper {
+    height: 80vh;
+    /* usa porcentaje del viewport */
+    width: 100vw;
+    /* usa porcentaje del viewport */
+    max-width: 1000px;
+    max-height: 600px;
+    /* limita para pantallas muy grandes */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    transition: opacity 0.6s ease;
+}
+
+.restaurante-swiper .swiper-button-next, .restaurante-swiper .swiper-button-prev {
+    color: var(--white);
+}
+
+.restaurante-swiper .swiper-pagination-bullet {
+    background-color: #fff;
+    /* color de los bullets inactivos */
     opacity: 1;
-    background-color: rgba(255, 255, 255, 0.7);
-    /* Fondo translúcido */
+    /* opcional, para mejor visibilidad */
 }
 
-
-.boxRestaurantes .card__title {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 700;
-    color: #222;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
+.restaurante-swiper .swiper-pagination-bullet-active {
+    background-color: #ccc;
+    /* color del bullet activo */
 }
 
-.boxRestaurantes .card__description {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.5;
-    font-weight: 400;
-    max-height: 80px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+/* Adaptar la altura en dispositivos más pequeños */
+@media (max-width: 768px) {
+    .restaurante-swiper {
+        height: 400px;
+    }
 }
 
-.boxRestaurantes .card:hover .card__image {
-    transform: scale(1);
+@media (max-width: 530px) {
+    .restaurante-swiper {
+        height: 350px;
+    }
 }
 
-/* .boxRestaurantes .card:hover .card__content {
-    opacity: 0;
+/* Asegura que el wrapper y slides usen el 100% del alto del swiper */
+.restaurante-swiper .swiper-wrapper {
+    height: 100%;
+}
+
+.restaurante-swiper .swiper-slide {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    /* Estira la card a toda la altura */
+}
+
+.restaurante-swiper .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color: #000 !important;
+    background: var(--white) !important;
+    opacity: 1;
+}
+
+.restaurante-swiper .swiper-pagination-bullet-active {
+    color: var(--white) !important;
+    background: var(--primary) !important;
+}
+
+.restaurante-swiper .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background-color: var(--primary);
+}
+
+/* .restaurante-swiper .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background-color: var(--primary);
 } */
 
-/* Botón sobre la imagen */
-.boxRestaurantes .card__button {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px);
-    padding: 10px 20px;
-    font-size: 14px;
-    color: var(--primary);
-    outline: 2px solid var(--primary);
-    font-weight: bold;
+/* ============================================================================================= */
+/* ============================================================================================= */
+/* ============================================================================================= */
+/* Modal */
+.modalRestaurante {
+    display: none;
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .9);
+    overflow-y: auto;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Animación para el modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modalRestaurante .modalRestaurante-content {
+    position: relative;
     background-color: var(--white);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    opacity: 0;
-    z-index: 2;
+    margin: auto;
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1000px;
+    /* menos ancho máximo para móviles */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+.modalRestaurante .modal-inner {
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+    .modalRestaurante .modal-inner {
+        padding: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .modalRestaurante .modal-inner {
+        padding: 0;
+    }
+}
+
+.modalRestaurante #modalRestaurante-title {
+    color: var(--dark);
+    background-color: var(--white);
+    padding: 15px;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.modalRestaurante #modalRestaurante-description {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las imágenes dentro del modal */
+.modalRestaurante .modalRestaurante-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Imagen de las imágenes del modal */
+.modalRestaurante .modalRestaurante-images img {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 16 / 10;
+    border-radius: 0px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    height: auto;
+    transition: filter 0.3s ease;
+    /* Transición suave */
+    filter: brightness(1);
+}
+
+/* Hover sobre las imágenes dentro del modal */
+.modalRestaurante .modalRestaurante-images img:hover {
+    filter: brightness(.9);
+}
+
+@media (max-width: 720px) {
+    .modalRestaurante .modalRestaurante-images img {
+        max-width: 100%;
+        aspect-ratio: 16 / 10;
+        /* Permite que la imagen se ajuste sin distorsión */
+        height: auto;
+    }
+}
+
+.modalRestaurante .btn-map {
+    display: block;
+    width: 210px;
+    height: 64px;
+    margin: 20px auto 0 auto;
+    padding: 12px 24px;
+    border: 2px solid var(--tertiary);
+    background-color: var(--tertiary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
     transition: all 0.3s ease;
 }
 
-.boxRestaurantes .card:hover .card__button {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-@media (max-width: 1024px) {
-    .boxRestaurantes .cards-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.modalRestaurante .btn-map:hover {
+    background-color: var(--tertiary-dark);
+    color: #fff;
 }
 
-@media (max-width: 768px) {
-    .boxRestaurantes .cards-container {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
+/* ============================================================================================= */
+/* Botón de cierre */
+.modalRestaurante .close {
+    color: var(--primary);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+}
 
-    .boxRestaurantes .card {
-        height: 180px;
-    }
+.modalRestaurante .close:hover,
+.modalRestaurante .close:focus {
+    color: var(--primary-dark);
+    text-decoration: none;
+}
 
-    .boxRestaurantes .card__title {
-        font-size: 18px;
-    }
+/* ============================================================================================= */
+.modalRestaurante .mural-item {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
 
-    .boxRestaurantes .card__button {
-        font-size: 12px;
-        padding: 8px 16px;
-    }
+.modalRestaurante .mural-title {
+    font-size: 1.6rem;
+    color: var(--dark);
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.modalRestaurante .mural-description {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: var(--dark);
+
+}
+
+.modalRestaurante .mural-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.modalRestaurante .mural-image {
+    flex: 1 1 300px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+
+.modalRestaurante .mural-location a {
+    display: block;
+    width: 200px;
+    margin: 20px auto 0 auto;
+    padding: 10px 20px;
+    border: 2px solid var(--tertiary);
+    background-color: var(--tertiary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.modalRestaurante .mural-location a:hover {
+    background-color: var(--tertiary-dark);
+    color: #fff;
+}
+
+/* ============================================================================================= */
+.glightbox-container {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    /* fondo oscuro */
 }

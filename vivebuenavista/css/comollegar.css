@@ -4,70 +4,67 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-color: var(--chalk-beige);
+    color: var(--dark) !important;
 }
 
 .boxComoLlegar h2 {
-    font-size: 2.2rem;
-    color: var(--dark);
+    font-size: var(--fontsize-big);
     margin-bottom: 10px;
 }
 
 .boxComoLlegar .sub {
-    font-size: 1.1rem;
-    color: var(--dark);
+    font-size: var(--fontsize-medium);
     margin-bottom: 40px;
 }
 
 .boxComoLlegar .info-grid {
+    max-width: 1200px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
-    margin-bottom: 35px;
+    gap: 40px;
+    margin-bottom: 40px;
 }
 
 .boxComoLlegar .info-card {
     background: var(--white);
+    outline: 2px solid var(--primary) !important;
     border: none;
     padding: 25px;
     width: 300px;
-    border-radius: 16px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(77, 107, 105, 0.1);
     transition: transform 0.3s ease;
 }
 
 .boxComoLlegar .info-card:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(77, 107, 105, 0.2);
 }
 
-@media (max-width: 800px) {
-    .boxComoLlegar .info-card {
-        width: 300px;
-        width: 250px;
-        height: 150px;
-    }
+.boxComoLlegar .info-card p i, .boxComoLlegar .info-card p span {
+    font-size: var(--fontsize-standard);
 }
 
 .boxComoLlegar .label {
-    font-size: 1rem;
+    font-size: var(--fontsize-standard);
     color: var(--dark);
 }
 
 .boxComoLlegar .value {
-    font-size: 1.6rem;
+    font-size: var(--fontsize-medium);
     color: var(--dark);
-
 }
 
-@media (max-width: 800px) {
-    .boxComoLlegar .value {
-        font-size: 1.4rem;
-    }
+.boxComoLlegar .value strong {
+    color: var(--primary);
 }
+
 
 .boxComoLlegar .precio-card .precio {
-    font-size: 1.5rem;
+    font-size: var(--fontsize-medium);
     font-weight: bold;
+    color: var(--primary);
 }
 
 .boxComoLlegar .precio-card .precio span {
@@ -78,13 +75,13 @@
     display: block;
     width: 210px;
     height: 64px;
-    margin: 20px auto 0 auto;
+    margin: 20px auto 50px auto;
     padding: 12px 24px;
-    border: 2px solid var(--tertiary);
-    background-color: var(--tertiary);
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    background-color: var(--primary);
     color: var(--white);
     text-decoration: none;
-    border-radius: 8px;
     font-size: 1.4rem;
     font-weight: 600;
     text-align: center;
@@ -97,5 +94,18 @@
 
 .boxComoLlegar a:hover, .boxComoLlegar a+i:hover {
     color: var(--white);
-    background-color: var(--tertiary-dark);
+    background-color: var(--primary);
 }
+
+/* 
+@media (max-width: 800px) {
+    .boxComoLlegar .info-card {
+        width: 300px;
+        width: 250px;
+        height: 150px;
+    }
+
+    .boxComoLlegar .value {
+        font-size: 1.4rem;
+    }
+} */

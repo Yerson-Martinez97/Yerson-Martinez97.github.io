@@ -1,35 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Artesanías
   fetch("json/ArtesaniasInfo.json")
     .then((res) => res.json())
     .then((data) => {
-      document
-        .querySelectorAll(".swiper.artesanias-swiper .swiper-slide.card")
-        .forEach((card) => {
-          card.addEventListener("click", function () {
-            const idArtesania = this.getAttribute("data-idArtesania");
-            const artesania = data[idArtesania];
+      document.querySelectorAll(".card[data-idArtesania]").forEach((card) => {
+        card.addEventListener("click", function () {
+          const id = this.getAttribute("data-idArtesania");
+          const artesania = data[id];
 
-            if (artesania) {
-              openModalArtesania(
-                artesania.title || "Sin título",
-                artesania.description || "Sin descripción",
-                artesania.images || []
-              );
-            } else {
-              openModalArtesania(
-                "Información no disponible",
-                "No se encontró información para esta artesanía.",
-                [],
-                null
-              );
-            }
-          });
+          if (artesania) {
+            openModalArtesania(
+              artesania.title || "Sin título",
+              artesania.description || "Sin descripción",
+              artesania.images || []
+            );
+          } else {
+            openModalArtesania(
+              "Información no disponible",
+              "No se encontró información.",
+              []
+            );
+          }
         });
+      });
 
       document
         .getElementById("modalArtesania-close")
         .addEventListener("click", closeModalArtesania);
-
       window.addEventListener("click", (e) => {
         if (e.target === document.getElementById("modalArtesania")) {
           closeModalArtesania();
@@ -37,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     })
     .catch((error) => {
-      console.error("Error al cargar el JSON:", error);
+      console.error("Error al cargar ArtesaniasInfo.json:", error);
     });
 });
 
