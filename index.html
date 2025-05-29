@@ -56,7 +56,8 @@
             <a class="navbar-brand" href="#linkHome">Vive <small>BuenaVista</small></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <!-- <span class="navbar-toggler-icon"></span> -->
+                <i class="fa-solid fa-bars toggler-icons"></i>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -86,28 +87,64 @@
             </div>
         </nav>
 
-        <div class="boxHeader">
-            <img class="fondoParallax" src="images/welcome/buenavista.webp" alt="">
-            <div data-aos="fade-left" class="tucan-container">
-                <img src="images/tucan.webp" alt="Tucán" class="tucan-img" oncontextmenu="return false;"
-                    draggable="false">
-            </div>
-            <div class="overlay"></div>
-            <div class="textsHeader" data-aos="fade-up">
-                <h1><b>Donde empieza tu aventura</b></h1>
-                <p>Descubre BuenaVista, un lugar lleno de historia, cultura y naturaleza en Santa Cruz. Vive su
-                    encanto auténtico y su calidez única. ¡Te esperamos!.</p>
+        <section id="linkWelcome" class="boxWelcome">
+            <img class="fondoParallax" src="images/welcome/buenavista.webp" alt="Imagen de fondo">
+            <div class="overlay"></div> <!-- Capa semi-transparente -->
+            <div class="content">
+                <h2 class="content__title">Donde empieza tu aventura</h2>
+                <p class="content__description">Descubre BuenaVista, un lugar lleno de historia, cultura y naturaleza en
+                    Santa Cruz. Vive su encanto
+                    auténtico y su calidez única. ¡Te esperamos!.</p>
                 <a class="btnGetStarted scroll" href="#linkComoLlegar" rel="nofollow noopener">¿Cómo Llegar?</a>
             </div>
-        </div>
-        <script>
-            window.addEventListener("scroll", function () {
-                const fondo = document.querySelector(".fondoParallax");
-                let offset = window.pageYOffset;
-                fondo.style.transform = `translateY(${offset * 0.5}px) scale(1.2)`;
-            });
-        </script>
+            <div class="wave"> </div>
+        </section>
     </header>
+    <script>
+        window.addEventListener("scroll", function () {
+            const fondo = document.querySelector(".fondoParallax");
+            let offset = window.pageYOffset;
+            fondo.style.transform = `translateY(${offset * 0.5}px) scale(1.2)`;
+        });
+    </script>
+
+    <script>
+        window.addEventListener("load", function () {
+            // Obtener el navbar y la sección linkHome al cargar la página
+            const navbar = document.getElementById("navFixed");
+            const linkHome = document.getElementById("linkHome");
+
+            // Inicialmente, agregar la clase 'transparent' al navbar
+            navbar.classList.add("transparent");
+
+            // Event listener para el scroll
+            window.addEventListener("scroll", function () {
+                // Obtener la posición de la sección linkHome
+                const linkHomeTop = linkHome.offsetTop;
+                const linkHomeHeight = linkHome.offsetHeight - 100;
+
+                // Si estamos dentro de la sección linkHome
+                if (window.scrollY >= linkHomeTop && window.scrollY <= (linkHomeTop + linkHomeHeight)) {
+                    navbar.classList.add("transparent");
+                    navbar.classList.remove("solid");
+                } else {
+                    navbar.classList.add("solid");
+                    navbar.classList.remove("transparent");
+                }
+            });
+        });
+
+    </script>
+    <!-- <section id="intro">
+        <div class="intro-content">
+            <h1>Bienvenido a Mi Sitio Web</h1>
+            <p>Descubre lo mejor de la tecnología, diseño y más.</p>
+        </div>
+    </section> -->
+
+
+
+
     <!-- Fin Contenedor Header -->
     <!-- ================================================================================================================= -->
 
@@ -473,7 +510,8 @@
     <!-- Contenedor Footer -->
     <footer class="footer">
         <div class="boxTextFooter">
-            <p>&copy; <span id="year"></span> Derechos reservados por <a href="#linkHome" class="scroll primary"> 🏞️
+            <p>&copy; <span id="year"></span> Derechos reservados por <a href="#linkHome" class="scroll primary">
+                    🏞️
                     Grupo </a>
             </p>
         </div>
