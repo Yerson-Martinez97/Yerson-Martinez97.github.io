@@ -183,7 +183,6 @@ header .boxHeader {
     animation: moveUpDown 15s infinite ease-in-out;
 }
 
-/* Definición de la animación */
 @keyframes moveUpDown {
     0% {
         transform: translateY(0%) translateY(-20px);
@@ -197,7 +196,6 @@ header .boxHeader {
         transform: translateY(0%) translateY(-20px);
     }
 }
-
 
 @media screen and (max-width:1400) {
     .boxHeader .textsHeader p {

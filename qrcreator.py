@@ -1,5 +1,5 @@
 import qrcode
-input = "https://yerson-martinez97.github.io/vivebuenavista/"
+input = "https://vivebuenavista.netlify.app/"
 qr = qrcode.QRCode(version=1,box_size=10,border=5)
 qr.add_data(input)
 qr.make(fit=True)

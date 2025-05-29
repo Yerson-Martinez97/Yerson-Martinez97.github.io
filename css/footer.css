@@ -1,5 +1,5 @@
 .footer {
-    background: var(--white);
+    background: var(--secondary);
     padding: 25px;
 }
 
@@ -11,11 +11,11 @@
 
 .boxTextFooter p {
     margin-bottom: 0;
-    color: var(--dark);
+    color: var(--primary);
 }
 
 .boxTextFooter p a {
-    color: var(--dark);
+    color: var(--primary);
 }
 
 .boxTextFooter p a:hover {
@@ -28,7 +28,7 @@
 }
 
 #year {
-    color: var(--dark);
+    color: var(--primary);
 }
 
 @media screen and (max-width:400px) {

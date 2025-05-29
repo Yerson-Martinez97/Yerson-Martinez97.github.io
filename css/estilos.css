@@ -108,18 +108,10 @@ a, a:hover {
     }
 }
 
-/* .contenedor {
-    padding: 80px;
-    max-width: 1000px;
-    width: 90%;
-    margin: auto;
-    overflow: hidden;
-} */
-
 .boxComoLlegar {
     padding: 50px 25px !important;
 }
 
-.boxAtractivos, .boxArtesanias, .boxHoteleria, .boxFerias {
+.boxAtractivos, .boxArtesanias, .boxHoteleria, .boxFerias, .boxRestaurantes {
     padding: 50px 0px !important;
 }

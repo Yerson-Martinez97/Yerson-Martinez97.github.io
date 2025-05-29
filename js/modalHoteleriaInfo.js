@@ -217,10 +217,6 @@ function openModalHoteleria(
 
       // Añadir el contenedor al modal
       modalHoteleriaReservations.appendChild(reservationContainer);
-
-      // Divider
-      modalHoteleriaReservations.innerHTML +=
-        "<hr class='modalHoteleria-divider'>";
     });
   } else {
     // Si no existen reservas, mostrar un mensaje

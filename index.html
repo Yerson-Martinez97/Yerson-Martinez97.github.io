@@ -348,8 +348,8 @@
                     <div id="modalHoteleria-atractions"></div>
                     <p id="modalHoteleria-reservations">Reservas</p>
                     <div class="modalHoteleria-location">
-                        <div id="location__title">Dirección</div>
-                        <div id="location__address"></div>
+                        <div id="restaurante-location__title">Dirección</div>
+                        <div id="restaurante-location__address"></div>
                         <a id="modalHoteleria-btnMap" class="btn-map" href="#" target="_blank"
                             rel="noopener noreferrer">
                             Ver Ruta
@@ -364,35 +364,30 @@
         <!-- Fin Sección Hotelerias -->
 
         <!--  Sección Restaurante -->
-        <section id="linkRestaurantes" class="boxRestaurante">
+        <section id="linkRestaurantes" class="boxRestaurantes">
             <div data-aos="fade-up">
-                <h3>Restaurante</h3>
-                <div class="swiper restaurante-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide card card-1" data-idRestaurante="LaCunumisita">
-                            <div class="card-details overlay">
-                                <p class="text-title">Restaurante 'La Cunumisita'</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card card-2" data-idRestaurante="Muebles Rústicos">
-                            <div class="card-details overlay">
-                                <p class="text-title">Lisis Restaurante</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card card-3" data-idRestaurante="JipiJapa">
-                            <div class="card-details overlay">
-                                <p class="text-title">Quesería Suiza</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card card-4" data-idRestaurante="Muebles Rústicos">
-                            <div class="card-details overlay">
-                                <p class="text-title">Bar Restaurante La Pascana De Los Tigres</p>
-                            </div>
+                <h3>Restaurantes</h3>
+                <div class="cards">
+                    <div class="card card-1" data-idRestaurante="LaCunumisita">
+                        <div class="card-details overlay">
+                            <p class="text-title">Restaurante 'La Cunumisita'</p>
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+                    <div class="card card-2" data-idRestaurante="Lisis">
+                        <div class="card-details overlay">
+                            <p class="text-title">Lisis Restaurante</p>
+                        </div>
+                    </div>
+                    <div class="card card-2" data-idRestaurante="QueseríaSuiza">
+                        <div class="card-details overlay">
+                            <p class="text-title">Quesería Suiza</p>
+                        </div>
+                    </div>
+                    <div class="card card-2" data-idRestaurante="LaPascanaDeLosTigres">
+                        <div class="card-details overlay">
+                            <p class="text-title">Bar Restaurante La Pascana De Los Tigres</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -400,11 +395,23 @@
             <div class="modalRestaurante-content">
                 <div class="modal-inner">
                     <span id="modalRestaurante-close" class="close">&times;</span>
-                    <h2 id="modalRestaurante-title">Título de la artesanía</h2>
-                    <p id="modalRestaurante-description">Descripción larga de la artesanía...</p>
-
-                    <div id="modalRestaurante-images" class="modalRestaurante-images">
+                    <h2 id="modalRestaurante-title"></h2>
+                    <div id="modalRestaurante-stars"></div> <!-- Aquí van las estrellas -->
+                    <p id="modalRestaurante-description"></p>
+                    <div id="modalRestaurante-images" class="modalRestaurante-images"></div>
+                    <div id="modalRestaurante-recommendations"></div>
+                    <div id="modalRestaurante-opinions"></div>
+                    <div id="modalRestaurante-businesshours"></div>
+                    <div id="modalRestaurante-reservations"></div>
+                    <div class="modalRestaurante-location">
+                        <div id="location__title">Dirección</div>
+                        <div id="location__address"></div>
+                        <a id="modalRestaurante-btnMap" class="btn-map" href="#" target="_blank"
+                            rel="noopener noreferrer">
+                            Ver Ruta
+                        </a>
                     </div>
+                    <div id="modalRestaurante-socialnetworks"></div>
                 </div>
             </div>
         </div>
@@ -510,8 +517,7 @@
     <script src="js/modalArtesaniasInfo.js"></script>
 
     <script src="js/modalHoteleriaInfo.js"></script>
-
-    <script src="js/swiperRestaurantes.js"></script>
+    <script src="js/modalRestaurantesInfo.js"></script>
 
 
     <script src="js/swiperFerias.js"></script>

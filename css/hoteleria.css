@@ -358,33 +358,29 @@
     margin-bottom: 20px;
 }
 
-/* Contenedor general de las reservas */
-.reservation-container {
+.modalHoteleria .reservation-container {
     display: flex;
     justify-content: space-between;
     gap: 30px;
     margin-bottom: 20px;
 }
 
-/* Estilo para el contenedor de números fijos */
-.fixed-container {
+.modalHoteleria .fixed-container {
     flex: 1;
     /* Toma el 50% del espacio disponible */
 }
 
-/* Estilo para el contenedor de números móviles */
-.mobile-container, .fixed-container {
+.modalHoteleria .mobile-container, .fixed-container {
     outline: 2px dashed var(--primary-dark);
     border-radius: 2px;
 }
 
-/* Estilo para el contenedor de números móviles */
-.mobile-container {
+.modalHoteleria .mobile-container {
     flex: 1;
     /* Toma el 50% del espacio disponible */
 }
 
-.mobile-container strong {
+.modalHoteleria .mobile-container strong {
     font-size: var(--fontsize-medium);
 }
 
@@ -403,14 +399,14 @@
 
 /* MEDIA QUERY PARA PANTALLAS PEQUEÑAS (Móviles) */
 @media (max-width: 768px) {
-    .reservation-container {
+    .modalHoteleria .reservation-container {
         flex-direction: column;
         /* Cambiar a columna para pantallas pequeñas */
         gap: 15px;
         /* Reducir el espacio entre los bloques */
     }
 
-    .fixed-container, .mobile-container {
+    .modalHoteleria .fixed-container, .modalHoteleria .mobile-container {
         flex: none;
         /* Deja que los contenedores tomen el 100% del ancho disponible */
     }
