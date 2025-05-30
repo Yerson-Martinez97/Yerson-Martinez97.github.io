@@ -175,6 +175,7 @@ i.toggler-icons {
     line-height: 1.8;
     max-width: 800px;
     margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 /* BTN GET STARTED */
@@ -182,13 +183,14 @@ i.toggler-icons {
     width: 60%;
     max-width: 300px;
     position: absolute;
-    bottom: -50px;
+    bottom: -30px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 4;
     padding: 12px 25px;
-    background-color: var(--primary);
-    color: var(--secondary);
+    background-color: var(--secondary);
+    outline: 5px solid var(--primary);
+    color: var(--primary);
     /* border: 2px solid var(--primary-dark); */
     border-radius: 50px;
     font-size: var(--fontsize-medium);
@@ -200,7 +202,7 @@ i.toggler-icons {
 
 .boxWelcome .btnGetStarted:hover {
     /* transform: translateY(-1px) translateX(-50%); */
-    /* box-shadow: 0 0px 0px rgba(0, 0, 0, 0.4); */
+    box-shadow: 0 6px 15px rgba(36, 49, 49, 1);
 }
 
 .boxWelcome .btnGetStarted:active {
@@ -260,7 +262,11 @@ i.toggler-icons {
         padding: 12px 15px;
     }
 }
-
+@media (max-width: 420px) {
+    .boxWelcome .content {
+        margin: 100px 0;
+    }
+}
 @media (max-width: 320px) {
     .boxWelcome .wave {
         height: 120px;
@@ -268,7 +274,7 @@ i.toggler-icons {
 
     .boxWelcome .btnGetStarted {
         font-size: var(--fontsize-standard);
-        bottom: -60px;
+        bottom: -35px;
     }
 }
 

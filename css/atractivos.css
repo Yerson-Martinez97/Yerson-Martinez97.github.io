@@ -1,6 +1,6 @@
 /* Estilo para el contenedor y el texto */
 #linkAtractivos {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
         url('../images/atractivos/atractivos.webp') center/cover no-repeat fixed;
     background-attachment: fixed;
     position: relative;

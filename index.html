@@ -487,6 +487,7 @@
                         <div id="location__address"></div>
                         <a id="modalRestaurante-btnMap" class="btn-map" href="#" target="_blank"
                             rel="noopener noreferrer">
+                            <i class="fa-solid fa-location-dot fa-xl"></i>
                             Ver Ruta
                         </a>
                     </div>
@@ -499,6 +500,57 @@
 
         <!--  Sección Ferias -->
         <section id="linkFerias" class="boxFerias">
+            <div data-aos="fade-up">
+                <h3>Ferias</h3>
+                <div class="cards">
+                    <div class="card card-1" data-idFeria="LaCunumisita">
+                        <div class="card-details overlay">
+                            <p class="text-title">Feria 'La Cunumisita'</p>
+                        </div>
+                    </div>
+                    <div class="card card-2" data-idFeria="Lisis">
+                        <div class="card-details overlay">
+                            <p class="text-title">Lisis Feria</p>
+                        </div>
+                    </div>
+                    <div class="card card-2" data-idFeria="QueseríaSuiza">
+                        <div class="card-details overlay">
+                            <p class="text-title">Quesería Suiza</p>
+                        </div>
+                    </div>
+                    <div class="card card-2" data-idFeria="LaPascanaDeLosTigres">
+                        <div class="card-details overlay">
+                            <p class="text-title">Bar Feria La Pascana De Los Tigres</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="modalFeria" class="modalFeria">
+            <div class="modalFeria-content">
+                <div class="modal-inner">
+                    <span id="modalFeria-close" class="close">&times;</span>
+                    <h2 id="modalFeria-title"></h2>
+                    <div id="modalFeria-stars"></div>
+                    <p id="modalFeria-description"></p>
+                    <div id="modalFeria-images" class="modalFeria-images"></div>
+                    <div id="modalFeria-recommendations"></div>
+                    <div id="modalFeria-opinions"></div>
+                    <div id="modalFeria-businesshours"></div>
+                    <div id="modalFeria-reservations"></div>
+                    <div class="modalFeria-location">
+                        <div id="location__title">Dirección</div>
+                        <div id="location__address"></div>
+                        <a id="modalFeria-btnMap" class="btn-map" href="#" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-solid fa-location-dot fa-xl"></i>
+                            Ver Ruta
+                        </a>
+                    </div>
+                    <div id="modalFeria-socialnetworks"></div>
+                </div>
+            </div>
+        </div>
+        <!-- <section id="linkFerias" class="boxFerias">
             <div data-aos="zoom-in">
                 <h3>Festividades</h3>
                 <div class="swiper ferias-swiper">
@@ -544,7 +596,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Fin Sección Ferias -->
     </main>
     <!-- Fin Contenedor Main -->
@@ -597,11 +649,10 @@
     <script src="js/modalHoteleriaInfo.js" type="module"></script>
     <script src="js/filterHoteleria.js"></script>
 
-    <!-- <script src="js/modalRestaurantesInfo.js"></script> -->
+    <script src="js/modalRestaurantesInfo.js" type="module"></script>
 
 
-    <!-- <script src="js/swiperFerias.js"></script> -->
-    <!-- <script src="js/modalFeriasInfo.js"></script> -->
+    <script src="js/modalFeriasInfo.js" type="module"></script>
 </body>
 
 </html>

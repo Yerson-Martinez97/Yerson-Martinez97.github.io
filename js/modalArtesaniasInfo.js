@@ -48,7 +48,9 @@ function openModalArtesania(title, description, images) {
 
   const modalArtesania = document.getElementById("modalArtesania");
   const modalArtesaniaTitle = document.getElementById("modalArtesania-title");
-  const modalArtesaniaDescription = document.getElementById("modalArtesania-description");
+  const modalArtesaniaDescription = document.getElementById(
+    "modalArtesania-description"
+  );
   const modalArtesaniaImages = document.getElementById("modalArtesania-images");
 
   modalArtesaniaTitle.innerText = title;
@@ -84,7 +86,11 @@ function openModalArtesania(title, description, images) {
       pswpModule: () => import("../libraries/photoswiper/photoswipe.esm.js"),
       showHideAnimationType: "fade",
       loop: true,
-      zoom: true,
+      showHideAnimationType: "zoom",
+      bgOpacity: 0.8,
+      clickToCloseNonZoomable: true,
+      tapAction: "toggle-controls",
+      preload: [1, 1],
     });
 
     artesaniaLightbox.init();
@@ -92,7 +98,6 @@ function openModalArtesania(title, description, images) {
 
   modalArtesania.style.display = "flex";
 }
-
 
 // Función para cerrar el modal
 function closeModalArtesania() {

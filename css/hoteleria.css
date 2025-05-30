@@ -9,10 +9,12 @@
     background-attachment: fixed;
     /* La imagen permanece fija mientras haces scroll */
 
-    position: relative;
     z-index: 1;
-    padding: 50px 0;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 /* Overlay negro con transparencia */
@@ -115,7 +117,8 @@
     position: relative;
     background-size: cover;
     background-position: center;
-    border: 1px solid var(--primary);
+    background-color: var(--secondary) !important;
+    border: 5px solid var(--secondary);
     box-shadow: 0 4px 20px rgba(77, 107, 105, 0.7);
     border-radius: 12px;
     color: white;
@@ -619,9 +622,11 @@
     padding-left: 1.5em;
     margin-bottom: 12px;
 }
+
 #modalHoteleria-services ul li::marker, #modalHoteleria-atractions ul li::marker {
     content: "- ";
 }
+
 /* Asegura que las listas y sus elementos no se desborden */
 #modalHoteleria-services ul li, #modalHoteleria-atractions ul li {
     line-height: 1.5;
@@ -709,6 +714,11 @@
 /* Hover sobre las imágenes dentro del modal */
 .modalHoteleria .modalHoteleria-images img:hover {
     filter: brightness(.9);
+}
+
+.modalHoteleria-image {
+    height: 100vh;
+    object-fit: contain;
 }
 
 @media (max-width: 720px) {

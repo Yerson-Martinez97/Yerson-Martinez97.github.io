@@ -267,8 +267,8 @@ function openModalHoteleria(
   images.forEach((src, index) => {
     const link = document.createElement("a");
     link.href = src;
-    link.setAttribute("data-pswp-width", "1200"); // Ajusta según tamaño real
-    link.setAttribute("data-pswp-height", "600"); // Ajusta según tamaño real
+    link.setAttribute("data-pswp-width", "2560"); // Ajusta según tamaño real
+    link.setAttribute("data-pswp-height", "1400"); // Ajusta según tamaño real
     link.style.cursor = "pointer";
 
     const img = document.createElement("img");
@@ -293,6 +293,11 @@ function openModalHoteleria(
     showHideAnimationType: "fade",
     loop: false,
     zoom: true,
+    showHideAnimationType: "zoom",
+    bgOpacity: 0.8,
+    clickToCloseNonZoomable: true,
+    tapAction: "toggle-controls",
+    preload: [1, 1],
   });
 
   lightboxInstance.init();

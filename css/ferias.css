@@ -1,213 +1,130 @@
-#linkFerias {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url('../images/ferias/ferias.webp') center/cover no-repeat fixed;
-    background-attachment: fixed;
-    position: relative;
-    z-index: 1;
-}
-
-
-/* Overlay negro con transparencia, pero sin tapar el contenido */
-#linkFerias::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(36, 49, 49, 0.8);
-    z-index: -1;
-}
-
-/* Estilo para el contenedor y el texto */
+/* Contenedor principal centrado y con buen espacio */
 .boxFerias {
-    height: 100%;
     min-height: 100vh;
-    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background-color: var(--secondary);
 }
 
-/* Título dentro de .boxFerias */
+/* Título centrado */
 .boxFerias h3 {
-    font-size: var(--fontsize-big);
     text-align: center;
-    margin-bottom: 80px;
-    color: var(--secondary);
-    position: relative;
-    z-index: 3;
-}
-
-/* Resto de los estilos para los elementos, como las cards */
-.boxFerias .swiper-slide {
-    z-index: 3;
-    /* Asegura que las cards estén sobre el overlay */
-}
-
-.boxFerias .cards-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    padding: 16px;
-}
-
-@media (max-width: 1024px) {
-    .boxFerias .cards-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .boxFerias .cards-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-.boxFerias .card-details {
-    border: 10px double var(--primary);
-    background-color: var(--secondary);
-    color: black;
-    height: 100%;
-    gap: .5em;
-    display: grid;
-    place-content: center;
-    position: relative;
-    z-index: 1;
-}
-
-.boxFerias .card-details:hover {
-    background-color: var(--secondary);
-}
-
-/*Text*/
-.boxFerias .text-title {
-    text-align: center;
-    padding: 0 50px;
     font-size: var(--fontsize-big);
-    font-weight: bold;
     color: var(--primary);
+    margin-bottom: 40px;
     position: relative;
-    z-index: 1;
+    z-index: 3;
 }
 
-.boxFerias .card {
-    margin: 1rem 0;
-    border-radius: .5rem;
-    background: #fff;
-    position: relative;
-    border: 1px solid var(--primary-dark);
-    transition: 0.5s ease-out;
-    height: 100%;
+/* Ajuste del contenedor de cards para centrar y hacer grid */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
     width: 100%;
+    max-width: 1000px;
+    padding: 0 0px;
+}
+
+/* Cards con altura y aspecto uniforme */
+.boxFerias .card {
+    height: 320px;
+    border-radius: 0.5rem;
+    background: var(--secondary);
+    position: relative;
+    border: 10px double var(--primary);
+    transition: 0.5s ease-out;
     overflow: hidden;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
-    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.5);
 }
 
-/*Hover*/
+/* Hover efectos */
 .boxFerias .card:hover {
-    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.8);
-    background-color: rgb(255, 255, 255, 1);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
 }
 
-@media (max-width: 530px) {
-    .boxFerias .card {
-        min-height: 200px;
-    }
+.boxFerias .card:hover::before,
+.boxFerias .card:hover::after {
+    transform: scale(1.05);
 }
 
-/* Estilos responsivos para Swiper sin romper el diseño actual */
-.ferias-swiper {
-    height: 80vh;
-    width: 80vw;
-    max-width: 800px;
-    max-height: 600px;
-}
-
-@media (max-width:1200px) {
-    .ferias-swiper {
-        max-width: 400px;
-        max-height: 400px;
-    }
-}
-
-/* Adaptar la altura en dispositivos más pequeños */
-@media (max-width: 768px) {
-    .ferias-swiper {
-        height: 400px;
-    }
-}
-
-@media (max-width: 530px) {
-    .ferias-swiper {
-        height: 350px;
-    }
-}
-
-/* Asegura que el wrapper y slides usen el 100% del alto del swiper */
-.ferias-swiper .swiper-wrapper {
-    height: 100%;
-}
-
-.ferias-swiper .swiper-slide {
-    height: 100%;
-    display: flex;
-    align-items: stretch;
-}
-
-/* Cards dentro del swiper: adaptabilidad de altura y proporción */
-.ferias-swiper .swiper-slide.card {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 4;
-    /* Proporción adaptable */
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: 10px;
+/* Overlay y fondo para cada card */
+.boxFerias .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    transition: transform 0.5s ease-out;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Asignar imágenes específicas */
+.boxFerias .card.card-1::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/ferias/01/image01.webp') center/cover no-repeat;
+}
+
+.boxFerias .card.card-2::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/ferias/02/image01.webp') center/cover no-repeat;
+}
+
+.boxFerias .card.card-3::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/ferias/03/image01.webp') center/cover no-repeat;
+}
+
+.boxFerias .card.card-3::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/ferias/04/image01.webp') center/cover no-repeat;
+}
+
+/* Overlay oscuro extra */
+.boxFerias .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+    transition: transform 0.5s ease-out;
+}
+
+/* Texto dentro de la card */
+.boxFerias .card-details {
+    position: relative;
+    z-index: 1;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
 }
 
-/* Para dispositivos pequeños */
-@media (max-width: 768px) {
-    .ferias-swiper .swiper-slide.card {
-        aspect-ratio: 2 / 3;
-        max-width: 95vw;
-    }
-}
-
-@media (max-width: 480px) {
-    .ferias-swiper .swiper-slide.card {
-        aspect-ratio: 3 / 4;
-    }
-}
-
-.ferias-swiper .swiper-pagination-bullet {
-    width: 30px;
-    height: 30px;
+.boxFerias .text-title {
     text-align: center;
-    line-height: 25px;
-    font-size: 20px;
-    color: #000;
-    opacity: 1;
-    background: var(--white);
-    outline: 1px solid var(--dark);
-    color: var(--dark);
+    padding: 0 50px;
+    font-size: var(--fontsize-semibig);
+    font-weight: bold;
+    color: var(--secondary);
+    text-shadow: 0 1px 20px rgba(0, 0, 0, 1) !important;
+    position: relative;
+    z-index: 1;
 }
 
-.ferias-swiper .swiper-pagination-bullet:hover {
-    background-color: var(--dark);
-    color: var(--white);
+/* Responsive */
+@media (max-width: 600px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
 }
 
-.ferias-swiper .swiper-pagination-bullet-active {
-    color: #fff;
-    background: var(--dark);
-}
 
 /* ============================================================================================= */
 /* ============================================================================================= */
@@ -248,6 +165,7 @@
     /* menos ancho máximo para móviles */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     box-sizing: border-box;
+    color: var(--primary);
 }
 
 .modalFeria .modal-inner {
@@ -268,29 +186,431 @@
     }
 }
 
+/* ============================================================================================= */
+/* TITLE */
 .modalFeria #modalFeria-title {
     color: var(--primary);
     padding: 15px;
-    font-size: 1.8rem;
+    font-size: var(--fontsize-big);
     text-align: center;
-    margin-bottom: 15px;
+    margin: 15px 0;
     font-weight: bold;
 }
 
-.modalFeria #modalFeria-description {
+/* ============================================================================================= */
+/* STARS */
+#modalFeria-stars {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+#modalFeria-stars i {
+    margin-right: 5px;
+    color: #f1c40f;
+}
+
+.star-full {
+    width: 20px;
+    height: 20px;
+    background: url('full-star.png') no-repeat center center;
+    background-size: contain;
+}
+
+.star-half {
+    width: 20px;
+    height: 20px;
+    background: url('half-star.png') no-repeat center center;
+    background-size: contain;
+}
+
+.star-empty {
+    width: 20px;
+    height: 20px;
+    background: url('empty-star.png') no-repeat center center;
+    background-size: contain;
+}
+
+.star-value {
     color: var(--primary-dark);
+}
+
+/* ============================================================================================= */
+/* DESCRIPTION */
+.modalFeria #modalFeria-description {
     font-size: var(--fontsize-medium);
     line-height: 1.6;
     text-align: left;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
-#modalFeria-event {
+/* ============================================================================================= */
+/* IMAGES */
+.modalFeria .modalFeria-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.modalFeria .modalFeria-images img {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 16 / 10;
+    border-radius: 0px;
+    object-fit: cover;
+    height: auto;
+    transition: filter 0.3s ease;
+    filter: brightness(1);
+    box-shadow: 0 5px 20px 2px rgba(77, 107, 105, 1);
+}
+
+.modalFeria .modalFeria-images img:hover {
+    filter: brightness(.9);
+}
+
+@media (max-width: 720px) {
+    .modalFeria .modalFeria-images img {
+        max-width: 100%;
+        aspect-ratio: 16 / 10;
+        /* Permite que la imagen se ajuste sin distorsión */
+        height: auto;
+    }
+}
+
+/* ============================================================================================= */
+/* OPINIONS */
+.modalFeria #modalFeria-opinions {
+    font-size: var(--fontsize-medium);
+}
+
+/* ============================================================================================= */
+/* BUSINESS HOURS  */
+#modalFeria-businesshours {
+    border: 10px double var(--primary);
     text-align: center;
-    color: var(--black);
+    font-family: 'Arial', sans-serif;
+    margin: 20px 0;
+    background-color: var(--secondary);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(36, 49, 49, 0.8);
+}
+
+#modalFeria-businesshours h3 {
+    font-size: var(--fontsize-medium);
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+#modalFeria-businesshours ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#modalFeria-businesshours li {
+    font-size: var(--fontsize-medium);
+    color: var(--primary);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--primary-dark);
+    transition: background-color 0.3s ease;
+}
+
+#modalFeria-businesshours li:last-child {
+    border-bottom: none;
+}
+
+#modalFeria-businesshours li:hover {
+    background-color: var(--secondary-dark);
+}
+
+#modalFeria-businesshours li strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* ============================================================================================= */
+/* PHONES */
+#modalFeria-reservations {
+    text-align: center;
+    color: var(--primary);
+    font-size: var(--fontsize-medium);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.modalFeria .reservation-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.modalFeria .fixed-container {
+    flex: 1;
+    /* Toma el 50% del espacio disponible */
+}
+
+.modalFeria .mobile-container, .fixed-container {
+    border: 10px double var(--primary);
+    border-radius: 5px;
+}
+
+.modalFeria .mobile-container {
+    flex: 1;
+    /* Toma el 50% del espacio disponible */
+}
+
+.modalFeria .mobile-container strong {
+    font-size: var(--fontsize-medium);
+}
+
+/* Estilo para los textos de los números */
+.modalFeria #modalFeria-reservations a, .modalFeria #modalFeria-reservations p {
+    font-size: var(--fontsize-medium) !important;
+    line-height: 1.6;
+}
+
+/* Estilo para el ícono de WhatsApp */
+#modalFeria-reservations .sn-whatsapp {
+    margin: none;
+    color: #128c7e;
+    font-size: var(--fontsize-big);
+}
+
+/* MEDIA QUERY PARA PANTALLAS PEQUEÑAS (Móviles) */
+@media (max-width: 768px) {
+    .modalFeria .reservation-container {
+        flex-direction: column;
+        /* Cambiar a columna para pantallas pequeñas */
+        gap: 15px;
+        /* Reducir el espacio entre los bloques */
+    }
+
+    .modalFeria .fixed-container, .modalFeria .mobile-container {
+        flex: none;
+        /* Deja que los contenedores tomen el 100% del ancho disponible */
+    }
+
+    /* Ajustar el tamaño de fuente para pantallas pequeñas */
+    .modalFeria #modalFeria-reservations {
+        font-size: 1.2rem;
+    }
+
+    .modalFeria #modalFeria-reservations a, .modalFeria #modalFeria-reservations p {
+        font-size: 1rem;
+    }
+
+    #modalFeria-reservations .sn-whatsapp {
+        font-size: 1.8rem;
+        /* Hacer un poco más pequeño el ícono */
+    }
+}
+
+/* MEDIA QUERY PARA PANTALLAS MUY PEQUEÑAS (Móviles más pequeños) */
+@media (max-width: 480px) {
+    .modalFeria #modalFeria-reservations {
+        font-size: 1rem;
+        /* Reducir el tamaño de fuente aún más en pantallas pequeñas */
+    }
+
+    .modalFeria #modalFeria-reservations a, .modalFeria #modalFeria-reservations p {
+        font-size: 0.9rem;
+        /* Ajustar el tamaño de fuente */
+    }
+
+    #modalFeria-reservations .sn-whatsapp {
+        font-size: 1.6rem;
+        /* Reducir el ícono en pantallas aún más pequeñas */
+    }
+}
+
+/* ============================================================================================= */
+/* LOCATION */
+.modalFeria-location {
+    font-size: var(--fontsize-medium);
+    border: 10px double var(--primary);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+#feria-location__title {
     font-weight: bold;
+    font-size: var(--fontsize-medium);
+    margin-bottom: 15px;
+    color: var(--primary);
+    text-align: center;
+}
+
+.feria-location__address {
+    font-size: var(--fontsize-medium);
+    color: var(--primary-dark);
+    font-style: italic;
+}
+
+.modalFeria .btn-map {
+    display: block;
+    width: fit-content;
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 15px 24px;
+    border: 1px solid var(--primary);
+    box-shadow: 0 6px 15px rgba(36, 49, 49, 0.8);
+    border-radius: 10px;
+    background-color: var(--primary);
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: var(--fontsize-medium);
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.modalFeria a.btn-map:hover {
+    box-shadow: 0 6px 15px rgba(36, 49, 49, 1);
+}
+
+/* ============================================================================================= */
+/* RECOMMENDATIONS */
+#modalFeria-recommendations, #modalFeria-atractions {
+    font-size: var(--fontsize-big);
+    border: 10px double var(--primary);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#modalFeria-recommendations .title, #modalFeria-atractions .title {
+    color: var(--primary);
+    font-size: var(--fontsize-medium);
+    font-weight: bold;
+    text-align: center;
+}
+
+#modalFeria-recommendations ul, #modalFeria-atractions ul {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+}
+
+#modalFeria-recommendations ul li, #modalFeria-atractions ul li {
+    margin-left: 20px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    list-style: none;
+    color: var(--primary-dark);
+    font-size: var(--fontsize-medium);
+}
+
+#modalFeria-recommendations ul,
+#modalFeria-recommendations ul li,
+#modalHoteleria-atractions ul,
+#modalHoteleria-atractions ul li {
+    text-align: left;
+}
+
+/* SOCIAL NETWORK */
+#modalFeria-socialnetworks {
     font-size: var(--fontsize-standard);
-    font-style: oblique;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+#modalFeria-socialnetworks .title {
+    color: var(--primary);
+    font-size: var(--fontsize-medium);
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* UL como grid flexible */
+#modalFeria-socialnetworks ul {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Centra cada ítem dentro del grid */
+}
+
+/* Hover: cambia color y sube ligeramente */
+#modalFeria-socialnetworks ul li:hover {
+    color: var(--black);
+    transform: translateY(-2px);
+}
+
+/* Enlace con ícono */
+#modalFeria-socialnetworks ul li a {
+    max-width: 100px;
+    padding: 8px 10px;
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+
+/* Íconos por red */
+.sn-facebook {
+    color: #3b5998;
+}
+
+#modalFeria-socialnetworks ul li:hover .sn-facebook {
+    text-shadow: 0 5px 10px rgba(59, 89, 152, 0.2);
+    /* color: var(--dark); */
+}
+
+.sn-tiktok {
+    color: #000;
+}
+
+#modalFeria-socialnetworks ul li:hover .sn-tiktok {
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sn-instagram {
+    color: #E4405F;
+}
+
+#modalFeria-socialnetworks ul li:hover .sn-instagram {
+    text-shadow: 0 5px 10px rgba(228, 64, 94, 0.2);
+}
+
+.sn-facebook, .sn-tiktok, .sn-instagram {
+    font-size: 2.8rem;
+}
+
+@media (max-width: 600px) {
+    #modalFeria-socialnetworks ul li a {
+        grid-area: 2px;
+    }
+
+    .sn-facebook, .sn-tiktok, .sn-instagram {
+        font-size: 2rem;
+    }
+}
+
+/* Responsive extra para pantallas pequeñas */
+@media (max-width: 480px) {
+    #modalFeria-socialnetworks ul {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ============================================================================================= */
@@ -298,7 +618,7 @@
 .modalFeria .close {
     color: var(--primary);
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 25px;
     font-size: 50px;
     font-weight: bold;
@@ -311,4 +631,10 @@
 .modalFeria .close:focus {
     color: var(--primary-dark);
     text-decoration: none;
+}
+
+/* ============================================================================================= */
+.glightbox-container {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    /* fondo oscuro */
 }

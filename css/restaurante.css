@@ -32,9 +32,9 @@
 .boxRestaurantes .card {
     height: 320px;
     border-radius: 0.5rem;
-    background: #f5f5f5;
+    background: var(--secondary);
     position: relative;
-    border: 2px solid #c3c6ce;
+    border: 10px double var(--primary);
     transition: 0.5s ease-out;
     overflow: hidden;
     background-size: cover;
@@ -108,11 +108,14 @@
 }
 
 .boxRestaurantes .text-title {
-    color: white;
-    font-size: var(--fontsize-medium);
-    font-weight: bold;
     text-align: center;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 1);
+    padding: 0 50px;
+    font-size: var(--fontsize-semibig);
+    font-weight: bold;
+    color: var(--secondary);
+    text-shadow: 0 1px 20px rgba(0, 0, 0, 1) !important;
+    position: relative;
+    z-index: 1;
 }
 
 /* Responsive */
@@ -186,10 +189,11 @@
 /* ============================================================================================= */
 /* TITLE */
 .modalRestaurante #modalRestaurante-title {
+    color: var(--primary);
     padding: 15px;
     font-size: var(--fontsize-big);
     text-align: center;
-    margin-bottom: 15px;
+    margin: 15px 0;
     font-weight: bold;
 }
 
@@ -286,11 +290,12 @@
 /* ============================================================================================= */
 /* BUSINESS HOURS  */
 #modalRestaurante-businesshours {
+    border: 10px double var(--primary);
     text-align: center;
     font-family: 'Arial', sans-serif;
     margin: 20px 0;
     background-color: var(--secondary);
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(36, 49, 49, 0.8);
 }
@@ -352,8 +357,8 @@
 }
 
 .modalRestaurante .mobile-container, .fixed-container {
-    outline: 2px dashed var(--primary-dark);
-    border-radius: 2px;
+    border: 10px double var(--primary);
+    border-radius: 5px;
 }
 
 .modalRestaurante .mobile-container {
@@ -429,7 +434,7 @@
 /* LOCATION */
 .modalRestaurante-location {
     font-size: var(--fontsize-medium);
-    border: 10px ridge var(--primary);
+    border: 10px double var(--primary);
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 50px;
@@ -451,24 +456,26 @@
 
 .modalRestaurante .btn-map {
     display: block;
-    width: 100%;
-    max-width: 210px;
-    height: auto;
-    margin: 20px auto 0 auto;
-    padding: 12px 24px;
-    outline: 2px dashed var(--primary);
-    background-color: var(--secondary);
-    color: var(--primary);
+    width: fit-content;
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 15px 24px;
+    border: 1px solid var(--primary);
+    box-shadow: 0 6px 15px rgba(36, 49, 49, 0.8);
+    border-radius: 10px;
+    background-color: var(--primary);
+    color: var(--secondary);
     text-decoration: none;
-    border-radius: 8px;
     font-size: var(--fontsize-medium);
-    font-weight: bold;
+    font-weight: 600;
     text-align: center;
+    transition: all 0.3s ease;
 }
 
-.modalRestaurante .btn-map:hover {
-    outline: 2px solid var(--primary);
+.modalRestaurante a.btn-map:hover {
+    box-shadow: 0 6px 15px rgba(36, 49, 49, 1);
 }
+
 /* ============================================================================================= */
 /* RECOMMENDATIONS */
 #modalRestaurante-recommendations, #modalRestaurante-atractions {
@@ -480,10 +487,9 @@
 }
 
 #modalRestaurante-recommendations .title, #modalRestaurante-atractions .title {
-    font-weight: bold;
-    font-size: var(--fontsize-medium);
-    margin-bottom: 20px;
     color: var(--primary);
+    font-size: var(--fontsize-medium);
+    font-weight: bold;
     text-align: center;
 }
 

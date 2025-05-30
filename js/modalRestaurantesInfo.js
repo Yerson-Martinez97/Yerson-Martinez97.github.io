@@ -56,7 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Variable global para controlar GLightbox
 let restauranteLightbox = null;
-
+import PhotoSwipeLightbox from "../libraries/photoswiper/photoswipe-lightbox.esm.js";
+let lightboxInstance = null;
 // Función para abrir el modal
 function openModalRestaurante(
   title,
@@ -167,36 +168,47 @@ function openModalRestaurante(
   } else {
     modalRestauranteBusinessHours.style.display = "none";
   }
-
   // =============================================================================================
   // IMAGES
-  modalRestauranteImages.innerHTML = "";
+  const imagesContainer = document.getElementById("modalRestaurante-images");
+  imagesContainer.innerHTML = "";
+  images.forEach((src, index) => {
+    const link = document.createElement("a");
+    link.href = src;
+    link.setAttribute("data-pswp-width", "2000"); // Ajusta según tamaño real
+    link.setAttribute("data-pswp-height", "1200"); // Ajusta según tamaño real
+    link.style.cursor = "pointer";
 
-  if (restauranteLightbox) restauranteLightbox.destroy();
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = title;
+    img.classList.add("modalRestaurante-image");
 
-  if (Array.isArray(images) && images.length > 0) {
-    images.forEach((src) => {
-      const a = document.createElement("a");
-      a.href = src;
-      a.classList.add("glightbox-restaurante");
-      a.setAttribute("data", "galeria-restaurante");
+    link.appendChild(img);
+    imagesContainer.appendChild(link);
+  });
 
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = title;
-      img.classList.add("modalRestaurante-image");
-
-      a.appendChild(img);
-      modalRestauranteImages.appendChild(a);
-    });
-
-    restauranteLightbox = GLightbox({
-      selector: ".glightbox-restaurante",
-      touchNavigation: true,
-      loop: true,
-      zoomable: true,
-    });
+  // Destruye instancia anterior para evitar duplicados
+  if (lightboxInstance) {
+    lightboxInstance.destroy();
   }
+
+  // Crear nueva instancia de PhotoSwipeLightbox
+  lightboxInstance = new PhotoSwipeLightbox({
+    gallery: "#modalRestaurante-images",
+    children: "a",
+    pswpModule: () => import("../libraries/photoswiper/photoswipe.esm.js"),
+    showHideAnimationType: "fade",
+    loop: false,
+    zoom: true,
+    showHideAnimationType: "zoom",
+    bgOpacity: 0.8,
+    clickToCloseNonZoomable: true,
+    tapAction: "toggle-controls",
+    preload: [1, 1],
+  });
+
+  lightboxInstance.init();
   modalRestaurante.style.display = "flex";
 
   // =============================================================================================
