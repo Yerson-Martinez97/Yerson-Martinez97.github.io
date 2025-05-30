@@ -29,6 +29,7 @@
 .boxAtractivos h3 {
     font-size: var(--fontsize-big);
     text-align: center;
+    letter-spacing: .4rem;
     margin-bottom: 80px;
     color: var(--secondary);
     position: relative;
@@ -73,10 +74,10 @@
 .boxAtractivos .text-title {
     text-align: center;
     padding: 0 50px;
-    font-size: 1.8em;
+    font-size: var(--fontsize-semibig);
     font-weight: bold;
     color: var(--secondary);
-    text-shadow: 0px 1px 10px rgba(77, 107, 105, 1) !important;
+    text-shadow: 0 1px 20px rgba(0, 0, 0, 1) !important;
     position: relative;
     z-index: 1;
 }
@@ -95,7 +96,8 @@
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(36, 49, 49, 0.8);
+
 }
 
 /*Hover*/
@@ -175,7 +177,6 @@
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.4);
-    /* Overlay oscuro */
     z-index: 0;
     transition: transform 0.5s ease-out;
 }
@@ -199,11 +200,12 @@
 
 /* Estilos responsivos para Swiper sin romper el diseño actual */
 .atractivos-swiper {
-    height: 80vh;
+    /* box-shadow: 0 0px 10px rgba(36, 49, 49, .5); */
+    height: 100vh;
     /* usa porcentaje del viewport */
     width: 100vw;
     /* usa porcentaje del viewport */
-    max-width: 1000px;
+    max-width: 1140px;
     max-height: 600px;
     /* limita para pantallas muy grandes */
     display: flex;
@@ -301,7 +303,7 @@
     width: 100%;
     max-width: 1000px;
     /* menos ancho máximo para móviles */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 20px rgba(36, 49, 49, 1);
     box-sizing: border-box;
     color: var(--primary);
 }
@@ -335,8 +337,9 @@
 .modalAtractivo #modalAtractivo-description {
     font-size: var(--fontsize-medium);
     line-height: 1.6;
-    text-align: left;
-    margin-bottom: 20px;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
 }
 
 /* Estilos para las imágenes dentro del modal */
@@ -356,11 +359,10 @@
     aspect-ratio: 16 / 10;
     border-radius: 0px;
     object-fit: cover;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     height: auto;
     transition: filter 0.3s ease;
     filter: brightness(1);
-    box-shadow: 0 5px 20px 2px rgba(77, 107, 105, 1);
+    box-shadow: 0 5px 20px 2px rgba(36, 49, 49, .5);
 }
 
 /* Hover sobre las imágenes dentro del modal */
@@ -378,30 +380,30 @@
 
 .modalAtractivo-footer {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .modalAtractivo a.btn-map {
     display: block;
     width: 210px;
-    height: 64px;
-    margin: 20px auto 0 auto;
-    padding: 12px 24px;
-    outline: 2px dashed var(--primary);
-    background-color: var(--secondary);
-    color: var(--primary);
+    height: auto;
+    margin: 20px auto 20px auto;
+    padding: 15px 24px;
+    border: 1px solid var(--primary);
+    box-shadow: 0 6px 15px rgba(36, 49, 49, 0.8);
+    border-radius: 10px;
+    background-color: var(--primary);
+    color: var(--secondary);
     text-decoration: none;
-    border-radius: 8px;
     font-size: var(--fontsize-medium);
-    font-weight: bold;
+    font-weight: 600;
     text-align: center;
     transition: all 0.3s ease;
 }
 
 .modalAtractivo a.btn-map:hover {
-    outline: 2px solid var(--primary);
+    box-shadow: 0 6px 15px rgba(36, 49, 49, 1);
 }
-
 
 /* ============================================================================================= */
 /* Botón de cierre */
@@ -483,10 +485,4 @@
 
 .modalAtractivo .mural-location a:hover {
     outline: 2px solid var(--primary);
-}
-
-/* ============================================================================================= */
-.glightbox-container {
-    background-color: rgba(0, 0, 0, 0.9) !important;
-    /* fondo oscuro */
 }

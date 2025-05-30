@@ -1,95 +1,3 @@
-let cardsPerLoad = 3; // Cuántas tarjetas cargar por cada clic en "Ver más"
-let visibleCards = 3; // Número de tarjetas visibles actualmente (inicia con 3)
-let filteredCards = []; // Tarjetas que están filtradas
-
-// Función que se ejecuta cuando la página se carga
-document.addEventListener("DOMContentLoaded", function () {
-  filterCards("all"); // Filtrar inicialmente por 'todos' y mostrar las primeras 3
-  showCards(visibleCards); // Mostrar las primeras 3 tarjetas
-});
-
-// Mostrar las tarjetas según el filtro
-function showCards(num) {
-  const cards = filteredCards; // Solo trabajamos con las tarjetas filtradas
-  cards.forEach((card, index) => {
-    if (index < num) {
-      card.style.display = "block"; // Mostrar hasta el número de tarjetas visibles
-    } else {
-      card.style.display = "none"; // Ocultar las demás
-    }
-  });
-
-  // Mostrar u ocultar el enlace "Ver más" y "Ver menos"
-  const seeMoreLink = document.getElementById("ver-mas");
-  const seeLessLink = document.getElementById("ver-menos");
-
-  if (filteredCards.length > visibleCards) {
-    seeMoreLink.style.display = "block"; // Mostrar el enlace si hay más tarjetas
-    seeLessLink.style.display = "none"; // Ocultar el enlace de "Ver menos"
-  } else if (filteredCards.length <= visibleCards && visibleCards > 3) {
-    seeMoreLink.style.display = "none"; // Ocultar "Ver más" si no hay más tarjetas
-    seeLessLink.style.display = "block"; // Mostrar "Ver menos"
-  } else {
-    seeMoreLink.style.display = "none"; // Ocultar el enlace de "Ver más" cuando no haya más tarjetas
-    seeLessLink.style.display = "none"; // No mostrar "Ver menos" si ya hay 3 tarjetas visibles
-  }
-}
-
-// Función para cargar más o ver menos
-function toggleCards(event) {
-  event.preventDefault(); // Evita el comportamiento predeterminado del enlace
-
-  const seeMoreLink = document.getElementById("ver-mas");
-  const seeLessLink = document.getElementById("ver-menos");
-
-  if (event.target.id === "ver-mas") {
-    visibleCards += cardsPerLoad; // Aumentar el número de tarjetas visibles
-    showCards(visibleCards); // Mostrar las tarjetas
-  } else if (event.target.id === "ver-menos") {
-    visibleCards = 3; // Restablecer a 3 tarjetas visibles
-    showCards(visibleCards); // Mostrar las primeras 3 tarjetas
-  }
-}
-
-// Filtrar las tarjetas según el filtro seleccionado
-function filterCards(filterValue) {
-  const cards = document.querySelectorAll("#linkHoteleria .card");
-  const buttons = document.querySelectorAll(".filter-buttons button");
-
-  // Restablecer el número de tarjetas visibles y las tarjetas filtradas
-  visibleCards = cardsPerLoad; // Restablecer a 3
-  filteredCards = [];
-
-  // Si el filtro es "all", se muestran todas las tarjetas
-  if (filterValue === "all") {
-    cards.forEach((card) => {
-      filteredCards.push(card); // Agregar todas las tarjetas a filteredCards
-      card.style.display = "block"; // Asegurarse de que todas se muestren cuando se selecciona "all"
-    });
-  } else {
-    // Si no es "all", se filtra por categoría
-    cards.forEach((card) => {
-      card.style.display = "none"; // Ocultar todas las tarjetas inicialmente
-      if (card.getAttribute("data-category") === filterValue) {
-        filteredCards.push(card); // Solo agregar las que coinciden con el filtro
-        card.style.display = "block"; // Asegurarse de que se muestren las tarjetas filtradas
-      }
-    });
-  }
-
-  // Mostrar las primeras 3 tarjetas del conjunto filtrado
-  showCards(visibleCards);
-
-  // Actualizar el estado de los botones de filtro
-  buttons.forEach((btn) => {
-    btn.classList.remove("active");
-    if (btn.getAttribute("data-filter") === filterValue) {
-      btn.classList.add("active");
-    }
-  });
-}
-// =============================================================================================
-// CARDS
 document.addEventListener("DOMContentLoaded", () => {
   fetch("json/HoteleriaInfo.json")
     .then((res) => res.json())
@@ -141,7 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Variable global para controlar GLightbox
-let hoteleriaLightbox = null;
+import PhotoSwipeLightbox from "../libraries/photoswiper/photoswipe-lightbox.esm.js";
+let lightboxInstance = null;
 
 // Función para abrir el modal
 function openModalHoteleria(
@@ -158,6 +67,7 @@ function openModalHoteleria(
   const modalHoteleria = document.getElementById("modalHoteleria");
   const modalHoteleriaTitle = document.getElementById("modalHoteleria-title");
   modalHoteleriaTitle.innerText = title;
+
   // =============================================================================================
   // RESERVATIONS
   const modalHoteleriaReservations = document.getElementById(
@@ -267,12 +177,12 @@ function openModalHoteleria(
       }
     });
 
-    modalHoteleriaSociaNetworks.style.display = "block"; // Asegúrate de que el modal se muestre
+    modalHoteleriaSociaNetworks.style.display = "block";
     modalHoteleriaSociaNetworks.innerHTML =
       "<div class='title'>Redes Sociales</div>";
     modalHoteleriaSociaNetworks.appendChild(ul);
   } else {
-    modalHoteleriaSociaNetworks.style.display = "none"; // Oculta el modal si no hay contenido
+    modalHoteleriaSociaNetworks.style.display = "none";
   }
 
   // =============================================================================================
@@ -308,7 +218,7 @@ function openModalHoteleria(
       li.textContent = text;
       ul.appendChild(li);
     });
-    modalHoteleriaAtractions.style.display = "block"; // Asegúrate de que el modal se muestre
+    modalHoteleriaAtractions.style.display = "block";
 
     modalHoteleriaAtractions.innerHTML = "<div class='title'>Atracciones</div>";
     modalHoteleriaAtractions.appendChild(ul);
@@ -317,7 +227,9 @@ function openModalHoteleria(
   }
   // =============================================================================================
   // LOCATION
-  const modalHoteleriaAddress = document.getElementById("location__address");
+  const modalHoteleriaAddress = document.getElementById(
+    "restaurante-location__address"
+  );
   const modalHoteleriaBtnMap = document.getElementById("modalHoteleria-btnMap");
 
   if (location && Array.isArray(location)) {
@@ -350,33 +262,40 @@ function openModalHoteleria(
   }
   // =============================================================================================
   // IMAGES
-  const modalHoteleriaImages = document.getElementById("modalHoteleria-images");
-  modalHoteleriaImages.innerHTML = "";
-  if (hoteleriaLightbox) hoteleriaLightbox.destroy();
+  const imagesContainer = document.getElementById("modalHoteleria-images");
+  imagesContainer.innerHTML = "";
+  images.forEach((src, index) => {
+    const link = document.createElement("a");
+    link.href = src;
+    link.setAttribute("data-pswp-width", "1200"); // Ajusta según tamaño real
+    link.setAttribute("data-pswp-height", "600"); // Ajusta según tamaño real
+    link.style.cursor = "pointer";
 
-  if (Array.isArray(images) && images.length > 0) {
-    images.forEach((src) => {
-      const a = document.createElement("a");
-      a.href = src;
-      a.classList.add("glightbox-hoteleria");
-      a.setAttribute("data", "galeria-hoteleria");
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = title;
+    img.classList.add("modalHoteleria-image");
 
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = title;
-      img.classList.add("modalHoteleria-image");
+    link.appendChild(img);
+    imagesContainer.appendChild(link);
+  });
 
-      a.appendChild(img);
-      modalHoteleriaImages.appendChild(a);
-    });
-
-    hoteleriaLightbox = GLightbox({
-      selector: ".glightbox-hoteleria",
-      touchNavigation: true,
-      loop: true,
-      zoomable: true,
-    });
+  // Destruye instancia anterior para evitar duplicados
+  if (lightboxInstance) {
+    lightboxInstance.destroy();
   }
+
+  // Crear nueva instancia de PhotoSwipeLightbox
+  lightboxInstance = new PhotoSwipeLightbox({
+    gallery: "#modalHoteleria-images",
+    children: "a",
+    pswpModule: () => import("../libraries/photoswiper/photoswipe.esm.js"),
+    showHideAnimationType: "fade",
+    loop: false,
+    zoom: true,
+  });
+
+  lightboxInstance.init();
   modalHoteleria.style.display = "flex";
 }
 // =============================================================================================

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
   const toggleSubirBtn = () => {
-    subir.classList.toggle("irArriba", window.scrollY >= 400);
+    subir.classList.toggle("irArriba", window.scrollY >= 500);
   };
 
   const updateActiveLink = () => {

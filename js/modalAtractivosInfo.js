@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
               atractivo.forEach((mural, index) => {
                 description += `<div class="mural-item">
-                <h3 class="mural-title">${index + 1}. ${mural.title}</h3>
+                <h3 class="mural-title"> ${mural.title}</h3>
                 <p class="mural-description">${mural.description}</p>`;
 
                 if (Array.isArray(mural.images)) {
@@ -26,11 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
                   });
                   description += `</div>`;
                 }
-
                 if (mural.location) {
-                  description += `<p class="mural-location"><a href="${mural.location}" target="_blank">Ver Ruta</a></p>`;
+                  description += `<p class="mural-location"><a href="${mural.location}" target="_blank"><i class="fa-solid fa-location-dot fa-xl"></i> Ver Ruta</a></p>`;
                 }
-
                 description += `</div>`;
               });
 
@@ -44,10 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
               );
             } else {
               openModalAtractivo(
-                "Información no disponible",
-                "No se encontró información para este atractivo.",
+                "No se encontró información.",
+                "No se encontró información.",
                 [],
-                null
+                "No se encontró información."
               );
             }
           });
@@ -67,50 +65,68 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Modal Atractivo
-let atractivoLightbox = null;
+// Modal
+import PhotoSwipeLightbox from "../libraries/photoswiper/photoswipe-lightbox.esm.js";
+let lightboxInstance = null;
+
 function openModalAtractivo(title, description, images, location) {
   document.body.style.overflow = "hidden";
+
   const modal = document.getElementById("modalAtractivo");
+  // TITLE
   document.getElementById("modalAtractivo-title").innerText = title;
+  // DESCRIPTION
   document.getElementById("modalAtractivo-description").innerHTML = description;
+  // BTN MAP
+  const btnMap = document.getElementById("modalAtractivo-btnMap");
+  btnMap.href = location || "#";
+  btnMap.style.display = location ? "inline-block" : "none";
+
+  // IMAGES
   const imagesContainer = document.getElementById("modalAtractivo-images");
   imagesContainer.innerHTML = "";
+  images.forEach((src, index) => {
+    const link = document.createElement("a");
+    link.href = src;
+    link.setAttribute("data-pswp-width", "1200"); // Ajusta según tamaño real
+    link.setAttribute("data-pswp-height", "600"); // Ajusta según tamaño real
+    link.style.cursor = "pointer";
 
-  const btnMap = document.getElementById("modalAtractivo-btnMap");
-  if (location) {
-    btnMap.href = location;
-    btnMap.style.display = "inline-block";
-  } else {
-    btnMap.style.display = "none";
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = title;
+    img.classList.add("modalAtractivo-image");
+
+    link.appendChild(img);
+    imagesContainer.appendChild(link);
+  });
+
+  // Destruye instancia anterior para evitar duplicados
+  if (lightboxInstance) {
+    lightboxInstance.destroy();
   }
 
-  if (atractivoLightbox) atractivoLightbox.destroy();
-  if (images.length) {
-    images.forEach((src) => {
-      const a = document.createElement("a");
-      a.href = src;
-      a.classList.add("glightbox-atractivo");
-      a.setAttribute("data-gallery", "galeria-atractivo");
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = title;
-      img.classList.add("modalAtractivo-image");
-      a.appendChild(img);
-      imagesContainer.appendChild(a);
-      a.addEventListener("click", (e) => e.preventDefault());
-    });
-    atractivoLightbox = GLightbox({
-      selector: ".glightbox-atractivo",
-      touchNavigation: true,
-      loop: true,
-      zoomable: true,
-    });
-  }
+  // Crear nueva instancia de PhotoSwipeLightbox
+  lightboxInstance = new PhotoSwipeLightbox({
+    gallery: "#modalAtractivo-images",
+    children: "a",
+    pswpModule: () => import("../libraries/photoswiper/photoswipe.esm.js"),
+    showHideAnimationType: "fade",
+    loop: false,
+    zoom: true,
+  });
 
+  lightboxInstance.init();
+  // -----
   modal.style.display = "flex";
 }
+
 function closeModalAtractivo() {
   document.body.style.overflow = "auto";
   document.getElementById("modalAtractivo").style.display = "none";
+
+  if (lightboxInstance) {
+    lightboxInstance.destroy();
+    lightboxInstance = null;
+  }
 }
